@@ -4,4 +4,5 @@ const RegistrationActionTypes = {
   FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { RegistrationActionTypes };

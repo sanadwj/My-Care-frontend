@@ -1,12 +1,14 @@
 import { RegistrationActionTypes } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
-  registration: {},
+  registration: [],
   isFetching: false,
   errorMessage: undefined,
 };
 
 const registrationReducer = (state = INITIAL_STATE, action) => {
+  console.log(state);
+
   switch (action.type) {
     case RegistrationActionTypes.FITCH_DATA_START:
       return {
@@ -17,7 +19,7 @@ const registrationReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         registration: action.registration,
-        isFetcheng: false,
+        isFetching: false,
       };
     case RegistrationActionTypes.FETCH_DATA_FAILURE:
       return {
