@@ -2,7 +2,7 @@
 /* eslint-disable no-use-before-define */
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Button, Form, Loader } from 'semantic-ui-react';
+import { Button, Form, Loader, Grid, Segment, Container } from 'semantic-ui-react';
 import { fetchRegistrationStartAsync } from '../../actions/registrationActions';
 import useForm from '../../util/hooks';
 
@@ -20,12 +20,12 @@ const Registration = (props) => {
   // eslint-disable-next-line consistent-return
   function registerUser() {
     dispatch(fetchRegistrationStartAsync(values));
-    props.history.push('/');
+    props.history.push('/confirm');
   }
 
   return (
-    <div style={{ marginTop: 20 }} className="formContainer">
-      <Form onSubmit={onSubmit}>
+    <Container style={{ margin: 20 }} >
+      <Form onSubmit={onSubmit} className="formContainer">
         <Form.Field>
           <label>Email</label>
           <input
@@ -63,7 +63,7 @@ const Registration = (props) => {
           Register
         </Button>
       </Form>
-    </div>
+    </Container>
   );
 };
 
