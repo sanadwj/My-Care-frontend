@@ -1,4 +1,4 @@
-import { LoginActionTypes } from '../actions/actionTypes';
+import { AuthActionTypes } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
   login: [],
@@ -6,20 +6,20 @@ const INITIAL_STATE = {
   errorMessage: undefined,
 };
 
-const loginReducer = (state = INITIAL_STATE, action) => {
+const authReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case LoginActionTypes.FITCH_DATA_START:
+    case AuthActionTypes.FITCH_DATA_START:
       return {
         ...state,
         isFetching: true,
       };
-    case LoginActionTypes.FITCH_DATA_SUCCESS:
+    case AuthActionTypes.FITCH_DATA_SUCCESS:
       return {
         ...state,
-        login: action.login,
+        Auth: action.Auth,
         isFetching: false,
       };
-    case LoginActionTypes.FETCH_DATA_FAILURE:
+    case AuthActionTypes.FETCH_DATA_FAILURE:
       return {
         ...state,
         errorMessage: action.error,
@@ -30,4 +30,4 @@ const loginReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default loginReducer;
+export default authReducer;
