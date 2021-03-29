@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import authStatus from '../context/authStatus';
 import Registration from '../contailners/auth/register';
 import NavBar from './navbar';
-import Confirm from '../contailners/auth/confirmEmail';
+import Confirm from '../pages/confirmEmail';
 import Auth from '../contailners/auth/auth';
 import Home from '../contailners/home';
 
