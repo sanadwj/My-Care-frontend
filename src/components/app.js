@@ -8,7 +8,7 @@ import NavBar from './navbar';
 import Confirm from '../pages/confirmEmail';
 import Auth from '../contailners/auth/auth';
 import Home from '../contailners/home';
-import DoctorSpecialty from './doctors/doctorSpecialty';
+import Doctors from '../contailners/doctors';
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
@@ -23,7 +23,6 @@ const App = () => {
 
   return (
     <Router fluied>
-      <DoctorSpecialty />
       <NavBar
         loggedInStatus={state.isAuth}
         handleLogout={handleLogout}
@@ -45,7 +44,7 @@ const App = () => {
           )}
 
         />
-
+        <Route exact path="/doctors" component={Doctors} />
         <Route exact path="/confirm" component={Confirm} />
       </Switch>
     </Router>
