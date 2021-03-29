@@ -7,8 +7,6 @@ const INITIAL_STATE = {
 };
 
 const registrationReducer = (state = INITIAL_STATE, action) => {
-  console.log(state);
-
   switch (action.type) {
     case RegistrationActionTypes.FITCH_DATA_START:
       return {

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-use-before-define */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button, Form, Loader, Grid, Segment, Container, Label } from 'semantic-ui-react';
 import { fetchRegistrationStartAsync } from '../../actions/registrationActions';
@@ -9,15 +9,22 @@ import useForm from '../../util/hooks';
 const Registration = (props) => {
   const registration = useSelector((state) => state.registration);
   const dispatch = useDispatch();
-  console.log(registration.isFetching);
 
-  const { onChange, onSubmit, values } = useForm(registerUser, {});
+  const { onChange, onSubmit, values } = useForm(registerUser, {
+    email: '',
+    password: '',
+    password_confirmation: '',
+  });
 
-  // eslint-disable-next-line consistent-return
   function registerUser() {
     dispatch(fetchRegistrationStartAsync(values));
-    props.history.push('/confirm');
   }
+
+  useEffect(() => {
+    if (registration.registration !== undefined && registration.registration.length !== 0) {
+      props.history.push('/confirm');
+    }
+  }, [registration]);
 
   return (
     <Container style={{ margin: 20 }} >
@@ -58,6 +65,7 @@ const Registration = (props) => {
         <Button type="submit">
           Register
         </Button>
+        {registration.errorMessage && registration.errorMessage.response.status === 500 ? 'Email Already Exsit' : ''}
       </Form>
     </Container>
   );

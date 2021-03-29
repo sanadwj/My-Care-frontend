@@ -1,7 +1,7 @@
 import { AuthActionTypes } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
-  login: [],
+  auth: [],
   isFetching: false,
   errorMessage: undefined,
 };
@@ -16,7 +16,7 @@ const authReducer = (state = INITIAL_STATE, action) => {
     case AuthActionTypes.FITCH_DATA_SUCCESS:
       return {
         ...state,
-        Auth: action.Auth,
+        auth: action.auth,
         isFetching: false,
       };
     case AuthActionTypes.FETCH_DATA_FAILURE:
