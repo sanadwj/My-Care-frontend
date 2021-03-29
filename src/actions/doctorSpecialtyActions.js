@@ -21,12 +21,13 @@ export const fetchDoctorSpecialtyStartAsync = (specialty) => {
   return dispatch => {
     dispatch(fetchDoctorSpecialtyStart());
     axios
-      .post('http://localhost:5000/api/v1/doctors/:specialty', {
+      .get(`http://localhost:5000/api/v1/doctors/${specialty}`, {
         headers: {
           'Authorization': token
         }
       })
       // eslint-disable-next-line max-len
-      .then((res) => dispatch(fetchDoctorSpecialtySuccess(res.data.specialty), console.log(res.data.specialty)))
+      .then((res) => dispatch(fetchDoctorSpecialtySuccess(res.data), console.log(res.data.specialty)))
       .catch((error) => dispatch(fetchDoctorSpecialtyFailure(error)));
   };
+};
