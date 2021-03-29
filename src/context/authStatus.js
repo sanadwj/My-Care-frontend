@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const authStatus = () => {
+  const auth = useSelector((state) => state.auth);
   const [state, setState] = useState({
     isAuth: false,
   });
@@ -17,8 +19,8 @@ const authStatus = () => {
     });
   };
 
-  const checkAuthStatus = (auth) => {
-    if (auth && auth.auth !== undefined && auth.auth.length !== 0) {
+  const checkAuthStatus = () => {
+    if (localStorage.getItem('token')) {
       setState({
         isAuth: true,
       });

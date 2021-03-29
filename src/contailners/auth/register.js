@@ -65,6 +65,7 @@ const Registration = (props) => {
         <Button type="submit">
           Register
         </Button>
+        {registration.isFetching === true ? <Loader active inline="centered" /> : ''}
         {registration.errorMessage && registration.errorMessage.response.status === 500 ? 'Email Already Exsit' : ''}
       </Form>
     </Container>
