@@ -21,7 +21,7 @@ const NavBar = (props) => {
   const navBar = loggedInStatus === false ? (
     <Grid>
       <Grid.Column width={2}>
-        <Menu pointing secondary vertical color="violet">
+        <Menu secondary vertical>
           <Menu.Menu position="right">
             <Menu.Item
               name="login"

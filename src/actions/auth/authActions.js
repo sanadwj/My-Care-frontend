@@ -1,7 +1,7 @@
 import React from 'react';
 import { Loader } from 'semantic-ui-react';
 import axios from 'axios';
-import { AuthActionTypes } from './actionTypes';
+import { AuthActionTypes } from '../actionTypes';
 
 export const fetchAuthStart = () => ({
   type: AuthActionTypes.FITCH_DATA_START,

@@ -1,6 +1,6 @@
 /* eslint-disable arrow-parens */
 import axios from 'axios';
-import { RegistrationActionTypes } from './actionTypes';
+import { RegistrationActionTypes } from '../actionTypes';
 
 export const fetchRegistrationStart = () => ({
   type: RegistrationActionTypes.FITCH_DATA_START,

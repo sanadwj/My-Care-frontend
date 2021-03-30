@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import authReducer from './authReducer';
-import doctorSpecialtyReducer from './doctorSpecialtyReducer';
-import registrationReducer from './registrationReducer';
+import authReducer from './auth/authReducer';
+import doctorSpecialtyReducer from './doctors/doctorSpecialtyReducer';
+import registrationReducer from './auth/registrationReducer';
 
 const rootReducer = combineReducers({
   registration: registrationReducer,

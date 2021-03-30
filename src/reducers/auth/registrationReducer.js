@@ -1,4 +1,4 @@
-import { RegistrationActionTypes } from '../actions/actionTypes';
+import { RegistrationActionTypes } from '../../actions/actionTypes';
 
 const INITIAL_STATE = {
   registration: [],

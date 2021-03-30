@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button, Form, Loader, Grid, Segment, Container, Label } from 'semantic-ui-react';
-import { fetchRegistrationStartAsync } from '../../actions/registrationActions';
+import { fetchRegistrationStartAsync } from '../../actions/auth/registrationActions';
 import useForm from '../../util/hooks';
 
 const Registration = (props) => {

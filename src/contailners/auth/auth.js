@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button, Form, Container, Loader } from 'semantic-ui-react';
-import { fetchAuthStartAsync } from '../../actions/authActions';
+import { fetchAuthStartAsync } from '../../actions/auth/authActions';
 import useForm from '../../util/hooks';
 
 const Auth = (props) => {
@@ -51,7 +51,7 @@ const Auth = (props) => {
         <Button type="submit">
           Login
         </Button>
-        {auth.isFetching === true ? <Loader active inline="centered" /> : ""}
+        {auth.isFetching === true ? <Loader active inline="centered" /> : ''}
         {auth.errorMessage && auth.errorMessage.response.status === 401 ? 'Please Confirm Your Email' : ''}
         {auth.errorMessage && auth.errorMessage.response.status === 500 ? 'Check Your Email and Password' : ''}
       </Form>

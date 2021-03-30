@@ -1,4 +1,4 @@
-import { DoctorSpecialtyActionTypes } from '../actions/actionTypes';
+import { DoctorSpecialtyActionTypes } from '../../actions/actionTypes';
 
 
 const INITIAL_STATE = {

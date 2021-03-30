@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Segment, Item, Loader, Link } from 'semantic-ui-react';
+import {
+  Segment, Item, Loader, Link, Header,
+} from 'semantic-ui-react';
 import { fetchDoctorSpecialtyStartAsync } from '../../actions/doctors/doctorSpecialtyActions';
 
 const DoctorsSpecialtyList = (props) => {
@@ -15,10 +17,13 @@ const DoctorsSpecialtyList = (props) => {
 
   return (
     <div>
+      <Header style={{ margin: 30 }}>
+        {doctorSpecialty.errorMessage && doctorSpecialty.errorMessage.response.status === 401 ? <h2>Please Register or Signin to see this page</h2> : ''}
+      </Header>
       {doctorSpecialty.isFetching === true ? (
         <Loader active inline="centered" />
       )
-        : doctorSpecialty.doctors.map((doctor) => (
+        : doctorSpecialty.doctors !== undefined && doctorSpecialty.doctors.map((doctor) => (
           <Segment
             className="filter"
             key={doctor.id}
