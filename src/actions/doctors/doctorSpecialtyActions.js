@@ -1,6 +1,6 @@
 /* eslint-disable arrow-parens */
 import axios from 'axios';
-import { DoctorSpecialtyActionTypes } from './actionTypes';
+import { DoctorSpecialtyActionTypes } from '../actionTypes';
 
 export const fetchDoctorSpecialtyStart = () => ({
   type: DoctorSpecialtyActionTypes.FITCH_DATA_START,

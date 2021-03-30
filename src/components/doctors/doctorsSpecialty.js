@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  Segment, Item, Image, Loader, Header, Icon,
-} from 'semantic-ui-react';
-import { fetchDoctorSpecialtyStartAsync } from '../../actions/doctorSpecialtyActions';
+import { Segment, Item, Loader, Link } from 'semantic-ui-react';
+import { fetchDoctorSpecialtyStartAsync } from '../../actions/doctors/doctorSpecialtyActions';
 
 const DoctorsSpecialtyList = (props) => {
   const { spec } = props;
@@ -21,7 +19,10 @@ const DoctorsSpecialtyList = (props) => {
         <Loader active inline="centered" />
       )
         : doctorSpecialty.doctors.map((doctor) => (
-          <Segment className="filter" key={doctor.id}>
+          <Segment
+            className="filter"
+            key={doctor.id}
+          >
             <Item.Group>
               <Item>
                 <Item.Image size="tiny" src="https://react.semantic-ui.com/images/wireframe/image.png" />

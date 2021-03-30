@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import DoctorSpecialtyFilter from '../components/doctors/doctorSpecialtyFilter';
-import DoctorsSpecialtyList from '../components/doctors/doctorsSpecialty';
+import DoctorSpecialtyFilter from '../../components/doctors/doctorSpecialtyFilter';
+import DoctorsSpecialtyList from '../../components/doctors/doctorsSpecialty';
 
 const Doctors = () => {
   const [state, setState] = useState();

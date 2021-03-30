@@ -8,7 +8,7 @@ import NavBar from './navbar';
 import Confirm from '../pages/confirmEmail';
 import Auth from '../contailners/auth/auth';
 import Home from '../contailners/home';
-import Doctors from '../contailners/doctors';
+import Doctors from '../contailners/doctors/doctors';
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
