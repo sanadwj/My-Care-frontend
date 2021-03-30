@@ -18,6 +18,11 @@ body {
   justify-items: center;
 }
 
+.ui.secondary.menu .active.item {
+  background: rgb(151, 191, 15);
+  color: rgba(255, 255, 255, 0.95);
+}
+
 .ui.form {
   max-width: 50%;
 }
@@ -27,4 +32,51 @@ body {
 }
 .ui.secondary.vertical.pointing.menu {
   height: 100vh;
+}
+
+.filter {
+  min-height: 50%;
+  margin: 30px !important;
+}
+
+.select {
+  text-align: center;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.doctors {
+  width: 100vw;
+}
+
+select {
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: -internal-light-dark(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: menulist;
+  box-sizing: border-box;
+  align-items: center;
+  white-space: pre;
+  height: 40px;
+  -webkit-rtl-ordering: logical;
+  background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+  cursor: default;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  border-radius: 0px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+  border-radius: 0.28571rem;
 }

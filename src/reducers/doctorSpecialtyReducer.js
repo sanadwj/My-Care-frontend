@@ -2,12 +2,13 @@ import { DoctorSpecialtyActionTypes } from '../actions/actionTypes';
 
 
 const INITIAL_STATE = {
-  specialty: [],
+  doctors: [],
   isFetching: false,
   errorMessage: undefined,
 };
 
 const doctorSpecialtyReducer = (state = INITIAL_STATE, action) => {
+  console.log(state);
   switch (action.type) {
     case DoctorSpecialtyActionTypes.FITCH_DATA_START:
       return {
@@ -17,7 +18,7 @@ const doctorSpecialtyReducer = (state = INITIAL_STATE, action) => {
     case DoctorSpecialtyActionTypes.FITCH_DATA_SUCCESS:
       return {
         ...state,
-        specialty: action.specialty,
+        doctors: action.doctors,
         isFetching: false,
       };
     case DoctorSpecialtyActionTypes.FETCH_DATA_FAILURE:

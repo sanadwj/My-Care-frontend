@@ -45,7 +45,7 @@ const NavBar = (props) => {
   ) : (
     <Grid>
       <Grid.Column width={2}>
-        <Menu pointing secondary vertical color="violet">
+        <Menu secondary vertical color="'green">
           <Menu.Item
             name="home"
             active={activeItem === 'home'}

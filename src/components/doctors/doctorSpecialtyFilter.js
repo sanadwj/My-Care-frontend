@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container } from 'semantic-ui-react';
+import { Segment, Icon, Header } from 'semantic-ui-react';
 
 const doctorspec = ['Allergy and immunology', 'Anesthesiology', 'Dermatology',
   'Diagnostic radiology', 'Emergency medicine', 'Family medicine',
@@ -16,7 +16,11 @@ const DoctorSpecialtyFilter = (props) => {
   };
 
   return (
-    <Container>
+    <Segment style={{ height: 200, margin: 30 }} className="select">
+      <Header icon>
+        <Icon name="search" />
+        Please Select The Specialty Of the Doctor.
+      </Header>
       <select onChange={handleChange}>
         <option value="all">Select Specialty</option>
         {doctorspec.map((spec) => (
@@ -25,7 +29,7 @@ const DoctorSpecialtyFilter = (props) => {
           </option>
         ))}
       </select>
-    </Container>
+    </Segment>
   );
 };
 

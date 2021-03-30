@@ -6,9 +6,9 @@ export const fetchDoctorSpecialtyStart = () => ({
   type: DoctorSpecialtyActionTypes.FITCH_DATA_START,
 });
 
-export const fetchDoctorSpecialtySuccess = (specialty) => ({
+export const fetchDoctorSpecialtySuccess = (doctors) => ({
   type: DoctorSpecialtyActionTypes.FITCH_DATA_SUCCESS,
-  specialty,
+  doctors,
 });
 
 export const fetchDoctorSpecialtyFailure = (error) => ({
@@ -27,7 +27,7 @@ export const fetchDoctorSpecialtyStartAsync = (specialty) => {
         }
       })
       // eslint-disable-next-line max-len
-      .then((res) => dispatch(fetchDoctorSpecialtySuccess(res.data), console.log(res.data.specialty)))
+      .then((res) => dispatch(fetchDoctorSpecialtySuccess(res.data.doctors), console.log(res.data.doctors)))
       .catch((error) => dispatch(fetchDoctorSpecialtyFailure(error)));
   };
 };

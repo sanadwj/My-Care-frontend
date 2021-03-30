@@ -10,7 +10,7 @@ const Doctors = () => {
   };
 
   return (
-    <div>
+    <div className="doctors">
       <DoctorSpecialtyFilter onSpecialtyChange={handleSpecialtyChange} />
       <DoctorsSpecialtyList handleChange={handleSpecialtyChange} spec={state} />
     </div>
