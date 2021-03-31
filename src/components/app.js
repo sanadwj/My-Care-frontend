@@ -9,6 +9,7 @@ import Confirm from '../pages/confirmEmail';
 import Auth from '../contailners/auth/auth';
 import Home from '../contailners/home';
 import Doctors from '../contailners/doctors/doctors';
+import Doctor from '../contailners/doctors/doctor';
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
@@ -27,26 +28,27 @@ const App = () => {
         loggedInStatus={state.isAuth}
         handleLogout={handleLogout}
       />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route
-          exact
-          path="/login"
-          render={(props) => (
-            <Auth {...props} handleLogin={handleLogin} />
-          )}
-        />
-        <Route
-          exact
-          path="/regitration"
-          render={(props) => (
-            <Registration {...props} handleLogin={handleLogin} />
-          )}
 
-        />
-        <Route exact path="/doctors" component={Doctors} />
-        <Route exact path="/confirm" component={Confirm} />
-      </Switch>
+      <Route exact path="/" component={Home} />
+      <Route
+        exact
+        path="/login"
+        render={(props) => (
+          <Auth {...props} handleLogin={handleLogin} />
+        )}
+      />
+      <Route
+        exact
+        path="/regitration"
+        render={(props) => (
+          <Registration {...props} handleLogin={handleLogin} />
+        )}
+
+      />
+      <Route exact path="/doctors/show/:id" component={Doctor} />
+      <Route exact path="/doctors" component={Doctors} />
+      <Route exact path="/confirm" component={Confirm} />
+
     </Router>
   );
 };

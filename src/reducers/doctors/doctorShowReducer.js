@@ -1,12 +1,12 @@
 import { DoctorShowActionTypes } from '../../actions/actionTypes';
 
 const INITIAL_STATE = {
-  doctor: [],
+  doctor: Object.values([]),
   isFetching: false,
   errorMessage: undefined,
 };
 
-const doctorSpecialtyReducer = (state = INITIAL_STATE, action) => {
+const doctorShowReducer = (state = INITIAL_STATE, action) => {
   console.log(state);
   switch (action.type) {
     case DoctorShowActionTypes.FITCH_DATA_START:
@@ -31,4 +31,4 @@ const doctorSpecialtyReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default doctorSpecialtyReducer;
+export default doctorShowReducer;

@@ -2,7 +2,9 @@
 /* eslint-disable no-use-before-define */
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Button, Form, Loader, Grid, Segment, Container, Label } from 'semantic-ui-react';
+import {
+  Button, Form, Loader, Grid, Segment, Container, Label,
+} from 'semantic-ui-react';
 import { fetchRegistrationStartAsync } from '../../actions/auth/registrationActions';
 import useForm from '../../util/hooks';
 
@@ -11,7 +13,9 @@ const Registration = (props) => {
   const dispatch = useDispatch();
 
   const { onChange, onSubmit, values } = useForm(registerUser, {
+    username: '',
     email: '',
+    city: '',
     password: '',
     password_confirmation: '',
   });
@@ -27,8 +31,20 @@ const Registration = (props) => {
   }, [registration]);
 
   return (
-    <Container style={{ margin: 20 }} >
+    <Container style={{ margin: 20 }}>
       <Form onSubmit={onSubmit} className="formContainer">
+        <Form.Field>
+
+          <input
+            type="username"
+            name="username"
+            placeholder="Username"
+            value={values.username}
+            onChange={onChange}
+            required
+          />
+        </Form.Field>
+
         <Form.Field>
 
           <input
@@ -36,6 +52,18 @@ const Registration = (props) => {
             name="email"
             placeholder="Email"
             value={values.email}
+            onChange={onChange}
+            required
+          />
+        </Form.Field>
+
+        <Form.Field>
+
+          <input
+            type="city"
+            name="city"
+            placeholder="City"
+            value={values.city}
             onChange={onChange}
             required
           />

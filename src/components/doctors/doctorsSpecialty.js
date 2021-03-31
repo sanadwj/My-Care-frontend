@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
-  Segment, Item, Loader, Link, Header,
+  Segment, Item, Loader, Header,
 } from 'semantic-ui-react';
 import { fetchDoctorSpecialtyStartAsync } from '../../actions/doctors/doctorSpecialtyActions';
 
@@ -27,13 +28,18 @@ const DoctorsSpecialtyList = (props) => {
           <Segment
             className="filter"
             key={doctor.id}
+            as={Link}
+            to={{
+              pathname: `/doctors/show/${doctor.id}`,
+              id: doctor.id,
+            }}
           >
             <Item.Group>
               <Item>
                 <Item.Image size="tiny" src="https://react.semantic-ui.com/images/wireframe/image.png" />
 
                 <Item.Content>
-                  <Item.Header as="a">{doctor.name}</Item.Header>
+                  <Item.Header>{doctor.name}</Item.Header>
                   <Item.Meta>{doctor.specialty}</Item.Meta>
                   <Item.Description>
                     {doctor.location}

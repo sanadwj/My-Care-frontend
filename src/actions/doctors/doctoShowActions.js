@@ -5,9 +5,9 @@ export const fetchDoctorShowStart = () => ({
   type: DoctorShowActionTypes.FITCH_DATA_START,
 });
 
-export const fetchDoctorShowSuccess = (doctors) => ({
+export const fetchDoctorShowSuccess = (doctor) => ({
   type: DoctorShowActionTypes.FITCH_DATA_SUCCESS,
-  doctors,
+  doctor,
 });
 
 export const fetchDoctorShowFailure = (error) => ({
@@ -20,13 +20,13 @@ export const fetchDoctorShowStartAsync = (id) => {
   return dispatch => {
     dispatch(fetchDoctorShowStart());
     axios
-      .get(`http://localhost:5000/api/v1/doctors/${id}`, {
+      .get(`http://localhost:5000/api/v1/doctors/show/${id}`, {
         headers: {
           'Authorization': token
         },
       })
       // eslint-disable-next-line max-len
-      .then((res) => dispatch(fetchDoctorShowSuccess(res.data.doctor), console.log(res.data.doctor)))
+      .then((res) => dispatch(fetchDoctorShowSuccess(res.data), console.log(res.data)))
       .catch((error) => dispatch(fetchDoctorShowFailure(error)));
   };
 };
