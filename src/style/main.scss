@@ -5,7 +5,7 @@ html {
 body {
   overflow-x: hidden;
   font-weight: normal;
-
+  overflow-y: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -79,4 +79,23 @@ select {
   border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
   border-image: initial;
   border-radius: 0.28571rem;
+}
+
+.doctor {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 30px;
+}
+
+.dappointment {
+  display: flex;
+  margin: 30px;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.dappointmentForm {
+  max-width: 100% !important;
 }
