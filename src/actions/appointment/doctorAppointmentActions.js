@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { DoctorAppointmentActionTypes } from '../actionTypes';
 
-
 export const fetchDoctorAppointmentStart = () => ({
   type: DoctorAppointmentActionTypes.FITCH_DATA_START,
 });
