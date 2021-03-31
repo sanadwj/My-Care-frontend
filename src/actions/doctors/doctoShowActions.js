@@ -24,7 +24,7 @@ export const fetchDoctorShowStartAsync = (id) => {
         headers: {
           'Authorization': token
         },
-      })
+      }, { withCredentials: false })
       // eslint-disable-next-line max-len
       .then((res) => dispatch(fetchDoctorShowSuccess(res.data), console.log(res.data)))
       .catch((error) => dispatch(fetchDoctorShowFailure(error)));

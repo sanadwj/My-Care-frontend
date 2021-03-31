@@ -23,7 +23,7 @@ export const fetchAuthStartAsync = (user) => {
     dispatch(fetchAuthStart());
     <Loader />;
     axios
-      .post('http://localhost:5000/api/v1/auth', user)
+      .post('http://localhost:5000/api/v1/auth', user, { withCredentials: false })
       // eslint-disable-next-line max-len
       .then((res) => {
         dispatch(fetchAuthSuccess(res.data));

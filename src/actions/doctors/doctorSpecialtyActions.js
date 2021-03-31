@@ -24,8 +24,8 @@ export const fetchDoctorSpecialtyStartAsync = (specialty) => {
       .get(`http://localhost:5000/api/v1/doctors/${specialty}`, {
         headers: {
           'Authorization': token
-        }
-      })
+        },
+      }, { withCredentials: false })
       // eslint-disable-next-line max-len
       .then((res) => dispatch(fetchDoctorSpecialtySuccess(res.data.doctors), console.log(res.data.doctors)))
       .catch((error) => dispatch(fetchDoctorSpecialtyFailure(error)));

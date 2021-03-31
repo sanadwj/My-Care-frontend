@@ -8,7 +8,7 @@ import { fetchDoctorShowStartAsync } from '../../actions/doctors/doctoShowAction
 const Doctor = () => {
   const doctor = useSelector((state) => state.doctorShow);
   const dispatch = useDispatch();
-  console.log(doctor.doctor);
+  console.log(doctor);
 
   const { pathname } = window.location;
 
@@ -31,7 +31,7 @@ const Doctor = () => {
   return (
     <div>
       <div>
-        {doctor.doctor[0] ? doctor.doctor[0].map((doc) => (
+        {doctor.doctor && doctor.doctor[0] ? doctor.doctor[0].map((doc) => (
           <Card key={doc.id}>
             <Image src="https://react.semantic-ui.com/images/avatar/large/matthew.png" wrapped ui={false} />
             <Card.Content>
@@ -51,6 +51,42 @@ const Doctor = () => {
           </Card>
         )) : ' '}
       </div>
+
+      {doctor.doctor && doctor.doctor[1] ? doctor.doctor[1].map((opt) => (
+        <Form key={opt.id} style={{ width: 700 }}>
+          <Form.Group widths="equal">
+            <Form.Field
+              value={opt.username}
+              id="form-input-control-first-name"
+              control={Input}
+              label="First name"
+              placeholder="First name"
+            />
+
+          </Form.Group>
+
+          <Form.Field
+            id="form-input-control-error-email"
+            control={Input}
+            label="Email"
+            placeholder="joe@schmoe.com"
+          />
+
+          <Form.Field
+            id="form-textarea-control-opinion"
+            control={TextArea}
+            label="Opinion"
+            placeholder="Opinion"
+          />
+          <Form.Field
+            id="form-button-control-public"
+            control={Button}
+            content="Confirm"
+            label="Label with htmlFor"
+          />
+        </Form>
+
+      )) : ''}
     </div>
   );
 };
