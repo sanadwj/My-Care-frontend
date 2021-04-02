@@ -21,7 +21,7 @@ const Auth = (props) => {
 
   useEffect(() => {
     if (auth.auth !== undefined && auth.auth.length !== 0) {
-      props.history.push('/confirm');
+      props.history.push('/doctors');
     }
   }, [auth]);
 
@@ -52,8 +52,8 @@ const Auth = (props) => {
           Login
         </Button>
         {auth.isFetching === true ? <Loader active inline="centered" /> : ''}
-        {auth.errorMessage && auth.errorMessage.response.status === 401 ? 'Please Confirm Your Email' : ''}
-        {auth.errorMessage && auth.errorMessage.response.status === 500 ? 'Check Your Email and Password' : ''}
+        {auth && auth.errorMessage && auth.errorMessage.response.status === 401 ? 'Please Confirm Your Email' : ''}
+        {auth && auth.errorMessage && auth.errorMessage.response.status === 500 ? 'Check Your Email and Password' : ''}
       </Form>
     </Container>
   );

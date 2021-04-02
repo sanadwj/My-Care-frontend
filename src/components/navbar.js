@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, Grid } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 const NavBar = (props) => {
   const { loggedInStatus, handleLogout } = props;
@@ -64,7 +63,7 @@ const NavBar = (props) => {
             name="Logout"
             onClick={() => handleLogoutClick()}
             as={Link}
-            to="/login"
+            to="/"
           />
         </Menu>
       </Grid.Column>

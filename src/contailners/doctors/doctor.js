@@ -21,35 +21,40 @@ const Doctor = () => {
   }, [id]);
 
   return (
-    <div className="doctor">
+    <div>
       <div>
         {doctor.doctor && doctor.doctor[0] ? doctor.doctor[0].map((doc) => (
-          <Card key={doc.id}>
-            <Image src="https://react.semantic-ui.com/images/avatar/large/matthew.png" wrapped ui={false} />
-            <Card.Content>
-              <Card.Header>{doc.name}</Card.Header>
-              <Card.Meta>
-                <span className="date">{doc.specialty}</span>
-              </Card.Meta>
-              <Card.Description>
-                {doc.location}
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <Card.Meta>
-                <span className="date">
-                  Rate:
-                  {' '}
-                  {doc.rate}
-                  $
-                </span>
-              </Card.Meta>
-            </Card.Content>
-          </Card>
+          <div key={doc.id} className="doctor">
+            <Card>
+              <Image src="https://react.semantic-ui.com/images/avatar/large/matthew.png" wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>{doc.name}</Card.Header>
+                <Card.Meta>
+                  <span className="date">{doc.specialty}</span>
+                </Card.Meta>
+                <Card.Description>
+                  {doc.location}
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <Card.Meta>
+                  <span className="date">
+                    Rate:
+                    {' '}
+                    {doc.rate}
+                    $
+                  </span>
+                </Card.Meta>
+              </Card.Content>
+            </Card>
+            <div>
+              {doctor.doctor && doctor.doctor[1] ? doctor.doctor[1].map((opt) => (
+                <DoctorAppointment key={opt.id} userId={opt.id} doctorId={doc.id} doctor={doctor} />
+              )) : ''}
+            </div>
+          </div>
         )) : <Loader active inline="centered" />}
       </div>
-
-      <DoctorAppointment doctor={doctor} />
     </div>
   );
 };

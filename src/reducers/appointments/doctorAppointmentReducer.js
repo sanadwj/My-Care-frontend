@@ -1,12 +1,13 @@
 import { DoctorAppointmentActionTypes } from '../../actions/actionTypes';
 
 const INITIAL_STATE = {
-  registration: [],
+  appointment: [],
   isFetching: false,
   errorMessage: undefined,
 };
 
 const DoctorAppointmentReducer = (state = INITIAL_STATE, action) => {
+  console.log(state);
   switch (action.type) {
     case DoctorAppointmentActionTypes.FITCH_DATA_START:
       return {

@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {
-  Segment, Item, Loader, Header,
-} from 'semantic-ui-react';
+import { Item, Loader, Header } from 'semantic-ui-react';
 import { fetchDoctorSpecialtyStartAsync } from '../../actions/doctors/doctorSpecialtyActions';
 
 const DoctorsSpecialtyList = (props) => {
   const { spec } = props;
   const doctorSpecialty = useSelector((state) => state.doctorSpecialty);
   const dispatch = useDispatch();
+  console.log(spec);
   console.log(doctorSpecialty);
 
   useEffect(() => {
@@ -25,7 +24,7 @@ const DoctorsSpecialtyList = (props) => {
         <Loader active inline="centered" />
       )
         : doctorSpecialty.doctors !== undefined && doctorSpecialty.doctors.map((doctor) => (
-          <Segment
+          <Item.Group
             className="filter"
             key={doctor.id}
             as={Link}
@@ -34,28 +33,26 @@ const DoctorsSpecialtyList = (props) => {
               id: doctor.id,
             }}
           >
-            <Item.Group>
-              <Item>
-                <Item.Image size="tiny" src="https://react.semantic-ui.com/images/wireframe/image.png" />
+            <Item>
+              <Item.Image size="tiny" src="https://react.semantic-ui.com/images/wireframe/image.png" />
 
-                <Item.Content>
-                  <Item.Header>{doctor.name}</Item.Header>
-                  <Item.Meta>{doctor.specialty}</Item.Meta>
-                  <Item.Description>
-                    {doctor.location}
-                  </Item.Description>
-                  <Item.Extra>
-                    Rate:
-                    {' '}
-                    {doctor.rate}
-                    {' '}
-                    $
-                  </Item.Extra>
-                </Item.Content>
-              </Item>
+              <Item.Content>
+                <Item.Header>{doctor.name}</Item.Header>
+                <Item.Meta>{doctor.specialty}</Item.Meta>
+                <Item.Description>
+                  {doctor.location}
+                </Item.Description>
+                <Item.Extra>
+                  Rate:
+                  {' '}
+                  {doctor.rate}
+                  {' '}
+                  $
+                </Item.Extra>
+              </Item.Content>
+            </Item>
 
-            </Item.Group>
-          </Segment>
+          </Item.Group>
         ))}
     </div>
   );
