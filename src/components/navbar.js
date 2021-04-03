@@ -58,6 +58,13 @@ const NavBar = (props) => {
             to="/doctors"
           />
           <Menu.Item
+            name="nurses"
+            active={activeItem === 'nurses'}
+            onClick={handleItemClick}
+            as={Link}
+            to="/nurses"
+          />
+          <Menu.Item
             name="Logout"
             onClick={() => handleLogoutClick()}
             as={Link}

@@ -10,6 +10,8 @@ import Auth from '../contailners/auth/auth';
 import Home from '../contailners/home';
 import Doctors from '../contailners/doctors/doctors';
 import Doctor from '../contailners/doctors/doctor';
+import Nurses from '../contailners/nurses/nurses';
+
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
@@ -53,6 +55,7 @@ const App = () => {
         )}
       />
       <Route exact path="/doctors" component={Doctors} />
+      <Route exact path="/nurses" component={Nurses} />
       <Route exact path="/confirm" component={Confirm} />
 
     </Router>

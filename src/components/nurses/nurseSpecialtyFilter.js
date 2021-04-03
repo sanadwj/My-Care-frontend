@@ -19,7 +19,7 @@ const NurseSpecialtyFilter = (props) => {
     <Segment style={{ height: 200, margin: 30 }} className="select">
       <Header icon>
         <Icon name="search" />
-        Please Select The Specialty Of the Doctor.
+        Please Select The Specialty Of the Nurse.
       </Header>
       <select onChange={handleChange}>
         <option value="all">Select Specialty</option>
