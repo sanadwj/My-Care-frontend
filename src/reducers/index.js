@@ -5,6 +5,7 @@ import registrationReducer from './auth/registrationReducer';
 import doctorShowReducer from './doctors/doctorShowReducer';
 import DoctorAppointmentReducer from './appointments/doctorAppointmentReducer';
 import NurseSpecialtyReducer from './nurses/nurseSpecialtyReducer';
+import nurseShowReducer from './nurses/nurseShowReducer';
 
 const rootReducer = combineReducers({
   registration: registrationReducer,
@@ -12,7 +13,9 @@ const rootReducer = combineReducers({
   doctorShow: doctorShowReducer,
   doctorSpecialty: doctorSpecialtyReducer,
   doctorAppointment: DoctorAppointmentReducer,
+  nurseShow: nurseShowReducer,
   nurseSpecialty: NurseSpecialtyReducer,
+
 });
 
 export default rootReducer;
