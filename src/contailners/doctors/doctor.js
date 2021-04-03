@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import {
   Loader, Image, Card,
 } from 'semantic-ui-react';
-import { fetchDoctorShowStartAsync } from '../../actions/doctors/doctoShowActions';
+import { fetchDoctorShowStartAsync } from '../../actions/doctors/doctorShowActions';
 import DoctorAppointment from '../../components/appointment/doctorAppointment';
 
 const Doctor = (props) => {
