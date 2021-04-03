@@ -81,17 +81,22 @@ select {
   border-radius: 0.28571rem;
 }
 
+.ui.button {
+  background: rgb(151, 191, 15);
+  color: rgba(255, 255, 255, 0.95);
+}
+
 .doctor {
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  margin: 30px;
+  margin: 30px !important;
 }
 
 .dappointment {
   display: flex;
-  margin: 30px;
+  margin: 30px !important;
   justify-content: center;
   flex-direction: column;
 }

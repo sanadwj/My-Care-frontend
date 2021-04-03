@@ -32,8 +32,6 @@ const Doctor = (props) => {
     return <Loader />;
   }
 
-  console.log(loggedInStatus);
-
   return (
     <div>
       {loggedInStatus === true

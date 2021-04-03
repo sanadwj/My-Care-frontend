@@ -13,7 +13,7 @@ const NavBar = (props) => {
 
   const handleItemClick = (e, { name }) => setActiveItem(name);
   const handleLogoutClick = () => {
-    localStorage.removeItem('token');
+    localStorage.clear();
     handleLogout();
   };
 
@@ -21,22 +21,20 @@ const NavBar = (props) => {
     <Grid>
       <Grid.Column width={2}>
         <Menu secondary vertical>
-          <Menu.Menu position="right">
-            <Menu.Item
-              name="login"
-              active={activeItem === 'login'}
-              onClick={handleItemClick}
-              as={Link}
-              to="/login"
-            />
-            <Menu.Item
-              name="register"
-              active={activeItem === 'register'}
-              onClick={handleItemClick}
-              as={Link}
-              to="/regitration"
-            />
-          </Menu.Menu>
+          <Menu.Item
+            name="login"
+            active={activeItem === 'login'}
+            onClick={handleItemClick}
+            as={Link}
+            to="/login"
+          />
+          <Menu.Item
+            name="register"
+            active={activeItem === 'register'}
+            onClick={handleItemClick}
+            as={Link}
+            to="/regitration"
+          />
         </Menu>
       </Grid.Column>
     </Grid>

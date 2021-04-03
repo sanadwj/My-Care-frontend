@@ -52,8 +52,8 @@ const Auth = (props) => {
           Login
         </Button>
         {auth.isFetching === true ? <Loader active inline="centered" /> : ''}
-        {auth && auth.AuthErrorMessage && auth.AuthErrorMessage.response.status === 401 ? 'Please Confirm Your Email' : ''}
-        {auth && auth.AuthErrorMessage && auth.AuthErrorMessage.response.status === 500 ? 'Check Your Email and Password' : ''}
+        {auth && auth.AuthErrorMessage && auth.AuthErrorMessage.response && auth.AuthErrorMessage.response.status === 401 ? 'Please Confirm Your Email' : ''}
+        {auth && auth.AuthErrorMessage && auth.AuthErrorMessage.response && auth.AuthErrorMessage.response.status === 500 ? 'Check Your Email and Password' : ''}
       </Form>
     </Container>
   );

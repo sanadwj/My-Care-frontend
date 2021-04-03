@@ -29,7 +29,7 @@ export const fetchAuthStartAsync = (user) => {
         dispatch(fetchAuthSuccess(res.data));
         const { token, user } = res.data;
         localStorage.setItem('token', token);
-        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('user', JSON.stringify({ id: user.id, username: user.username }));
       })
       .catch((error) => dispatch(fetchAuthFailure(error)));
   };
