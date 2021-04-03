@@ -29,8 +29,8 @@ const authStatus = () => {
       setState({
         isAuth: false,
       });
-    } else if (auth.errorMessage
-      && !auth.errorMessage.response.status === 500 && state.isAuth === false) {
+    } else if (auth.AuthErrorMessage
+      && !auth.AuthErrorMessage.response.status === 500 && state.isAuth === false) {
       setState({
         isAuth: false,
       });

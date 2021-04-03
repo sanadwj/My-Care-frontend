@@ -94,7 +94,7 @@ const Registration = (props) => {
           Register
         </Button>
         {registration.isFetching === true ? <Loader active inline="centered" /> : ''}
-        {registration.errorMessage && registration.errorMessage.response.status === 500 ? 'Email Already Exsit' : ''}
+        {registration.registerErrorMessage && registration.registerErrorMessage.response.status === 500 ? 'Email Already Exsit' : ''}
       </Form>
     </Container>
   );

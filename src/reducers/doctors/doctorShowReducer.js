@@ -3,7 +3,7 @@ import { DoctorShowActionTypes } from '../../actions/actionTypes';
 const INITIAL_STATE = {
   doctor: Object.values([]),
   isFetching: false,
-  errorMessage: undefined,
+  dShowErrorMessage: undefined,
 };
 
 const doctorShowReducer = (state = INITIAL_STATE, action) => {
@@ -23,7 +23,7 @@ const doctorShowReducer = (state = INITIAL_STATE, action) => {
     case DoctorShowActionTypes.FETCH_DATA_FAILURE:
       return {
         ...state,
-        errorMessage: action.error,
+        dShowErrorMessage: action.error,
         isFetching: false,
       };
     default:

@@ -45,6 +45,7 @@ const DoctorAppointment = (props) => {
               onChange={onChange}
               label="Appointment For"
               placeholder="(Optional)"
+
             />
           </Form.Field>
         </Form.Group>
@@ -66,6 +67,7 @@ const DoctorAppointment = (props) => {
           value={values.at}
           onChange={onChange}
           label="Date"
+          required
         />
         <Button
           type="submit"

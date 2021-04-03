@@ -3,7 +3,7 @@ import { AuthActionTypes } from '../../actions/actionTypes';
 const INITIAL_STATE = {
   auth: [],
   isFetching: false,
-  errorMessage: undefined,
+  AuthErrorMessage: undefined,
 };
 
 const authReducer = (state = INITIAL_STATE, action) => {
@@ -22,7 +22,7 @@ const authReducer = (state = INITIAL_STATE, action) => {
     case AuthActionTypes.FETCH_DATA_FAILURE:
       return {
         ...state,
-        errorMessage: action.error,
+        AuthErrorMessage: action.error,
         isFetching: false,
       };
     default:

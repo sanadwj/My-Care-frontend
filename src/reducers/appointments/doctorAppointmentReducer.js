@@ -3,7 +3,7 @@ import { DoctorAppointmentActionTypes } from '../../actions/actionTypes';
 const INITIAL_STATE = {
   appointment: [],
   isFetching: false,
-  errorMessage: undefined,
+  dAppErrorMessage: undefined,
 };
 
 const DoctorAppointmentReducer = (state = INITIAL_STATE, action) => {
@@ -23,7 +23,7 @@ const DoctorAppointmentReducer = (state = INITIAL_STATE, action) => {
     case DoctorAppointmentActionTypes.FETCH_DATA_FAILURE:
       return {
         ...state,
-        errorMessage: action.error,
+        dAppErrorMessage: action.error,
         isFetching: false,
       };
     default:

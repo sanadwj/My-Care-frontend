@@ -4,7 +4,7 @@ import { DoctorSpecialtyActionTypes } from '../../actions/actionTypes';
 const INITIAL_STATE = {
   doctors: [],
   isFetching: false,
-  errorMessage: undefined,
+  specialtyErrorMessage: undefined,
 };
 
 const doctorSpecialtyReducer = (state = INITIAL_STATE, action) => {
@@ -24,7 +24,7 @@ const doctorSpecialtyReducer = (state = INITIAL_STATE, action) => {
     case DoctorSpecialtyActionTypes.FETCH_DATA_FAILURE:
       return {
         ...state,
-        errorMessage: action.error,
+        specialtyErrorMessage: action.error,
         isFetching: false,
       };
     default:
