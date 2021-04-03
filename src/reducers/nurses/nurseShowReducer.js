@@ -3,7 +3,7 @@ import { NurseShowActionTypes } from '../../actions/actionTypes';
 const INITIAL_STATE = {
   nurse: [],
   isFetching: false,
-  dShowErrorMessage: undefined,
+  NShowErrorMessage: undefined,
 };
 
 const nurseShowReducer = (state = INITIAL_STATE, action) => {

@@ -11,6 +11,8 @@ import Home from '../contailners/home';
 import Doctors from '../contailners/doctors/doctors';
 import Doctor from '../contailners/doctors/doctor';
 import Nurses from '../contailners/nurses/nurses';
+import Nurse from '../contailners/nurses/nurse';
+
 
 
 const App = () => {
@@ -52,6 +54,13 @@ const App = () => {
         path="/doctors/show/:id"
         render={(props) => (
           <Doctor {...props} loggedInStatus={state.isAuth} />
+        )}
+      />
+      <Route
+        exact
+        path="/nurses/show/:id"
+        render={(props) => (
+          <Nurse {...props} loggedInStatus={state.isAuth} />
         )}
       />
       <Route exact path="/doctors" component={Doctors} />

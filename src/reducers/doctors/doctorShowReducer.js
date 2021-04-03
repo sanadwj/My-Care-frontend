@@ -1,7 +1,7 @@
 import { DoctorShowActionTypes } from '../../actions/actionTypes';
 
 const INITIAL_STATE = {
-  doctor: Object.values([]),
+  doctor: [],
   isFetching: false,
   dShowErrorMessage: undefined,
 };
