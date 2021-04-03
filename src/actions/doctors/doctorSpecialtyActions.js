@@ -15,19 +15,17 @@ export const fetchDoctorSpecialtyFailure = (error) => ({
   type: DoctorSpecialtyActionTypes.FETCH_DATA_FAILURE,
   error,
 });
-const token = localStorage.getItem('token');
-// eslint-disable-next-line arrow-body-style
-export const fetchDoctorSpecialtyStartAsync = (specialty) => {
-  return dispatch => {
-    dispatch(fetchDoctorSpecialtyStart());
-    axios
-      .get(`http://localhost:5000/api/v1/doctors/${specialty}`, {
-        headers: {
-          'Authorization': token
-        },
-      }, { withCredentials: false })
-      // eslint-disable-next-line max-len
-      .then((res) => dispatch(fetchDoctorSpecialtySuccess(res.data.doctors), console.log(res.data.doctors)))
-      .catch((error) => dispatch(fetchDoctorSpecialtyFailure(error)));
-  };
+
+export const fetchDoctorSpecialtyStartAsync = (specialty) => dispatch => {
+  dispatch(fetchDoctorSpecialtyStart());
+  const token = localStorage.getItem('token');
+  axios
+    .get(`http://localhost:5000/api/v1/doctors/${specialty}`, {
+      headers: {
+        Authorization: token,
+      },
+    }, { withCredentials: false })
+    // eslint-disable-next-line max-len
+    .then((res) => dispatch(fetchDoctorSpecialtySuccess(res.data.doctors), console.log(res.data.doctors)))
+    .catch((error) => dispatch(fetchDoctorSpecialtyFailure(error)));
 };

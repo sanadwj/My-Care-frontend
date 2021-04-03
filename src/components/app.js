@@ -32,40 +32,42 @@ const App = () => {
         loggedInStatus={state.isAuth}
         handleLogout={handleLogout}
       />
+      <Switch>
 
-      <Route exact path="/" component={Home} />
-      <Route
-        exact
-        path="/login"
-        render={(props) => (
-          <Auth {...props} handleLogin={handleLogin} />
-        )}
-      />
-      <Route
-        exact
-        path="/regitration"
-        render={(props) => (
-          <Registration {...props} handleLogin={handleLogin} />
-        )}
+        <Route exact path="/" component={Home} />
+        <Route
+          exact
+          path="/login"
+          render={(props) => (
+            <Auth {...props} handleLogin={handleLogin} />
+          )}
+        />
+        <Route
+          exact
+          path="/regitration"
+          render={(props) => (
+            <Registration {...props} handleLogin={handleLogin} />
+          )}
 
-      />
-      <Route
-        exact
-        path="/doctors/show/:id"
-        render={(props) => (
-          <Doctor {...props} loggedInStatus={state.isAuth} />
-        )}
-      />
-      <Route
-        exact
-        path="/nurses/show/:id"
-        render={(props) => (
-          <Nurse {...props} loggedInStatus={state.isAuth} />
-        )}
-      />
-      <Route exact path="/doctors" component={Doctors} />
-      <Route exact path="/nurses" component={Nurses} />
-      <Route exact path="/confirm" component={Confirm} />
+        />
+        <Route
+          exact
+          path="/doctors/show/:id"
+          render={(props) => (
+            <Doctor {...props} loggedInStatus={state.isAuth} />
+          )}
+        />
+        <Route
+          exact
+          path="/nurses/show/:id"
+          render={(props) => (
+            <Nurse {...props} loggedInStatus={state.isAuth} />
+          )}
+        />
+        <Route exact path="/doctors" component={Doctors} />
+        <Route exact path="/nurses" component={Nurses} />
+        <Route exact path="/confirm" component={Confirm} />
+      </Switch>
 
     </Router>
   );
