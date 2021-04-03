@@ -5,13 +5,13 @@ import {
   Loader, Image, Card,
 } from 'semantic-ui-react';
 import { fetchNurseShowStartAsync } from '../../actions/nurses/nurseShowActions';
-
+import NurseAppointment from '../../components/appointment/nurseAppointment';
 
 const Nurse = (props) => {
   const nurse = useSelector((state) => state.nurseShow);
   const dispatch = useDispatch();
   const { loggedInStatus } = props;
-  console.log(nurse);
+
   const { pathname } = window.location;
 
   const id = pathname.split('/nurses/show/')[1];
@@ -61,6 +61,7 @@ const Nurse = (props) => {
                 </Card.Content>
               </Card>
               <div />
+              <NurseAppointment nurseId={n.id} />
             </div>
           </div>
         )
