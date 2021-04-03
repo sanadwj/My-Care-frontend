@@ -1,5 +1,3 @@
-import React from 'react';
-import { Loader } from 'semantic-ui-react';
 import axios from 'axios';
 import { AuthActionTypes } from '../actionTypes';
 
@@ -21,7 +19,6 @@ export const fetchAuthFailure = (error) => ({
 export const fetchAuthStartAsync = (user) => {
   return (dispatch) => {
     dispatch(fetchAuthStart());
-    <Loader />;
     axios
       .post('http://localhost:5000/api/v1/auth', user, { withCredentials: false })
       // eslint-disable-next-line max-len
