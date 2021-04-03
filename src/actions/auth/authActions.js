@@ -27,8 +27,9 @@ export const fetchAuthStartAsync = (user) => {
       // eslint-disable-next-line max-len
       .then((res) => {
         dispatch(fetchAuthSuccess(res.data));
-        const { token } = res.data;
+        const { token, user } = res.data;
         localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(user));
       })
       .catch((error) => dispatch(fetchAuthFailure(error)));
   };

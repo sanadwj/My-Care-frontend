@@ -17,11 +17,11 @@ const App = () => {
   const {
     state, handleLogin, handleLogout, checkAuthStatus,
   } = authStatus();
-
+  console.log(state);
   useEffect(() => {
     checkAuthStatus(auth);
   }, [auth]);
-
+  console.log(state.isAuth);
   return (
     <Router fluied>
       <NavBar
@@ -45,7 +45,13 @@ const App = () => {
         )}
 
       />
-      <Route exact path="/doctors/show/:id" component={Doctor} />
+      <Route
+        exact
+        path="/doctors/show/:id"
+        render={(props) => (
+          <Doctor {...props} loggedInStatus={state.isAuth} />
+        )}
+      />
       <Route exact path="/doctors" component={Doctors} />
       <Route exact path="/confirm" component={Confirm} />
 

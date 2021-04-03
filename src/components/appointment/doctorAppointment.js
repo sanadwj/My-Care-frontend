@@ -1,21 +1,23 @@
 /* eslint-disable no-use-before-define */
-/* eslint-disable react/prop-types */
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router';
+import PropTypes from 'prop-types';
 import {
-  Button, Form, Loader, Image, Segment, Container, Card, Input, TextArea,
+  Button, Form, Loader,
 } from 'semantic-ui-react';
 import useForm from '../../util/hooks';
 import { fetchDoctorAppointmentStartAsync } from '../../actions/appointment/doctorAppointmentActions';
 
 const DoctorAppointment = (props) => {
-  const { doctor, userId, doctorId } = props;
+  const appointment = useSelector((state) => state.doctorAppointment);
+  const { doctorId } = props;
   const dispatch = useDispatch();
-  console.log(doctor);
+  const user = JSON.parse(localStorage.getItem('user'));
 
   const { onChange, onSubmit, values } = useForm(docAppointment, {
     doctor_id: doctorId,
-    user_id: userId,
+    user_id: user.id,
     username: '',
     note: '',
     at: '',
@@ -24,53 +26,57 @@ const DoctorAppointment = (props) => {
   function docAppointment() {
     dispatch(fetchDoctorAppointmentStartAsync(values));
   }
+
+  if (appointment.isFetching === true) {
+    return <Loader active inline="centered" />;
+  } if (appointment.appointment && appointment.appointment.status === 200) {
+    return <Redirect to="/" />;
+  }
+
   return (
     <div className="dappointment">
       <h1>Confirm Your Appointment</h1>
-      {
-        doctor.doctor && doctor.doctor[1] ? doctor.doctor[1].map((opt) => (
-          <Form key={opt.id} className="dappointmentForm" onSubmit={onSubmit}>
-            <Form.Group widths="equal">
-              <Form.Field>
-                <Form.Input
-                  name="username"
-                  value={values.username}
-                  onChange={onChange}
-                  label="Appointment For"
-                  placeholder="(Optional)"
-                />
-              </Form.Field>
-
-            </Form.Group>
-
-            <Form.Field>
-              <Form.TextArea
-                name="note"
-                value={values.note}
-                onChange={onChange}
-                label="Note"
-                placeholder="(Optional)"
-              />
-
-            </Form.Field>
-
+      <Form className="dappointmentForm" onSubmit={onSubmit}>
+        <Form.Group widths="equal">
+          <Form.Field>
             <Form.Input
-              name="at"
-              type="date"
-              value={values.at}
+              name="username"
+              value={values.username}
               onChange={onChange}
-              label="Date"
+              label="Appointment For"
+              placeholder="(Optional)"
             />
-            <Button
-              type="submit"
-              content="Confirm"
-            />
-          </Form>
+          </Form.Field>
+        </Form.Group>
 
-        )) : <Loader active inline="centered" />
-      }
+        <Form.Field>
+          <Form.TextArea
+            name="note"
+            value={values.note}
+            onChange={onChange}
+            label="Note"
+            placeholder="(Optional)"
+          />
+
+        </Form.Field>
+
+        <Form.Input
+          name="at"
+          type="date"
+          value={values.at}
+          onChange={onChange}
+          label="Date"
+        />
+        <Button
+          type="submit"
+          content="Confirm"
+        />
+
+      </Form>
     </div>
   );
 };
+
+
 
 export default DoctorAppointment;
