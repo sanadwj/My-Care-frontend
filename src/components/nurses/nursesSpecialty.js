@@ -34,7 +34,7 @@ const NursesSpecialtyList = (props) => {
             }}
           >
             <Item>
-              <Item.Image size="tiny" src="https://react.semantic-ui.com/images/wireframe/image.png" />
+              <Item.Image size="tiny" src={nurse.image} />
 
               <Item.Content>
                 <Item.Header>{nurse.name}</Item.Header>

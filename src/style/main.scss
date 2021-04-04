@@ -1,5 +1,6 @@
 html {
   font-size: 100%; // 1rem is 10px
+  margin: 0;
 }
 
 body {
@@ -11,10 +12,21 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: transparent;
 }
+.ui.icon.header .icon {
+  color: rgb(151, 191, 15);
+  font-size: 30px;
+}
+
+.ui.segment {
+  background-color: rgb(255, 180, 0);
+}
+
+.ui.grid {
+  margin: 0;
+}
 
 .app-wrapper {
   display: flex;
-  margin-top: 2rem;
   justify-items: center;
 }
 
@@ -37,6 +49,7 @@ body {
 .filter {
   min-height: 50%;
   margin: 30px !important;
+  overflow-y: visible;
 }
 
 .select {
