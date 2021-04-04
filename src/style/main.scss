@@ -6,7 +6,6 @@ html {
 body {
   overflow-x: hidden;
   font-weight: normal;
-  overflow-y: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -116,4 +115,8 @@ select {
 
 .dappointmentForm {
   max-width: 100% !important;
+}
+
+.pharmacies {
+  margin-bottom: 30px !important;
 }

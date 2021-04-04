@@ -39,7 +39,7 @@ const Nurse = (props) => {
 
             <div className="doctor">
               <Card>
-                <Image src="https://react.semantic-ui.com/images/avatar/large/matthew.png" wrapped ui={false} />
+                <Image src={n.image} wrapped ui={false} />
                 <Card.Content>
                   <Card.Header>{n.name}</Card.Header>
                   <Card.Meta>

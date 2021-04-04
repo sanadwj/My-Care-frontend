@@ -12,6 +12,7 @@ import Doctors from '../contailners/doctors/doctors';
 import Doctor from '../contailners/doctors/doctor';
 import Nurses from '../contailners/nurses/nurses';
 import Nurse from '../contailners/nurses/nurse';
+import Pharmacies from '../contailners/pharmacies/pharmacies';
 
 
 
@@ -66,6 +67,7 @@ const App = () => {
         />
         <Route exact path="/doctors" component={Doctors} />
         <Route exact path="/nurses" component={Nurses} />
+        <Route exact path="/pharmacies" component={Pharmacies} />
         <Route exact path="/confirm" component={Confirm} />
       </Switch>
 
