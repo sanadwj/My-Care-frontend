@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   Loader, Image, Card, Button, Grid,
 } from 'semantic-ui-react';
-import { fetchPharmaciesShowStartAsync } from '../../actions/pharmacies/pharmaciesShow';
+import { fetchPharmaciesShowStartAsync } from '../../actions/pharmacies/pharmaciesShowActions';
 
 const Nurse = (props) => {
   const pharmacies = useSelector((state) => state.pharmaciesShow);
