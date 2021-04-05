@@ -13,8 +13,7 @@ import Doctor from '../contailners/doctors/doctor';
 import Nurses from '../contailners/nurses/nurses';
 import Nurse from '../contailners/nurses/nurse';
 import Pharmacies from '../contailners/pharmacies/pharmacies';
-
-
+import PharmacyOrders from './pharmacies/pharmacyOrder';
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
@@ -65,9 +64,17 @@ const App = () => {
             <Nurse {...props} loggedInStatus={state.isAuth} />
           )}
         />
+        <Route
+          exact
+          path="/order"
+          render={(props) => (
+            <PharmacyOrders {...props} loggedInStatus={state.isAuth} />
+          )}
+        />
         <Route exact path="/doctors" component={Doctors} />
         <Route exact path="/nurses" component={Nurses} />
         <Route exact path="/pharmacies" component={Pharmacies} />
+
         <Route exact path="/confirm" component={Confirm} />
       </Switch>
 

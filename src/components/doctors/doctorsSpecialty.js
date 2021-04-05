@@ -18,7 +18,7 @@ const DoctorsSpecialtyList = (props) => {
   return (
     <div>
       <Header style={{ margin: 30 }}>
-        {doctorSpecialty.specialtyErrorMessage && doctorSpecialty.specialtyErrorMessage.response.status === 401 ? <h2>Please Register or Signin to see this page</h2> : ''}
+        {doctorSpecialty.ErrorMessage && doctorSpecialty.ErrorMessage.response.status === 401 ? <h2>Please Register or Signin to see this page</h2> : ''}
       </Header>
       {doctorSpecialty.isFetching === true ? (
         <Loader active inline="centered" />

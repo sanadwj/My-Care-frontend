@@ -3,7 +3,7 @@ import { RegistrationActionTypes } from '../../actions/actionTypes';
 const INITIAL_STATE = {
   registration: [],
   isFetching: false,
-  registerErrorMessage: undefined,
+  ErrorMessage: undefined,
 };
 
 const registrationReducer = (state = INITIAL_STATE, action) => {
@@ -22,7 +22,7 @@ const registrationReducer = (state = INITIAL_STATE, action) => {
     case RegistrationActionTypes.FETCH_DATA_FAILURE:
       return {
         ...state,
-        registerErrorMessage: action.error,
+        ErrorMessage: action.error,
         isFetching: false,
       };
     default:

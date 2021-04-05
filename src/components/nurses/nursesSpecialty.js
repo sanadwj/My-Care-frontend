@@ -18,7 +18,7 @@ const NursesSpecialtyList = (props) => {
   return (
     <div>
       <Header style={{ margin: 30 }}>
-        {nurseSpecialty.NSpecialtyErrorMessage && nurseSpecialty.NSpecialtyErrorMessage.response.status === 401 ? <h2>Please Register or Signin to see this page</h2> : ''}
+        {nurseSpecialty.ErrorMessage && nurseSpecialty.ErrorMessage.response.status === 401 ? <h2>Please Register or Signin to see this page</h2> : ''}
       </Header>
       {nurseSpecialty.isFetching === true ? (
         <Loader active inline="centered" />

@@ -1,9 +1,9 @@
 import { PharmacyOrderstActionTypes } from '../../actions/actionTypes';
 
 const INITIAL_STATE = {
-  pharmacyOrders: [],
+  orders: [],
   isFetching: false,
-  phOErrorMessage: undefined,
+  ErrorMessage: undefined,
 };
 
 const PharmacyOrdersReducer = (state = INITIAL_STATE, action) => {
@@ -17,13 +17,13 @@ const PharmacyOrdersReducer = (state = INITIAL_STATE, action) => {
     case PharmacyOrderstActionTypes.FITCH_DATA_SUCCESS:
       return {
         ...state,
-        pharmacyOrders: action.pharmacyOrders,
+        orders: action.orders,
         isFetching: false,
       };
     case PharmacyOrderstActionTypes.FETCH_DATA_FAILURE:
       return {
         ...state,
-        phPErrorMessage: action.error,
+        ErrorMessage: action.error,
         isFetching: false,
       };
     default:

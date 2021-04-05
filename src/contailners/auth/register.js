@@ -36,7 +36,7 @@ const Registration = (props) => {
         <Form.Field>
 
           <input
-            type="username"
+            type="text"
             name="username"
             placeholder="Username"
             value={values.username}
@@ -60,7 +60,7 @@ const Registration = (props) => {
         <Form.Field>
 
           <input
-            type="city"
+            type="text"
             name="city"
             placeholder="City"
             value={values.city}
@@ -94,7 +94,7 @@ const Registration = (props) => {
           Register
         </Button>
         {registration.isFetching === true ? <Loader active inline="centered" /> : ''}
-        {registration.registerErrorMessage && registration.registerErrorMessage.response.status === 500 ? 'Email Already Exsit' : ''}
+        {registration.ErrorMessage && registration.ErrorMessage.response.status === 500 ? 'Email Already Exsit' : ''}
       </Form>
     </Container>
   );

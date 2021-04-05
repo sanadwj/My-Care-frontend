@@ -26,7 +26,7 @@ const Auth = (props) => {
   }, [auth]);
 
   return (
-    <Container style={{ marginTop: 20 }}>
+    <Container className="authContainer">
       <Form onSubmit={onSubmit} className="formContainer">
         <Form.Field>
           <Form.Input
@@ -52,8 +52,8 @@ const Auth = (props) => {
           Login
         </Button>
         {auth.isFetching === true ? <Loader active inline="centered" /> : ''}
-        {auth && auth.AuthErrorMessage && auth.AuthErrorMessage.response && auth.AuthErrorMessage.response.status === 401 ? 'Please Confirm Your Email' : ''}
-        {auth && auth.AuthErrorMessage && auth.AuthErrorMessage.response && auth.AuthErrorMessage.response.status === 500 ? 'Check Your Email and Password' : ''}
+        {auth && auth.ErrorMessage && auth.ErrorMessage.response && auth.ErrorMessage.response.status === 401 ? 'Please Confirm Your Email' : ''}
+        {auth && auth.ErrorMessage && auth.ErrorMessage.response && auth.ErrorMessage.response.status === 500 ? 'Check Your Email and Password' : ''}
       </Form>
     </Container>
   );

@@ -3,7 +3,7 @@ import { NurseSpecialtyActionTypes } from '../../actions/actionTypes';
 const INITIAL_STATE = {
   nurses: [],
   isFetching: false,
-  NSpecialtyErrorMessage: undefined,
+  ErrorMessage: undefined,
 };
 
 const NurseSpecialtyReducer = (state = INITIAL_STATE, action) => {
@@ -23,7 +23,7 @@ const NurseSpecialtyReducer = (state = INITIAL_STATE, action) => {
     case NurseSpecialtyActionTypes.FETCH_DATA_FAILURE:
       return {
         ...state,
-        NSpecialtyErrorMessage: action.error,
+        ErrorMessage: action.error,
         isFetching: false,
       };
     default:

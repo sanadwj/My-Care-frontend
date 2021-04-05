@@ -3,7 +3,7 @@ import { NurseShowActionTypes } from '../../actions/actionTypes';
 const INITIAL_STATE = {
   nurse: [],
   isFetching: false,
-  NShowErrorMessage: undefined,
+  ErrorMessage: undefined,
 };
 
 const nurseShowReducer = (state = INITIAL_STATE, action) => {
@@ -23,7 +23,7 @@ const nurseShowReducer = (state = INITIAL_STATE, action) => {
     case NurseShowActionTypes.FETCH_DATA_FAILURE:
       return {
         ...state,
-        NShowErrorMessage: action.error,
+        ErrorMessage: action.error,
         isFetching: false,
       };
     default:

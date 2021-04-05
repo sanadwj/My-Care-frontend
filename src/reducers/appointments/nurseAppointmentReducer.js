@@ -3,7 +3,7 @@ import { NurseAppointmentActionTypes } from '../../actions/actionTypes';
 const INITIAL_STATE = {
   appointment: [],
   isFetching: false,
-  nAppErrorMessage: undefined,
+  ErrorMessage: undefined,
 };
 
 const NurseAppointmentReducer = (state = INITIAL_STATE, action) => {
@@ -23,7 +23,7 @@ const NurseAppointmentReducer = (state = INITIAL_STATE, action) => {
     case NurseAppointmentActionTypes.FETCH_DATA_FAILURE:
       return {
         ...state,
-        nAppErrorMessage: action.error,
+        ErrorMessage: action.error,
         isFetching: false,
       };
     default:

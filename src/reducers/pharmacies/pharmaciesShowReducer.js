@@ -3,7 +3,7 @@ import { PharmaciesShowtActionTypes } from '../../actions/actionTypes';
 const INITIAL_STATE = {
   pharmacies: [],
   isFetching: false,
-  phErrorMessage: undefined,
+  ErrorMessage: undefined,
 };
 
 const PharmacyShowReducer = (state = INITIAL_STATE, action) => {
@@ -23,7 +23,7 @@ const PharmacyShowReducer = (state = INITIAL_STATE, action) => {
     case PharmaciesShowtActionTypes.FETCH_DATA_FAILURE:
       return {
         ...state,
-        phErrorMessage: action.error,
+        ErrorMessage: action.error,
         isFetching: false,
       };
     default:
