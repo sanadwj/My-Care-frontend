@@ -5,7 +5,7 @@ import {
   Loader, Image, Card,
 } from 'semantic-ui-react';
 import { fetchNurseShowStartAsync } from '../../actions/nurses/nurseShowActions';
-import NurseAppointment from '../../components/appointment/nurseAppointment';
+import NurseAppointment from '../../components/nurseAppointment/nurseAppointment';
 
 const Nurse = (props) => {
   const nurse = useSelector((state) => state.nurseShow);

@@ -1,16 +1,16 @@
 import { combineReducers } from 'redux';
 import authReducer from './auth/authReducer';
 import { AuthActionTypes } from '../actions/actionTypes';
-
 import doctorSpecialtyReducer from './doctors/doctorSpecialtyReducer';
 import registrationReducer from './auth/registrationReducer';
 import doctorShowReducer from './doctors/doctorShowReducer';
-import DoctorAppointmentReducer from './appointments/doctorAppointmentReducer';
+import DoctorAppointmentReducer from './doctorAppointments/doctorAppointmentReducer';
 import NurseSpecialtyReducer from './nurses/nurseSpecialtyReducer';
 import nurseShowReducer from './nurses/nurseShowReducer';
-import NurseAppointmentReducer from './appointments/nurseAppointmentReducer';
+import NurseAppointmentReducer from './nurseAppointment/nurseAppointmentReducer';
 import PharmacyShowReducer from './pharmacies/pharmaciesShowReducer';
 import PharmacyOrdersReducer from './pharmacies/pharmacyOrdersReducer';
+import GetDoctorAppointmentReducer from './doctorAppointments/getDoctorAppointmentReducer';
 
 const appReducer = combineReducers({
   registration: registrationReducer,
@@ -18,6 +18,7 @@ const appReducer = combineReducers({
   doctorShow: doctorShowReducer,
   doctorSpecialty: doctorSpecialtyReducer,
   doctorAppointment: DoctorAppointmentReducer,
+  getDoctorAppointment: GetDoctorAppointmentReducer,
   nurseShow: nurseShowReducer,
   nurseSpecialty: NurseSpecialtyReducer,
   nurseAppointment: NurseAppointmentReducer,
