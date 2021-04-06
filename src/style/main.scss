@@ -22,11 +22,17 @@ body {
 
 .ui.grid {
   margin: 0;
+  max-width: 12rem;
+}
+
+.ui.vertical.menu {
+  max-width: 10rem;
 }
 
 .app-wrapper {
   display: flex;
   justify-items: center;
+  width: 90%;
 }
 
 .ui.secondary.menu .active.item {
@@ -104,10 +110,16 @@ select {
 
 .doctor {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  margin: 30px !important;
+  width: 90%;
+}
+
+.doctorDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
 }
 
 .dappointment {
@@ -115,6 +127,7 @@ select {
   margin: 30px !important;
   justify-content: center;
   flex-direction: column;
+  width: auto;
 }
 
 .dappointmentForm {
@@ -127,6 +140,19 @@ select {
 
 @media only screen and (max-width: 767px) {
   .ui.container {
-    width: 100% !important;
+    width: 90% !important;
+    margin: 30px;
+  }
+}
+
+@media only screen and (max-width: 484px) {
+  .doctorDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    margin: 30px;
+    padding: 10px;
   }
 }

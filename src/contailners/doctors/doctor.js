@@ -33,37 +33,34 @@ const Doctor = (props) => {
   }
 
   return (
-    <div>
+    <div className="doctor">
       {loggedInStatus === true
         ? (
-          <div>
-
-            <div className="doctor">
-              <Card>
-                <Image src={d.image} wrapped ui={false} />
-                <Card.Content>
-                  <Card.Header>{d.name}</Card.Header>
-                  <Card.Meta>
-                    <span className="date">{d.specialty}</span>
-                  </Card.Meta>
-                  <Card.Description>
-                    {d.location}
-                  </Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                  <Card.Meta>
-                    <span className="date">
-                      Rate:
-                      {' '}
-                      {d.rate}
-                      $
-                    </span>
-                  </Card.Meta>
-                </Card.Content>
-              </Card>
-              <div />
-              <DoctorAppointment doctorId={d.id} />
-            </div>
+          <div className="doctorDiv">
+            <Card>
+              <Image src={d.image} wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>{d.name}</Card.Header>
+                <Card.Meta>
+                  <span className="date">{d.specialty}</span>
+                </Card.Meta>
+                <Card.Description>
+                  {d.location}
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <Card.Meta>
+                  <span className="date">
+                    Rate:
+                    {' '}
+                    {d.rate}
+                    $
+                  </span>
+                </Card.Meta>
+              </Card.Content>
+            </Card>
+            <div />
+            <DoctorAppointment doctorId={d.id} />
           </div>
         )
         : <h2>Please Register or Signin to see this page</h2>}
