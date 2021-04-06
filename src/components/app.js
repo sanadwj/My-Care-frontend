@@ -14,6 +14,7 @@ import Nurses from '../contailners/nurses/nurses';
 import Nurse from '../contailners/nurses/nurse';
 import Pharmacies from '../contailners/pharmacies/pharmacies';
 import PharmacyOrders from './pharmacies/pharmacyOrder';
+import GetDoctorAppointment from './doctorAppointment/getDoctorAppointment';
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
@@ -21,11 +22,11 @@ const App = () => {
   const {
     state, handleLogin, handleLogout, checkAuthStatus,
   } = authStatus();
-  console.log(state);
+
   useEffect(() => {
     checkAuthStatus(auth);
   }, [auth]);
-  console.log(state.isAuth);
+
   return (
     <Router fluied>
       <NavBar
@@ -74,6 +75,9 @@ const App = () => {
         <Route exact path="/doctors" component={Doctors} />
         <Route exact path="/nurses" component={Nurses} />
         <Route exact path="/pharmacies" component={Pharmacies} />
+
+        <Route exact path="/doctor_appointment" component={GetDoctorAppointment} />
+
 
         <Route exact path="/confirm" component={Confirm} />
       </Switch>
