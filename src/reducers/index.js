@@ -11,6 +11,7 @@ import NurseAppointmentReducer from './nurseAppointment/nurseAppointmentReducer'
 import PharmacyShowReducer from './pharmacies/pharmaciesShowReducer';
 import PharmacyOrdersReducer from './pharmacies/pharmacyOrdersReducer';
 import GetDoctorAppointmentReducer from './doctorAppointments/getDoctorAppointmentReducer';
+import GetNurseAppointmentReducer from './nurseAppointment/getNurseAppointmentReducer';
 
 const appReducer = combineReducers({
   registration: registrationReducer,
@@ -22,6 +23,7 @@ const appReducer = combineReducers({
   nurseShow: nurseShowReducer,
   nurseSpecialty: NurseSpecialtyReducer,
   nurseAppointment: NurseAppointmentReducer,
+  getNurseAppointment: GetNurseAppointmentReducer,
   pharmaciesShow: PharmacyShowReducer,
   pharmacyOrders: PharmacyOrdersReducer,
 });

@@ -14,6 +14,7 @@ import Nurses from '../contailners/nurses/nurses';
 import Nurse from '../contailners/nurses/nurse';
 import Pharmacies from '../contailners/pharmacies/pharmacies';
 import PharmacyOrders from './pharmacies/pharmacyOrder';
+import AppointmentsAndOrders from '../contailners/appointmentAndOrders/appointmentsAndOrders';
 import GetDoctorAppointment from './doctorAppointment/getDoctorAppointment';
 
 const App = () => {
@@ -72,13 +73,20 @@ const App = () => {
             <PharmacyOrders {...props} loggedInStatus={state.isAuth} />
           )}
         />
+        {/* <Route
+          exact
+          path="/doctorappointments"
+          render={(props) => (
+            <GetDoctorAppointment {...props} loggedInStatus={state.isAuth} />
+          )}
+        /> */}
+        {/* <Route to="/nurseappointments" component={GetNurseAppointment} /> */}
+        <Route to="/doctorappointments" component={GetDoctorAppointment} />
+        <Route exact path="/appointments" component={AppointmentsAndOrders} />
+
         <Route exact path="/doctors" component={Doctors} />
         <Route exact path="/nurses" component={Nurses} />
         <Route exact path="/pharmacies" component={Pharmacies} />
-
-        <Route exact path="/doctor_appointment" component={GetDoctorAppointment} />
-
-
         <Route exact path="/confirm" component={Confirm} />
       </Switch>
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, Grid } from 'semantic-ui-react';
+import { Menu, Grid, Dropdown } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const NavBar = (props) => {
@@ -44,12 +44,30 @@ const NavBar = (props) => {
       <Grid.Column width={2}>
         <Menu secondary vertical>
           <Menu.Item
+            name="appointments"
+            active={activeItem === 'appointments'}
+            onClick={handleItemClick}
+            as={Link}
+            to="/appointments"
+          />
+          <Menu.Item
             name="home"
             active={activeItem === 'home'}
             onClick={handleItemClick}
             as={Link}
             to="/"
           />
+          <Dropdown item text="More">
+            <Dropdown.Menu>
+              <Dropdown.Item
+                text="Edit Profile"
+                as={Link}
+                to="/doctorappointments"
+              />
+              <Dropdown.Item text="Choose Language" />
+              <Dropdown.Item text="Account Settings" />
+            </Dropdown.Menu>
+          </Dropdown>
           <Menu.Item
             name="doctors"
             active={activeItem === 'doctors'}
