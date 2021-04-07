@@ -52,6 +52,12 @@ const NurseAppointmentActionTypes = {
   FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
 };
 
+const GetNurseAppointmentActionTypes = {
+  FITCH_DATA_START: 'FETCH_DATA_START',
+  FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
+  FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
+};
+
 const PharmaciesShowtActionTypes = {
   FITCH_DATA_START: 'FETCH_DATA_START',
   FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
@@ -76,4 +82,5 @@ export {
   PharmaciesShowtActionTypes,
   PharmacyOrderstActionTypes,
   GetDoctorAppointmentActionTypes,
+  GetNurseAppointmentActionTypes,
 };
