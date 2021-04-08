@@ -12,6 +12,7 @@ import PharmacyShowReducer from './pharmacies/pharmaciesShowReducer';
 import PharmacyOrdersReducer from './pharmacies/pharmacyOrdersReducer';
 import GetDoctorAppointmentReducer from './doctorAppointments/getDoctorAppointmentReducer';
 import GetNurseAppointmentReducer from './nurseAppointment/getNurseAppointmentReducer';
+import ResetPasswordReducer from './passwords/resetPasswordReducer';
 
 const appReducer = combineReducers({
   registration: registrationReducer,
@@ -26,6 +27,7 @@ const appReducer = combineReducers({
   getNurseAppointment: GetNurseAppointmentReducer,
   pharmaciesShow: PharmacyShowReducer,
   pharmacyOrders: PharmacyOrdersReducer,
+  reset: ResetPasswordReducer,
 });
 
 const rootReducer = (state, action) => {
