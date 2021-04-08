@@ -5,9 +5,9 @@ export const fetchResetPasswordsStart = () => ({
   type: ResetPasswordActionTypes.FITCH_DATA_START,
 });
 
-export const fetchResetPasswordsSuccess = (orders) => ({
+export const fetchResetPasswordsSuccess = (reset) => ({
   type: ResetPasswordActionTypes.FITCH_DATA_SUCCESS,
-  orders,
+  reset,
 });
 
 export const fetchResetPasswordsFailure = (error) => ({

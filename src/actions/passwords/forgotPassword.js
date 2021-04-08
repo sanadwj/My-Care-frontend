@@ -5,9 +5,9 @@ export const fetchForgotPasswordsStart = () => ({
   type: forgotPasswordActionTypes.FITCH_DATA_START,
 });
 
-export const fetchForgotPasswordsSuccess = (orders) => ({
+export const fetchForgotPasswordsSuccess = (status) => ({
   type: forgotPasswordActionTypes.FITCH_DATA_SUCCESS,
-  orders,
+  status,
 });
 
 export const fetchForgotPasswordsFailure = (error) => ({

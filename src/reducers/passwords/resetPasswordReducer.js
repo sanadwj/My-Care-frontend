@@ -1,7 +1,7 @@
 import { ResetPasswordActionTypes } from '../../actions/actionTypes';
 
 const INITIAL_STATE = {
-  status: [],
+  reset: [],
   isFetching: false,
   ErrorMessage: undefined,
 };
@@ -17,7 +17,7 @@ const ResetPasswordReducer = (state = INITIAL_STATE, action) => {
     case ResetPasswordActionTypes.FITCH_DATA_SUCCESS:
       return {
         ...state,
-        status: action.status,
+        reset: action.reset,
         isFetching: false,
       };
     case ResetPasswordActionTypes.FETCH_DATA_FAILURE:

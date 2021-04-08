@@ -34,7 +34,7 @@ const Registration = (props) => {
     <Container style={{ margin: 20 }}>
       <Form onSubmit={onSubmit} className="formContainer">
         <Form.Field>
-
+          <label>Username</label>
           <input
             type="text"
             name="username"
@@ -46,7 +46,7 @@ const Registration = (props) => {
         </Form.Field>
 
         <Form.Field>
-
+          <label>Email</label>
           <input
             type="email"
             name="email"
@@ -58,7 +58,7 @@ const Registration = (props) => {
         </Form.Field>
 
         <Form.Field>
-
+          <label>City</label>
           <input
             type="text"
             name="city"
@@ -69,7 +69,7 @@ const Registration = (props) => {
           />
         </Form.Field>
         <Form.Field>
-
+          <label>Password</label>
           <input
             type="password"
             name="password"
@@ -80,6 +80,7 @@ const Registration = (props) => {
           />
         </Form.Field>
         <Form.Field>
+          <label>Confirm Password</label>
 
           <input
             type="password"

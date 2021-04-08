@@ -16,6 +16,8 @@ import Pharmacies from '../contailners/pharmacies/pharmacies';
 import PharmacyOrders from './pharmacies/pharmacyOrder';
 import GetNurseAppointment from './nurseAppointment/getNurseAppointment';
 import GetDoctorAppointment from './doctorAppointment/getDoctorAppointment';
+import ForgotPassword from '../pages/forgotPassword';
+import ResetPassword from '../pages/resetPassword';
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
@@ -86,8 +88,8 @@ const App = () => {
         <Route exact path="/nurses" component={Nurses} />
         <Route exact path="/pharmacies" component={Pharmacies} />
         <Route exact path="/confirm" component={Confirm} />
-        <Route exact path="/forgot" component={Confirm} />
-        <Route exact path="/reset" component={Confirm} />
+        <Route exact path="/forgot" component={ForgotPassword} />
+        <Route exact path="/reset" component={ResetPassword} />
       </Switch>
 
     </Router>
