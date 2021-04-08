@@ -82,11 +82,12 @@ const App = () => {
         /> */}
         <Route exact path="/nurseappointments" component={GetNurseAppointment} />
         <Route exact path="/doctorappointments" component={GetDoctorAppointment} />
-        {/* <Route exact path="/appointments" component={AppointmentsAndOrders} /> */}
         <Route exact path="/doctors" component={Doctors} />
         <Route exact path="/nurses" component={Nurses} />
         <Route exact path="/pharmacies" component={Pharmacies} />
         <Route exact path="/confirm" component={Confirm} />
+        <Route exact path="/forgot" component={Confirm} />
+        <Route exact path="/reset" component={Confirm} />
       </Switch>
 
     </Router>
