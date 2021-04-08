@@ -17,7 +17,6 @@ export const fetchResetPasswordsFailure = (error) => ({
 // eslint-disable-next-line arrow-body-style
 export const fetchResetPasswordsStartAsync = (email) => (dispatch) => {
   dispatch(fetchResetPasswordsStart());
-  const token = localStorage.getItem('token');
   axios
     .post('http://localhost:5000/api/v1/forgot', email)
     // eslint-disable-next-line max-len
