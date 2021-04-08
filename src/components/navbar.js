@@ -44,28 +44,24 @@ const NavBar = (props) => {
       <Grid.Column width={2}>
         <Menu secondary vertical>
           <Menu.Item
-            name="appointments"
-            active={activeItem === 'appointments'}
-            onClick={handleItemClick}
-            as={Link}
-            to="/appointments"
-          />
-          <Menu.Item
             name="home"
             active={activeItem === 'home'}
             onClick={handleItemClick}
             as={Link}
-            to="/"
+            to="/home"
           />
-          <Dropdown item text="More">
+          <Dropdown item text="Appointments" className="dropdown">
             <Dropdown.Menu>
               <Dropdown.Item
-                text="Edit Profile"
+                text="Doctor Appointments"
                 as={Link}
                 to="/doctorappointments"
               />
-              <Dropdown.Item text="Choose Language" />
-              <Dropdown.Item text="Account Settings" />
+              <Dropdown.Item
+                text="Nurse Appointments"
+                as={Link}
+                to="/nurseappointments"
+              />
             </Dropdown.Menu>
           </Dropdown>
           <Menu.Item

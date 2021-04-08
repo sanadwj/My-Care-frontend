@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Table, Header, Segment } from 'semantic-ui-react';
+import { Card, Header, Segment, Loader } from 'semantic-ui-react';
 import moment from 'moment';
 import { fetchGetNurseAppointmentStartAsync } from '../../actions/nurseAppointment/getNurseAppointmentActions';
 
@@ -14,39 +14,66 @@ const GetNurseAppointment = () => {
   }, []);
 
   return (
-    <Segment>
-
-      <Header>
-        Nurse Appointments
+    <div>
+      <Header style={{ margin: 30 }}>
+        {nurseAppointment.ErrorMessage && nurseAppointment.ErrorMessage.response.status === 401 ? <h2>Please Register or Signin to see this page</h2> : ''}
       </Header>
-      <Table striped>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Name</Table.HeaderCell>
-            <Table.HeaderCell>Date</Table.HeaderCell>
-            <Table.HeaderCell>Location</Table.HeaderCell>
-            <Table.HeaderCell>Appointment For</Table.HeaderCell>
-            <Table.HeaderCell>Note</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
+      {
+        nurseAppointment.isFetching === true ? (
+          <Loader active inline="centered" />
+        )
+          : (
+            <Segment>
 
-        {nurseAppointment.appointment
-          && nurseAppointment.appointment.appointment
-          && nurseAppointment.appointment.appointment.map((appointment) => (
-            <Table.Body key={appointment.id}>
-              <Table.Row>
-                <Table.Cell>{appointment.name}</Table.Cell>
-                <Table.Cell>{moment(appointment.at).format('MMM Do YY')}</Table.Cell>
-                <Table.Cell>{appointment.location}</Table.Cell>
-                <Table.Cell>{appointment.username}</Table.Cell>
-                <Table.Cell>{appointment.note}</Table.Cell>
-              </Table.Row>
+              <Header>
+                Nurse Appointments
+              </Header>
+              <Card.Group>
+                {nurseAppointment.appointment
+                  && nurseAppointment.appointment.appointment
+                  && nurseAppointment.appointment.appointment.map((appointment) => (
+                    <Card key={appointment.id}>
+                      <Card.Content>
+                        <Card.Header>{appointment.name}</Card.Header>
+                        <br />
+                        <Card.Meta>
+                          At:
+                          {' '}
+                          {moment(appointment.at).format('MMM Do YY')}
+                        </Card.Meta>
+                        <br />
+                        <Card.Meta>
+                          Appointment For:
+                          {' '}
+                          {appointment.username}
+                        </Card.Meta>
+                        <br />
+                        <Card.Meta>
+                          Made By:
+                          {' '}
+                          {appointment.signed_in_user}
+                        </Card.Meta>
+                        <br />
+                        <Card.Description>
+                          Location:
+                          {' '}
+                          {appointment.location}
+                        </Card.Description>
+                        <br />
+                        <Card.Description>
+                          Note:
+                          {' '}
+                          {appointment.note}
+                        </Card.Description>
+                      </Card.Content>
+                    </Card>
 
-            </Table.Body>
-
-          ))}
-      </Table>
-    </Segment>
+                  ))}
+              </Card.Group>
+            </Segment>
+          )
+      }
+    </div>
   );
 };
 

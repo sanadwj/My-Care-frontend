@@ -16,7 +16,7 @@ const Pharmacies = () => {
 
   return (
     <Grid columns={2}>
-      <Grid.Row>
+      <Grid.Row className="cardrow">
         {pharmacies && pharmacies.pharmacies && pharmacies.pharmacies.map((pharmacy) => (
           <Grid.Column key={pharmacy.id} className="pharmacies" textAlign="center">
             <Card className="phCard">

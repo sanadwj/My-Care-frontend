@@ -32,37 +32,34 @@ const Nurse = (props) => {
   }
 
   return (
-    <div>
+    <div className="doctor">
       {loggedInStatus === true
         ? (
-          <div>
-
-            <div className="doctor">
-              <Card>
-                <Image src={n.image} wrapped ui={false} />
-                <Card.Content>
-                  <Card.Header>{n.name}</Card.Header>
-                  <Card.Meta>
-                    <span className="date">{n.specialty}</span>
-                  </Card.Meta>
-                  <Card.Description>
-                    {n.location}
-                  </Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                  <Card.Meta>
-                    <span className="date">
-                      Rate:
-                      {' '}
-                      {n.rate}
-                      $
-                    </span>
-                  </Card.Meta>
-                </Card.Content>
-              </Card>
-              <div />
-              <NurseAppointment nurseId={n.id} />
-            </div>
+          <div className="doctorDiv">
+            <Card>
+              <Image src={n.image} wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>{n.name}</Card.Header>
+                <Card.Meta>
+                  <span className="date">{n.specialty}</span>
+                </Card.Meta>
+                <Card.Description>
+                  {n.location}
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <Card.Meta>
+                  <span className="date">
+                    Rate:
+                    {' '}
+                    {n.rate}
+                    $
+                  </span>
+                </Card.Meta>
+              </Card.Content>
+            </Card>
+            <div />
+            <NurseAppointment nurseId={n.id} />
           </div>
         )
         : <h2>Please Register or Signin to see this page</h2>}

@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
 html {
+  font-family: 'Comfortaa', cursive;
   font-size: 100%; // 1rem is 10px
   margin: 0;
 }
 
 body {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
   overflow-x: hidden;
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
@@ -16,17 +21,40 @@ body {
   font-size: 30px;
 }
 
+.dropdown {
+  background-color: rgb(151, 191, 15) !important;
+  color: #ffffff;
+  padding: 0;
+  margin: 0;
+}
+
+.ui.vertical.menu .dropdown.item > .icon {
+  float: right;
+  content: '\F0DA';
+  margin-left: 0;
+  height: 5px;
+}
+
+.ui.secondary.vertical.menu > .item {
+  border: none;
+  margin: 0 0 0.2em;
+  border-radius: 0.28571rem !important;
+  padding: 15px;
+}
+
 .ui.segment {
   background-color: rgb(255, 180, 0);
 }
 
 .ui.grid {
   margin: 0;
-  max-width: 12rem;
+  padding: 15px;
+  font-family: 'Comfortaa', cursive;
 }
 
 .ui.vertical.menu {
-  max-width: 10rem;
+  max-width: 12rem;
+  padding: 10px 20px;
 }
 
 .app-wrapper {
@@ -113,6 +141,7 @@ select {
   justify-content: space-between;
   align-items: center;
   width: 90%;
+  margin: auto 0;
 }
 
 .doctorDiv {
@@ -138,10 +167,25 @@ select {
   margin-bottom: 30px !important;
 }
 
+.ui.cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -0.875em -0.5em;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
 @media only screen and (max-width: 767px) {
   .ui.container {
     width: 90% !important;
     margin: 30px;
+  }
+
+  body {
+    overflow-x: hidden;
   }
 }
 
@@ -154,5 +198,9 @@ select {
     width: auto;
     margin: 30px;
     padding: 10px;
+  }
+
+  body {
+    overflow-x: hidden;
   }
 }
