@@ -5,9 +5,9 @@ export const fetchGetNurseAppointmentStart = () => ({
   type: GetNurseAppointmentActionTypes.FITCH_DATA_START,
 });
 
-export const fetchGetNurseAppointmentSuccess = (appointment) => ({
+export const fetchGetNurseAppointmentSuccess = (getNurAppointment) => ({
   type: GetNurseAppointmentActionTypes.FITCH_DATA_SUCCESS,
-  appointment,
+  getNurAppointment,
 });
 
 export const fetchGetNurseAppointmentFailure = (error) => ({

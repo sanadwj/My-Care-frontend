@@ -1,7 +1,7 @@
 import { GetNurseAppointmentActionTypes } from '../../actions/actionTypes';
 
 const INITIAL_STATE = {
-  appointment: [],
+  getNurAppointment: [],
   isFetching: false,
   ErrorMessage: undefined,
 };
@@ -17,7 +17,7 @@ const GetNurseAppointmentReducer = (state = INITIAL_STATE, action) => {
     case GetNurseAppointmentActionTypes.FITCH_DATA_SUCCESS:
       return {
         ...state,
-        appointment: action.appointment,
+        getNurAppointment: action.getNurAppointment,
         isFetching: false,
       };
     case GetNurseAppointmentActionTypes.FETCH_DATA_FAILURE:

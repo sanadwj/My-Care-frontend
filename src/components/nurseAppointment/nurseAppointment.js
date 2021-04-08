@@ -29,8 +29,8 @@ const NurseAppointment = (props) => {
 
   if (appointment.isFetching === true) {
     return <Loader active inline="centered" />;
-  } if (appointment.appointment && appointment.appointment.status === 200) {
-    return <Redirect to="/" />;
+  } if (appointment.nurAppointment && appointment.nurAppointment.status === 200) {
+    return <Redirect to="/nurseappointments" />;
   }
 
   return (

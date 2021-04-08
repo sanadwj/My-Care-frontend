@@ -7,7 +7,7 @@ import { fetchGetDoctorAppointmentStartAsync } from '../../actions/doctorAppoint
 const GetDoctorAppointment = () => {
   const doctorAppointment = useSelector((state) => state.getDoctorAppointment);
   const dispatch = useDispatch();
-  console.log(doctorAppointment.appointment);
+  console.log(doctorAppointment.getDocAppointment);
 
   useEffect(() => {
     dispatch(fetchGetDoctorAppointmentStartAsync());
@@ -30,9 +30,9 @@ const GetDoctorAppointment = () => {
               </Header>
 
               <Card.Group>
-                {doctorAppointment.appointment
-                  && doctorAppointment.appointment.appointment
-                  && doctorAppointment.appointment.appointment.map((appointment) => (
+                {doctorAppointment.getDocAppointment
+                  && doctorAppointment.getDocAppointment.appointment
+                  && doctorAppointment.getDocAppointment.appointment.map((appointment) => (
                     <Card key={appointment.id}>
                       <Card.Content>
                         <Card.Header>{appointment.name}</Card.Header>

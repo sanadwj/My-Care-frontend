@@ -1,7 +1,7 @@
 import { NurseAppointmentActionTypes } from '../../actions/actionTypes';
 
 const INITIAL_STATE = {
-  appointment: [],
+  nurAppointment: [],
   isFetching: false,
   ErrorMessage: undefined,
 };
@@ -17,7 +17,7 @@ const NurseAppointmentReducer = (state = INITIAL_STATE, action) => {
     case NurseAppointmentActionTypes.FITCH_DATA_SUCCESS:
       return {
         ...state,
-        appointment: action.appointment,
+        nurAppointment: action.nurAppointment,
         isFetching: false,
       };
     case NurseAppointmentActionTypes.FETCH_DATA_FAILURE:

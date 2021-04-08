@@ -7,7 +7,7 @@ import { fetchGetNurseAppointmentStartAsync } from '../../actions/nurseAppointme
 const GetNurseAppointment = () => {
   const nurseAppointment = useSelector((state) => state.getNurseAppointment);
   const dispatch = useDispatch();
-  console.log(nurseAppointment.appointment);
+  console.log(nurseAppointment.getNurAppointment);
 
   useEffect(() => {
     dispatch(fetchGetNurseAppointmentStartAsync());
@@ -29,9 +29,9 @@ const GetNurseAppointment = () => {
                 Nurse Appointments
               </Header>
               <Card.Group>
-                {nurseAppointment.appointment
-                  && nurseAppointment.appointment.appointment
-                  && nurseAppointment.appointment.appointment.map((appointment) => (
+                {nurseAppointment.getNurAppointment
+                  && nurseAppointment.getNurAppointment.appointment
+                  && nurseAppointment.getNurAppointment.appointment.map((appointment) => (
                     <Card key={appointment.id}>
                       <Card.Content>
                         <Card.Header>{appointment.name}</Card.Header>
