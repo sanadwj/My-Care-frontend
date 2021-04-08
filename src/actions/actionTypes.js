@@ -70,6 +70,12 @@ const PharmacyOrderstActionTypes = {
   FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
 };
 
+const ResetPasswordActionTypes = {
+  FITCH_DATA_START: 'FETCH_DATA_START',
+  FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
+  FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
+};
+
 export {
   RegistrationActionTypes,
   AuthActionTypes,
@@ -83,4 +89,5 @@ export {
   PharmacyOrderstActionTypes,
   GetDoctorAppointmentActionTypes,
   GetNurseAppointmentActionTypes,
+  ResetPasswordActionTypes,
 };
