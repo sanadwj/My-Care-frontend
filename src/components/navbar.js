@@ -33,7 +33,7 @@ const NavBar = (props) => {
             active={activeItem === 'register'}
             onClick={handleItemClick}
             as={Link}
-            to="/regitration"
+            to="/"
           />
         </Menu>
       </Grid.Column>

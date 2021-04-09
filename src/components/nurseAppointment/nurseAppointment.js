@@ -27,9 +27,7 @@ const NurseAppointment = (props) => {
     dispatch(fetchNurseAppointmentStartAsync(values));
   }
 
-  if (appointment.isFetching === true) {
-    return <Loader active inline="centered" />;
-  } if (appointment.nurAppointment && appointment.nurAppointment.status === 200) {
+  if (appointment.nurAppointment && appointment.nurAppointment.status === 200) {
     return <Redirect to="/nurseappointments" />;
   }
 
@@ -75,6 +73,9 @@ const NurseAppointment = (props) => {
         />
 
       </Form>
+      <div>
+        {appointment.isFetching === true ? <Loader active inline="centered" /> : ''}
+      </div>
     </div>
   );
 };

@@ -24,11 +24,9 @@ const PharmacyOrders = (props) => {
     dispatch(fetchPharmacyOrdersStartAsync(values));
   }
 
-  if (orders.isFetching === true) {
-    return <Loader active inline="centered" />;
-  } if (orders.orders && orders.orders.status === 200) {
+  if (orders.orders && orders.orders.status === 200) {
     console.log(orders.orders.status);
-    return <Redirect to="/" />;
+    return <Redirect to="/pharmacies" />;
   }
 
   return (
@@ -87,6 +85,9 @@ const PharmacyOrders = (props) => {
           />
         </Modal.Actions>
       </Form>
+      <div>
+        {orders.isFetching === true ? <Loader active inline="centered" /> : ''}
+      </div>
     </Container>
   );
 };

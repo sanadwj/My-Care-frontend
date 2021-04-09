@@ -48,7 +48,7 @@ const App = () => {
         />
         <Route
           exact
-          path="/regitration"
+          path="/"
           render={(props) => (
             <Registration {...props} handleLogin={handleLogin} />
           )}

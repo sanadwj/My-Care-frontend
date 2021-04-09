@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 html {
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Montserrat', sans-serif;
   font-size: 100%; // 1rem is 10px
   margin: 0;
 }
 
 body {
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   overflow-x: hidden;
   font-weight: normal;
@@ -55,6 +55,7 @@ body {
   padding: 15px;
   font-family: 'Comfortaa', cursive;
   position: sticky;
+  z-index: 10;
 }
 
 .ui.vertical.menu {
@@ -205,6 +206,32 @@ select {
 
 .ui.header:first-child {
   text-align: center;
+}
+
+.homeDiv {
+  margin: 30px;
+  padding: 30px;
+  background-color: rgb(151, 191, 15);
+  border-radius: 0.28571rem;
+}
+
+.homeseg {
+  margin: 0 auto 40px auto !important;
+}
+
+.homegr {
+  height: 40px !important;
+  width: auto !important;
+}
+
+.welcome {
+  text-align: center;
+  color: rgb(255, 180, 0);
+}
+
+.img {
+  height: 100px !important;
+  margin: 5px;
 }
 
 @media only screen and (max-width: 767px) {

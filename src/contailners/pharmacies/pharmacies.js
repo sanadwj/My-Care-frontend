@@ -10,6 +10,7 @@ import { fetchPharmaciesShowStartAsync } from '../../actions/pharmacies/pharmaci
 
 const Pharmacies = () => {
   const pharmacies = useSelector((state) => state.pharmaciesShow);
+  const orders = useSelector((state) => state.pharmacyOrders);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,10 +19,13 @@ const Pharmacies = () => {
 
   return (
     <Grid columns={2}>
+      <div>
+        {orders.orders && orders.orders.status === 200 ? 'Yor Order is Placed Successfully' : ''}
+      </div>
       <Grid.Row className="cardrow">
         <Card.Group>
           {pharmacies && pharmacies.pharmacies && pharmacies.pharmacies.map((pharmacy) => (
-            <Card className="phCard">
+            <Card className="phCard" key={pharmacy.id}>
               <Card.Content>
                 <Card.Header>{pharmacy.name}</Card.Header>
                 <Card.Description>
@@ -38,7 +42,7 @@ const Pharmacies = () => {
                   }}
                   >
                     Order
-                    </Link>
+                  </Link>
                 </Button>
               </Card.Content>
             </Card>

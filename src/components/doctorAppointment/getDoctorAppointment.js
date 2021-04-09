@@ -71,6 +71,11 @@ const GetDoctorAppointment = () => {
 
                   ))}
               </Card.Group>
+              <div style={{ marginTop: 30 }}>
+                {doctorAppointment.getDocAppointment
+                  && doctorAppointment.getDocAppointment.appointment
+                  && doctorAppointment.getDocAppointment.appointment.length === 0 ? 'Sorry there is no Appointments' : ''}
+              </div>
             </Segment>
           )
       }
