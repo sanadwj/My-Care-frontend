@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { combineReducers } from 'redux';
 import authReducer from './auth/authReducer';
 import { AuthActionTypes } from '../actions/actionTypes';

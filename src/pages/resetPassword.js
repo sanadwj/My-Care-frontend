@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-use-before-define */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { Button, Form, Loader, Container } from 'semantic-ui-react';
+import {
+  Button, Form, Loader, Container,
+} from 'semantic-ui-react';
 import { fetchResetPasswordsStartAsync } from '../actions/passwords/resetPassword';
 import useForm from '../util/hooks';
 

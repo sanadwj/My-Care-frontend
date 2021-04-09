@@ -1,6 +1,5 @@
 import { DoctorSpecialtyActionTypes } from '../../actions/actionTypes';
 
-
 const INITIAL_STATE = {
   doctors: [],
   isFetching: false,

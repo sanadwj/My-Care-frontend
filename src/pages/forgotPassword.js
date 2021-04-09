@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-use-before-define */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';

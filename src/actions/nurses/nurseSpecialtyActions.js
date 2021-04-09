@@ -19,7 +19,7 @@ export const fetchNurseSpecialtyStartAsync = (specialty) => (dispatch) => {
   dispatch(fetchNurseSpecialtyStart());
   const token = localStorage.getItem('token');
   axios
-    .get(`http://localhost:5000/api/v1/nurses/${specialty}`, {
+    .get(`https://glacial-everglades-68014.herokuapp.com/api/v1/nurses/${specialty}`, {
       headers: {
         Authorization: token,
       },

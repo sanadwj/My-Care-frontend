@@ -15,7 +15,7 @@ const GetDoctorAppointment = () => {
   }, []);
 
   return (
-    <div>
+    <div className="getApp">
       <Header style={{ margin: 30 }}>
         {doctorAppointment.ErrorMessage && doctorAppointment.ErrorMessage.response.status === 401 ? <h2>Please Register or Signin to see this page</h2> : ''}
       </Header>

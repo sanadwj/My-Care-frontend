@@ -11,7 +11,7 @@ const Confirm = () => (
           <Item.Header as="a">Please Confirm Your Email To SignIn</Item.Header>
           <Item.Description>
             <p>
-              We just send email to confirm it's you to your inbox.
+              We just send email to confirm its you to your inbox.
             </p>
             <p>
               Also check your spam folder

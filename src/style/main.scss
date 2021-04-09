@@ -1,32 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 html {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
   font-size: 100%; // 1rem is 10px
   margin: 0;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
   font-weight: 700;
   overflow-x: hidden;
-  font-weight: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: transparent;
-  background-image: url(./assets/canva.png);
-  background-size: cover;
-  background-attachment: fixed;
+  background-image: url(./assets/canva.png) !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
 }
+
 .ui.icon.header .icon {
-  color: rgb(151, 191, 15);
-  font-size: 30px;
+  color: rgb(151, 191, 15) !important;
+  font-size: 30px !important;
 }
 
 .dropdown {
   background-color: rgb(151, 191, 15) !important;
-  color: #ffffff;
+  color: #fff;
   padding: 0;
   margin: 0;
 }
@@ -40,27 +40,30 @@ body {
 
 .ui.secondary.vertical.menu > .item {
   border: none;
-  margin: 0 0 0.2em;
+  margin: 0 0 0.2em !important;
   border-radius: 0.28571rem !important;
-  padding: 15px;
+  padding: 15px !important;
 }
 
 .ui.segment {
-  background-color: rgb(255, 180, 0);
-  margin: 80px 5px;
+  background-color: rgb(255, 180, 0) !important;
+}
+
+.getApp {
+  margin: 80px 30px !important;
 }
 
 .ui.grid {
-  margin: 0;
-  padding: 15px;
+  margin: 0 !important;
+  padding: 15px !important;
   font-family: 'Comfortaa', cursive;
-  position: sticky;
-  z-index: 10;
+  position: sticky !important;
+  z-index: 10 !important;
 }
 
 .ui.vertical.menu {
-  max-width: 12rem;
-  padding: 10px 20px;
+  max-width: 13rem !important;
+  padding: 10px !important;
 }
 
 .app-wrapper {
@@ -69,21 +72,19 @@ body {
 }
 
 .ui.secondary.menu .active.item {
-  background: rgb(151, 191, 15);
-  color: rgba(255, 255, 255, 0.95);
+  background: rgb(151, 191, 15) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
 }
 
-.ui.form {
-  max-width: 50%;
-}
 .formContainer {
-  max-width: 300px;
-  margin: 30px;
+  max-width: 300px !important;
+  margin: 30px !important;
 }
 
 .authContainer {
   margin: 20px 0 !important;
 }
+
 .ui.secondary.vertical.pointing.menu {
   height: 100vh;
 }
@@ -97,11 +98,11 @@ body {
 }
 
 .confirm {
-  color: rgb(255, 180, 0);
+  color: rgb(255, 180, 0) !important;
 }
 
 .filter {
-  min-height: 50%;
+  min-height: 50% !important;
   margin: 30px !important;
   overflow-y: visible;
 }
@@ -120,13 +121,11 @@ body {
 }
 
 select {
-  -webkit-writing-mode: horizontal-tb !important;
   text-rendering: auto;
-  color: -internal-light-dark(black, white);
   letter-spacing: normal;
   word-spacing: normal;
   text-transform: none;
-  text-indent: 0px;
+  text-indent: 0;
   text-shadow: none;
   display: inline-block;
   text-align: start;
@@ -135,37 +134,31 @@ select {
   align-items: center;
   white-space: pre;
   height: 40px;
-  -webkit-rtl-ordering: logical;
-  background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
   cursor: default;
-  margin: 0em;
-  font: 400 13.3333px Arial;
-  border-radius: 0px;
+  margin: 0;
   border-width: 1px;
   border-style: solid;
-  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
   border-image: initial;
   border-radius: 0.28571rem;
 }
 
 .ui.button {
-  background: rgb(151, 191, 15);
-  color: rgba(255, 255, 255, 0.95);
+  background: rgb(151, 191, 15) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
 }
 
 .doctor {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
-  margin: auto 0;
+  width: 90% !important;
 }
 
 .doctorDiv {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 90% !important;
 }
 
 .dappointment {
@@ -173,7 +166,7 @@ select {
   margin: 30px !important;
   justify-content: center;
   flex-direction: column;
-  width: auto;
+  max-width: 100% !important;
 }
 
 .dappointmentForm {
@@ -183,7 +176,7 @@ select {
 .ui.form .field > label {
   display: block;
   margin: 0 0 0.28571429rem 0;
-  color: rgb(255, 180, 0);
+  color: rgb(255, 180, 0) !important;
   font-size: 0.92857143em;
   font-weight: 700;
   text-transform: none;
@@ -195,11 +188,10 @@ select {
 
 .ui.cards {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: -0.875em -0.5em;
+  margin: -0.875em -0.5em !important;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
@@ -209,9 +201,9 @@ select {
 }
 
 .homeDiv {
-  margin: 30px;
-  padding: 30px;
-  background-color: rgb(151, 191, 15);
+  margin: 30px !important;
+  padding: 30px !important;
+  background-color: rgb(151, 191, 15) !important;
   border-radius: 0.28571rem;
 }
 
@@ -226,18 +218,18 @@ select {
 
 .welcome {
   text-align: center;
-  color: rgb(255, 180, 0);
+  color: rgb(255, 180, 0) !important;
 }
 
 .img {
   height: 100px !important;
-  margin: 5px;
+  margin: 5px !important;
 }
 
 @media only screen and (max-width: 767px) {
   .ui.container {
     width: 90% !important;
-    margin: 30px;
+    margin: 30px !important;
   }
 
   body {

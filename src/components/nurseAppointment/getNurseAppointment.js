@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Card, Header, Segment, Loader } from 'semantic-ui-react';
+import {
+  Card, Header, Segment, Loader,
+} from 'semantic-ui-react';
 import moment from 'moment';
 import { fetchGetNurseAppointmentStartAsync } from '../../actions/nurseAppointment/getNurseAppointmentActions';
 
@@ -13,7 +15,7 @@ const GetNurseAppointment = () => {
   }, []);
 
   return (
-    <div>
+    <div className="getApp">
       <Header style={{ margin: 30 }}>
         {nurseAppointment.ErrorMessage && nurseAppointment.ErrorMessage.response.status === 401 ? <h2>Please Register or Signin to see this page</h2> : ''}
       </Header>
