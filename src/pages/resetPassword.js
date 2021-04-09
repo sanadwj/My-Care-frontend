@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+/* eslint-disable no-use-before-define */
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Button, Form, Loader, Container } from 'semantic-ui-react';
@@ -10,7 +11,6 @@ const ResetPassword = () => {
   const forgot = useSelector((state) => state.forgot);
 
   const dispatch = useDispatch();
-  console.log(reset);
 
   const { onChange, onSubmit, values } = useForm(resetPassword, {
     reset_password_token: '',

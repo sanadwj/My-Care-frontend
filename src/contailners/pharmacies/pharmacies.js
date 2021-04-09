@@ -1,9 +1,8 @@
-/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
-  Card, Grid, Loader, Button,
+  Card, Grid, Button,
 } from 'semantic-ui-react';
 import { fetchPharmaciesShowStartAsync } from '../../actions/pharmacies/pharmaciesShowActions';
 // import PharmacyOrders from '../../components/pharmacies/pharmacyOrder';

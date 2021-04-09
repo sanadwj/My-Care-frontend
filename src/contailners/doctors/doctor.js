@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   Loader, Image, Card,
 } from 'semantic-ui-react';
@@ -12,7 +11,6 @@ const Doctor = (props) => {
   const doctor = useSelector((state) => state.doctorShow);
   const dispatch = useDispatch();
   const { loggedInStatus } = props;
-  console.log(doctor);
   const { pathname } = window.location;
 
   const id = pathname.split('/doctors/show/')[1];
@@ -66,5 +64,13 @@ const Doctor = (props) => {
         : <h2>Please Register or Signin to see this page</h2>}
     </div>
   );
+};
+
+Doctor.propTypes = {
+  loggedInStatus: PropTypes.boolean,
+};
+
+Doctor.defaultProps = {
+  loggedInStatus: false,
 };
 export default Doctor;

@@ -1,14 +1,16 @@
+/* eslint-disable no-use-before-define */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { Button, Form, Loader, Container } from 'semantic-ui-react';
+import {
+  Button, Form, Loader, Container,
+} from 'semantic-ui-react';
 import { fetchForgotPasswordsStartAsync } from '../actions/passwords/forgotPassword';
 import useForm from '../util/hooks';
 
 const ForgotPassword = () => {
   const forgot = useSelector((state) => state.forgot);
   const dispatch = useDispatch();
-  console.log(forgot);
 
   const { onChange, onSubmit, values } = useForm(forgotPassword, {
     email: '',

@@ -7,7 +7,6 @@ const INITIAL_STATE = {
 };
 
 const nurseShowReducer = (state = INITIAL_STATE, action) => {
-  console.log(state);
   switch (action.type) {
     case NurseShowActionTypes.FITCH_DATA_START:
       return {

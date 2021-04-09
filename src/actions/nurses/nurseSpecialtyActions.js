@@ -1,4 +1,3 @@
-/* eslint-disable arrow-parens */
 import axios from 'axios';
 import { NurseSpecialtyActionTypes } from '../actionTypes';
 
@@ -16,7 +15,7 @@ export const fetchNurseSpecialtyFailure = (error) => ({
   error,
 });
 
-export const fetchNurseSpecialtyStartAsync = (specialty) => dispatch => {
+export const fetchNurseSpecialtyStartAsync = (specialty) => (dispatch) => {
   dispatch(fetchNurseSpecialtyStart());
   const token = localStorage.getItem('token');
   axios
@@ -26,6 +25,6 @@ export const fetchNurseSpecialtyStartAsync = (specialty) => dispatch => {
       },
     }, { withCredentials: false })
     // eslint-disable-next-line max-len
-    .then((res) => dispatch(fetchNurseSpecialtySuccess(res.data.nurses), console.log(res.data.nurses)))
+    .then((res) => dispatch(fetchNurseSpecialtySuccess(res.data.nurses)))
     .catch((error) => dispatch(fetchNurseSpecialtyFailure(error)));
 };

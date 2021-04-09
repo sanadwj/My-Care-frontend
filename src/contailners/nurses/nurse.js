@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import {
   Loader, Image, Card,
 } from 'semantic-ui-react';
@@ -11,7 +11,6 @@ const Nurse = (props) => {
   const nurse = useSelector((state) => state.nurseShow);
   const dispatch = useDispatch();
   const { loggedInStatus } = props;
-  console.log(props);
 
   const { pathname } = window.location;
 
@@ -66,5 +65,13 @@ const Nurse = (props) => {
         : <h2>Please Register or Signin to see this page</h2>}
     </div>
   );
+};
+
+Nurse.propTypes = {
+  loggedInStatus: PropTypes.boolean,
+};
+
+Nurse.defaultProps = {
+  loggedInStatus: false,
 };
 export default Nurse;

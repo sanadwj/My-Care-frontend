@@ -25,6 +25,6 @@ export const fetchGetNurseAppointmentStartAsync = () => (dispatch) => {
       },
     }, { withCredentials: false })
     // eslint-disable-next-line max-len
-    .then((res) => dispatch(fetchGetNurseAppointmentSuccess(res.data), console.log(res.data)))
+    .then((res) => dispatch(fetchGetNurseAppointmentSuccess(res.data)))
     .catch((error) => dispatch(fetchGetNurseAppointmentFailure(error)));
 };

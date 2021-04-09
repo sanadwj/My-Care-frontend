@@ -14,12 +14,12 @@ export const fetchResetPasswordsFailure = (error) => ({
   type: ResetPasswordActionTypes.FETCH_DATA_FAILURE,
   error,
 });
-// eslint-disable-next-line arrow-body-style
+
 export const fetchResetPasswordsStartAsync = (reset) => (dispatch) => {
   dispatch(fetchResetPasswordsStart());
   axios
     .post('http://localhost:5000/api/v1/reset', reset)
     // eslint-disable-next-line max-len
-    .then((res) => dispatch(fetchResetPasswordsSuccess(res.data), console.log(res.data)))
+    .then((res) => dispatch(fetchResetPasswordsSuccess(res.data)))
     .catch((error) => dispatch(fetchResetPasswordsFailure(error)));
 };

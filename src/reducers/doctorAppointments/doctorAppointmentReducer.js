@@ -7,7 +7,6 @@ const INITIAL_STATE = {
 };
 
 const DoctorAppointmentReducer = (state = INITIAL_STATE, action) => {
-  console.log(state);
   switch (action.type) {
     case DoctorAppointmentActionTypes.FITCH_DATA_START:
       return {

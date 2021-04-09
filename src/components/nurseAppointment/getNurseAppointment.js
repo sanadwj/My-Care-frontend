@@ -7,7 +7,6 @@ import { fetchGetNurseAppointmentStartAsync } from '../../actions/nurseAppointme
 const GetNurseAppointment = () => {
   const nurseAppointment = useSelector((state) => state.getNurseAppointment);
   const dispatch = useDispatch();
-  console.log(nurseAppointment.getNurAppointment);
 
   useEffect(() => {
     dispatch(fetchGetNurseAppointmentStartAsync());

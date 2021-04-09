@@ -1,3 +1,6 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable no-use-before-define */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -25,7 +28,6 @@ const PharmacyOrders = (props) => {
   }
 
   if (orders.orders && orders.orders.status === 200) {
-    console.log(orders.orders.status);
     return <Redirect to="/pharmacies" />;
   }
 

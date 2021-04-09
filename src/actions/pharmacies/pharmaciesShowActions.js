@@ -24,7 +24,6 @@ export const fetchPharmaciesShowStartAsync = () => (dispatch) => {
         Authorization: token,
       },
     }, { withCredentials: false })
-    // eslint-disable-next-line max-len
-    .then((res) => dispatch(fetchPharmaciesShowSuccess(res.data.pharmacies), console.log(res.data.pharmacies)))
+    .then((res) => dispatch(fetchPharmaciesShowSuccess(res.data.pharmacies)))
     .catch((error) => dispatch(fetchPharmaciesShowFailure(error)));
 };

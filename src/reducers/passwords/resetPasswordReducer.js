@@ -7,7 +7,6 @@ const INITIAL_STATE = {
 };
 
 const ResetPasswordReducer = (state = INITIAL_STATE, action) => {
-  console.log(state);
   switch (action.type) {
     case ResetPasswordActionTypes.FITCH_DATA_START:
       return {

@@ -7,7 +7,6 @@ const INITIAL_STATE = {
 };
 
 const PharmacyOrdersReducer = (state = INITIAL_STATE, action) => {
-  console.log(state);
   switch (action.type) {
     case PharmacyOrderstActionTypes.FITCH_DATA_START:
       return {

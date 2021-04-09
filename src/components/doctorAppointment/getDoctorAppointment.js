@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Card, Header, Segment, Loader } from 'semantic-ui-react';
+import {
+  Card, Header, Segment, Loader,
+} from 'semantic-ui-react';
 import moment from 'moment';
 import { fetchGetDoctorAppointmentStartAsync } from '../../actions/doctorAppointment/getDoctorAppointmentActions';
 
 const GetDoctorAppointment = () => {
   const doctorAppointment = useSelector((state) => state.getDoctorAppointment);
   const dispatch = useDispatch();
-  console.log(doctorAppointment.getDocAppointment);
 
   useEffect(() => {
     dispatch(fetchGetDoctorAppointmentStartAsync());

@@ -1,9 +1,9 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-use-before-define */
-import React, { useState, useEffect } from 'react';
+/* eslint-disable react/prop-types */
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  Button, Form, Loader, Grid, Segment, Container, Label,
+  Button, Form, Loader, Container,
 } from 'semantic-ui-react';
 import { fetchRegistrationStartAsync } from '../../actions/auth/registrationActions';
 import useForm from '../../util/hooks';

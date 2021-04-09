@@ -25,6 +25,6 @@ export const fetchNurseShowStartAsync = (id) => (dispatch) => {
       },
     }, { withCredentials: false })
     // eslint-disable-next-line max-len
-    .then((res) => dispatch(fetchNurseShowSuccess(res.data), console.log(res.data)))
+    .then((res) => dispatch(fetchNurseShowSuccess(res.data)))
     .catch((error) => dispatch(fetchNurseShowFailure(error)));
 };

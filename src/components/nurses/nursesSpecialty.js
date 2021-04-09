@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { Item, Loader, Header } from 'semantic-ui-react';
 import { fetchNurseSpecialtyStartAsync } from '../../actions/nurses/nurseSpecialtyActions';
 
@@ -8,8 +9,6 @@ const NursesSpecialtyList = (props) => {
   const { spec } = props;
   const nurseSpecialty = useSelector((state) => state.nurseSpecialty);
   const dispatch = useDispatch();
-  console.log(spec);
-  console.log(nurseSpecialty);
 
   useEffect(() => {
     dispatch(fetchNurseSpecialtyStartAsync(spec));
@@ -56,6 +55,14 @@ const NursesSpecialtyList = (props) => {
         ))}
     </div>
   );
+};
+
+NursesSpecialtyList.propTypes = {
+  spec: PropTypes.string,
+};
+
+NursesSpecialtyList.defaultProps = {
+  spec: '',
 };
 
 export default NursesSpecialtyList;

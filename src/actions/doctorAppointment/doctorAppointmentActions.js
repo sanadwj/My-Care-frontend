@@ -14,7 +14,7 @@ export const fetchDoctorAppointmentFailure = (error) => ({
   type: DoctorAppointmentActionTypes.FETCH_DATA_FAILURE,
   error,
 });
-// eslint-disable-next-line arrow-body-style
+
 export const fetchDoctorAppointmentStartAsync = (appointment) => (dispatch) => {
   dispatch(fetchDoctorAppointmentStart());
   const token = localStorage.getItem('token');
@@ -25,6 +25,6 @@ export const fetchDoctorAppointmentStartAsync = (appointment) => (dispatch) => {
       },
     }, { withCredentials: false })
     // eslint-disable-next-line max-len
-    .then((res) => dispatch(fetchDoctorAppointmentSuccess(res.data), console.log(res.data)))
+    .then((res) => dispatch(fetchDoctorAppointmentSuccess(res.data)))
     .catch((error) => dispatch(fetchDoctorAppointmentFailure(error)));
 };

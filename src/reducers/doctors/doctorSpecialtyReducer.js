@@ -8,7 +8,6 @@ const INITIAL_STATE = {
 };
 
 const doctorSpecialtyReducer = (state = INITIAL_STATE, action) => {
-  console.log(state);
   switch (action.type) {
     case DoctorSpecialtyActionTypes.FITCH_DATA_START:
       return {

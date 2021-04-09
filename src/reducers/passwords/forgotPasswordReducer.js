@@ -7,7 +7,6 @@ const INITIAL_STATE = {
 };
 
 const ForgotPasswordReducer = (state = INITIAL_STATE, action) => {
-  console.log(state);
   switch (action.type) {
     case forgotPasswordActionTypes.FITCH_DATA_START:
       return {

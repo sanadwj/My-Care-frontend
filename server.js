@@ -8,5 +8,3 @@ app.get(/.*/, (req, res) => {
   res.sendFile(`${__dirname}/dist/index.html`);
 });
 app.listen(port);
-
-console.log('server started');

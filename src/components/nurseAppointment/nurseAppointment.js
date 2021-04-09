@@ -80,4 +80,12 @@ const NurseAppointment = (props) => {
   );
 };
 
+NurseAppointment.propTypes = {
+  nurseId: PropTypes.string,
+};
+
+NurseAppointment.defaultProps = {
+  nurseId: '',
+};
+
 export default NurseAppointment;
