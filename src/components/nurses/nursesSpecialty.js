@@ -33,7 +33,7 @@ const NursesSpecialtyList = (props) => {
               id: nurse.id,
             }}
           >
-            <Item>
+            <Item className="docDiv">
               <Item.Image size="tiny" src={nurse.image} />
 
               <Item.Content>

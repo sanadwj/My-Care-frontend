@@ -35,7 +35,7 @@ const NurseAppointment = (props) => {
 
   return (
     <div className="dappointment">
-      <h1>Confirm Your Appointment</h1>
+      <h3 className="confirm">Confirm Your Appointment</h3>
       <Form className="dappointmentForm" onSubmit={onSubmit}>
         <Form.Group widths="equal">
           <Form.Field>

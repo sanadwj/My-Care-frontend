@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import {
-  Button, Modal, Loader, Form,
+  Button, Modal, Loader, Form, Container,
 } from 'semantic-ui-react';
 import useForm from '../../util/hooks';
 import { fetchPharmacyOrdersStartAsync } from '../../actions/pharmacies/pharmacyOrdersActions';
@@ -32,7 +32,7 @@ const PharmacyOrders = (props) => {
   }
 
   return (
-    <div>
+    <Container style={{ marginTop: 30 }}>
 
       <Form className="dappointmentForm" onSubmit={onSubmit}>
         <Form.Group widths="equal">
@@ -87,7 +87,7 @@ const PharmacyOrders = (props) => {
           />
         </Modal.Actions>
       </Form>
-    </div>
+    </Container>
   );
 };
 

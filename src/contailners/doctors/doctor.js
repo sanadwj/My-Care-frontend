@@ -33,7 +33,7 @@ const Doctor = (props) => {
   }
 
   return (
-    <div className="doctor">
+    <div className="doctor" style={{ marginTop: 30 }}>
       {loggedInStatus === true
         ? (
           <div className="doctorDiv">

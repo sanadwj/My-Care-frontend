@@ -11,6 +11,7 @@ const Nurse = (props) => {
   const nurse = useSelector((state) => state.nurseShow);
   const dispatch = useDispatch();
   const { loggedInStatus } = props;
+  console.log(props);
 
   const { pathname } = window.location;
 
@@ -32,7 +33,7 @@ const Nurse = (props) => {
   }
 
   return (
-    <div className="doctor">
+    <div className="doctor" style={{ marginTop: 30 }}>
       {loggedInStatus === true
         ? (
           <div className="doctorDiv">
