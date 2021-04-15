@@ -19,7 +19,7 @@ export const fetchPharmacyOrdersStartAsync = (appointment) => (dispatch) => {
   dispatch(fetchPharmacyOrdersStart());
   const token = localStorage.getItem('token');
   axios
-    .post('https://glacial-everglades-68014.herokuapp.com/api/v1/order', appointment, {
+    .post('http://localhost:5000/api/v1/order', appointment, {
       headers: {
         Authorization: token,
       },

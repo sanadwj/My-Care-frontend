@@ -18,7 +18,7 @@ export const fetchResetPasswordsFailure = (error) => ({
 export const fetchResetPasswordsStartAsync = (reset) => (dispatch) => {
   dispatch(fetchResetPasswordsStart());
   axios
-    .post('https://glacial-everglades-68014.herokuapp.com/api/v1/reset', reset)
+    .post('http://localhost:5000/api/v1/reset', reset)
     // eslint-disable-next-line max-len
     .then((res) => dispatch(fetchResetPasswordsSuccess(res.data)))
     .catch((error) => dispatch(fetchResetPasswordsFailure(error)));

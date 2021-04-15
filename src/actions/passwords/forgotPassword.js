@@ -18,7 +18,7 @@ export const fetchForgotPasswordsFailure = (error) => ({
 export const fetchForgotPasswordsStartAsync = (email) => (dispatch) => {
   dispatch(fetchForgotPasswordsStart());
   axios
-    .post('https://glacial-everglades-68014.herokuapp.com/api/v1/forgot', email)
+    .post('http://localhost:5000/api/v1/forgot', email)
     // eslint-disable-next-line max-len
     .then((res) => dispatch(fetchForgotPasswordsSuccess(res.data)))
     .catch((error) => dispatch(fetchForgotPasswordsFailure(error)));

@@ -19,7 +19,7 @@ export const fetchNurseAppointmentStartAsync = (appointment) => (dispatch) => {
   dispatch(fetchNurseAppointmentStart());
   const token = localStorage.getItem('token');
   axios
-    .post('https://glacial-everglades-68014.herokuapp.com/api/v1/create_nurse_appointment', appointment, {
+    .post('http://localhost:5000/api/v1/create_nurse_appointment', appointment, {
       headers: {
         Authorization: token,
       },

@@ -19,7 +19,7 @@ export const fetchDoctorShowStartAsync = (id) => (dispatch) => {
   const token = localStorage.getItem('token');
   dispatch(fetchDoctorShowStart());
   axios
-    .get(`https://glacial-everglades-68014.herokuapp.com/api/v1/doctors/show/${id}`, {
+    .get(`http://localhost:5000/api/v1/doctors/show/${id}`, {
       headers: {
         Authorization: token,
       },

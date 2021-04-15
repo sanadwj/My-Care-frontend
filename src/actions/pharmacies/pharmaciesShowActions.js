@@ -19,7 +19,7 @@ export const fetchPharmaciesShowStartAsync = () => (dispatch) => {
   dispatch(fetchPharmaciesShowStart());
   const token = localStorage.getItem('token');
   axios
-    .get('https://glacial-everglades-68014.herokuapp.com/api/v1/pharmacies', {
+    .get('http://localhost:5000/api/v1/pharmacies', {
       headers: {
         Authorization: token,
       },

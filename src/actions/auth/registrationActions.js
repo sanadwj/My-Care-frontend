@@ -18,7 +18,7 @@ export const fetchRegistrationFailure = (error) => ({
 export const fetchRegistrationStartAsync = (user) => (dispatch) => {
   dispatch(fetchRegistrationStart());
   axios
-    .post('https://glacial-everglades-68014.herokuapp.com/users', user)
+    .post('http://localhost:5000/users', user)
     // eslint-disable-next-line max-len
     .then((res) => dispatch(fetchRegistrationSuccess(res.data.user)))
     .catch((error) => dispatch(fetchRegistrationFailure(error)));
