@@ -82,6 +82,18 @@ const forgotPasswordActionTypes = {
   FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
 };
 
+const errorsActionTypes = {
+  FETCH_ERRORS: 'FETCH_ERRORS',
+};
+
+const isFetchingActionTypes = {
+  IS_FETCHING: 'IS_FETCHING',
+};
+
+const setAuthUser = {
+  SET_AUTH_USER: 'SET_AUTH_USER',
+};
+
 export {
   RegistrationActionTypes,
   AuthActionTypes,
@@ -97,4 +109,7 @@ export {
   GetNurseAppointmentActionTypes,
   ResetPasswordActionTypes,
   forgotPasswordActionTypes,
+  errorsActionTypes,
+  isFetchingActionTypes,
+  setAuthUser,
 };

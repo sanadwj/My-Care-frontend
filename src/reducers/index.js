@@ -15,22 +15,26 @@ import GetDoctorAppointmentReducer from './doctorAppointments/getDoctorAppointme
 import GetNurseAppointmentReducer from './nurseAppointment/getNurseAppointmentReducer';
 import ResetPasswordReducer from './passwords/resetPasswordReducer';
 import ForgotPasswordReducer from './passwords/forgotPasswordReducer';
+import isFetchingReducer from './common/isFetchingReducer';
+import errorsReducer from './common/errorsReducer';
 
 const appReducer = combineReducers({
-  registration: registrationReducer,
-  auth: authReducer,
-  doctorShow: doctorShowReducer,
-  doctorSpecialty: doctorSpecialtyReducer,
-  doctorAppointment: DoctorAppointmentReducer,
-  getDoctorAppointment: GetDoctorAppointmentReducer,
-  nurseShow: nurseShowReducer,
-  nurseSpecialty: NurseSpecialtyReducer,
-  nurseAppointment: NurseAppointmentReducer,
-  getNurseAppointment: GetNurseAppointmentReducer,
-  pharmaciesShow: PharmacyShowReducer,
-  pharmacyOrders: PharmacyOrdersReducer,
-  reset: ResetPasswordReducer,
-  forgot: ForgotPasswordReducer,
+  registrationReducer,
+  authReducer,
+  doctorShowReducer,
+  doctorSpecialtyReducer,
+  DoctorAppointmentReducer,
+  GetDoctorAppointmentReducer,
+  nurseShowReducer,
+  NurseSpecialtyReducer,
+  NurseAppointmentReducer,
+  GetNurseAppointmentReducer,
+  PharmacyShowReducer,
+  PharmacyOrdersReducer,
+  ResetPasswordReducer,
+  ForgotPasswordReducer,
+  isFetchingReducer,
+  errorsReducer,
 });
 
 const rootReducer = (state, action) => {

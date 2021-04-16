@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom';
 import {
   Button, Form, Container, Loader,
 } from 'semantic-ui-react';
-import { fetchAuthStartAsync } from '../../actions/auth/authActions';
+import logIn from '../../thunks/auth/authThunk';
 import useForm from '../../util/hooks';
 
 const Auth = (props) => {
-  const auth = useSelector((state) => state.auth);
-  const reset = useSelector((state) => state.reset);
+  const auth = useSelector((state) => state.authReducer);
+  // const reset = useSelector((state) => state.reset);
   const dispatch = useDispatch();
 
   const { onChange, onSubmit, values } = useForm(authUser, {
@@ -21,14 +21,14 @@ const Auth = (props) => {
   });
 
   function authUser() {
-    dispatch(fetchAuthStartAsync(values));
+    dispatch(logIn(values));
   }
 
-  useEffect(() => {
-    if (auth.auth !== undefined && auth.auth.length !== 0) {
-      props.history.push('/home');
-    }
-  }, [auth]);
+  // useEffect(() => {
+  //   if (auth.auth !== undefined && auth.auth.length !== 0) {
+  //     props.history.push('/home');
+  //   }
+  // }, [auth]);
 
   return (
     <Container className="authContainer">
@@ -58,13 +58,13 @@ const Auth = (props) => {
         <Button type="submit">
           Login
         </Button>
-        {auth.isFetching === true ? <Loader active inline="centered" /> : ''}
+        {/* {auth.isFetching === true ? <Loader active inline="centered" /> : ''}
         {auth && auth.ErrorMessage && auth.ErrorMessage.response && auth.ErrorMessage.response.status === 401 ? 'Please Confirm Your Email' : ''}
-        {auth && auth.ErrorMessage && auth.ErrorMessage.response && auth.ErrorMessage.response.status === 500 ? 'Check Your Email and Password' : ''}
+        {auth && auth.ErrorMessage && auth.ErrorMessage.response && auth.ErrorMessage.response.status === 500 ? 'Check Your Email and Password' : ''} */}
       </Form>
       <div>
 
-        {reset.reset && reset.reset.status === 200 ? 'Passaword Successfully Changed' : ''}
+        {/* {reset.reset && reset.reset.status === 200 ? 'Passaword Successfully Changed' : ''} */}
       </div>
       <Link
         to="/forgot"
