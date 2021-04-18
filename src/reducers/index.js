@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { combineReducers } from 'redux';
 import authReducer from './auth/authReducer';
-import { AuthActionTypes } from '../actions/actionTypes';
+import { setAuthUser } from '../actions/actionTypes';
 import doctorSpecialtyReducer from './doctors/doctorSpecialtyReducer';
 import registrationReducer from './auth/registrationReducer';
 import doctorShowReducer from './doctors/doctorShowReducer';
@@ -38,7 +38,7 @@ const appReducer = combineReducers({
 });
 
 const rootReducer = (state, action) => {
-  if (action.type === AuthActionTypes.FITCH_DATA_SUCCESS) {
+  if (action.type === setAuthUser.SET_AUTH_USER) {
     state = undefined;
   }
 

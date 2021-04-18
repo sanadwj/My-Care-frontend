@@ -14,8 +14,8 @@ import Nurses from '../contailners/nurses/nurses';
 import Nurse from '../contailners/nurses/nurse';
 import Pharmacies from '../contailners/pharmacies/pharmacies';
 import PharmacyOrders from './pharmacies/pharmacyOrder';
-import GetNurseAppointment from './nurseAppointment/getNurseAppointment';
-import GetDoctorAppointment from './doctorAppointment/getDoctorAppointment';
+import GetNurseAppointment from './nurses/getNurseAppointment';
+import GetDoctorAppointment from './doctors/getDoctorAppointment';
 import ForgotPassword from '../pages/forgotPassword';
 import ResetPassword from '../pages/resetPassword';
 
@@ -38,7 +38,13 @@ const App = () => {
       />
       <Switch>
 
-        <Route exact path="/home" component={Home} />
+        <Route
+          exact
+          path="/home"
+          render={(props) => (
+            <Home {...props} loggedInStatus={state.isAuth} />
+          )}
+        />
         <Route
           exact
           path="/"

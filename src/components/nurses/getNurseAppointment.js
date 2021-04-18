@@ -4,7 +4,7 @@ import {
   Card, Header, Segment, Loader,
 } from 'semantic-ui-react';
 import moment from 'moment';
-import { fetchGetNurseAppointmentStartAsync } from '../../actions/nurseAppointment/getNurseAppointmentActions';
+import { fetchGetNurseAppointmentStartAsync } from '../../actions/nurses/getNurseAppointmentActions';
 
 const GetNurseAppointment = () => {
   const nurseAppointment = useSelector((state) => state.getNurseAppointment);

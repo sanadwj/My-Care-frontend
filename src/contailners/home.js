@@ -6,11 +6,12 @@ import doctor from '../style/assets/doctor.png';
 import nurse from '../style/assets/nurse.png';
 import pharmacy from '../style/assets/pharmacy.png';
 
-const Home = () => {
-  const auth = useSelector((state) => state.authReducer.authenticated);
+const Home = (props) => {
+  const { loggedInStatus } = props;
+  console.log(loggedInStatus);
   return (
     <div>
-      {auth === true ? (
+      {loggedInStatus === true ? (
         <div className="homeDiv">
           <h2 className="welcome">Welcome</h2>
           <Segment
@@ -83,7 +84,7 @@ const Home = () => {
             </Item.Group>
           </Segment>
         </div>
-      ) : <Redirect to="/" />}
+      ) : ''}
     </div>
   );
 };

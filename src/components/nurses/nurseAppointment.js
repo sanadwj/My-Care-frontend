@@ -7,7 +7,7 @@ import {
   Button, Form, Loader,
 } from 'semantic-ui-react';
 import useForm from '../../util/hooks';
-import { fetchNurseAppointmentStartAsync } from '../../actions/nurseAppointment/nurseAppointmentActions';
+import { fetchNurseAppointmentStartAsync } from '../../actions/nurses/nurseAppointmentActions';
 
 const NurseAppointment = (props) => {
   const appointment = useSelector((state) => state.nurseAppointment);

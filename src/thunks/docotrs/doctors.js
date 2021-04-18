@@ -17,5 +17,6 @@ export const doctorsSpecialty = (specialty) => async (dispatch) => {
   } catch (error) {
     dispatch(isFetching({ fetching: false }));
     console.log(error.response);
+    return dispatch(fetchErrors(error.response.status));
   }
 };
