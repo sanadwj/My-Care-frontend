@@ -7,12 +7,15 @@ import { Link } from 'react-router-dom';
 import {
   Button, Form, Container, Loader,
 } from 'semantic-ui-react';
-import logIn from '../../thunks/auth/authThunk';
+import { logIn } from '../../thunks/auth/auth';
 import useForm from '../../util/hooks';
 
 const Auth = (props) => {
-  const auth = useSelector((state) => state.authReducer);
+  const auth = useSelector((state) => state.authReducer.authenticated);
+  const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
+  const errors = useSelector((state) => state.errorsReducer);
   // const reset = useSelector((state) => state.reset);
+  console.log(auth);
   const dispatch = useDispatch();
 
   const { onChange, onSubmit, values } = useForm(authUser, {
@@ -24,11 +27,11 @@ const Auth = (props) => {
     dispatch(logIn(values));
   }
 
-  // useEffect(() => {
-  //   if (auth.auth !== undefined && auth.auth.length !== 0) {
-  //     props.history.push('/home');
-  //   }
-  // }, [auth]);
+  useEffect(() => {
+    if (auth === true) {
+      props.history.push('/home');
+    }
+  }, [auth]);
 
   return (
     <Container className="authContainer">
@@ -58,9 +61,10 @@ const Auth = (props) => {
         <Button type="submit">
           Login
         </Button>
-        {/* {auth.isFetching === true ? <Loader active inline="centered" /> : ''}
-        {auth && auth.ErrorMessage && auth.ErrorMessage.response && auth.ErrorMessage.response.status === 401 ? 'Please Confirm Your Email' : ''}
-        {auth && auth.ErrorMessage && auth.ErrorMessage.response && auth.ErrorMessage.response.status === 500 ? 'Check Your Email and Password' : ''} */}
+        {isFetching === true ? <Loader active inline="centered" /> : ''}
+        <div>
+          {errors}
+        </div>
       </Form>
       <div>
 

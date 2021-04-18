@@ -6,12 +6,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   Button, Form, Loader, Container,
 } from 'semantic-ui-react';
-import { fetchRegistrationStartAsync } from '../../actions/auth/registrationActions';
+import { register } from '../../thunks/auth/auth';
 import useForm from '../../util/hooks';
 
 const Registration = (props) => {
-  const registration = useSelector((state) => state.registration);
+  const registration = useSelector((state) => state.registrationReducer.registered);
   const dispatch = useDispatch();
+  console.log(registration);
 
   const { onChange, onSubmit, values } = useForm(registerUser, {
     username: '',
@@ -22,11 +23,11 @@ const Registration = (props) => {
   });
 
   function registerUser() {
-    dispatch(fetchRegistrationStartAsync(values));
+    dispatch(register(values));
   }
 
   useEffect(() => {
-    if (registration.registration !== undefined && registration.registration.length !== 0) {
+    if (registration === true) {
       props.history.push('/confirm');
     }
   }, [registration]);
@@ -95,8 +96,8 @@ const Registration = (props) => {
         <Button type="submit">
           Register
         </Button>
-        {registration.isFetching === true ? <Loader active inline="centered" /> : ''}
-        {registration.ErrorMessage && registration.ErrorMessage.response.status === 500 ? 'Email Already Exsit' : ''}
+        {/* {registration.isFetching === true ? <Loader active inline="centered" /> : ''}
+        {registration.ErrorMessage && registration.ErrorMessage.response.status === 500 ? 'Email Already Exsit' : ''} */}
       </Form>
     </Container>
   );

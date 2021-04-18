@@ -2,57 +2,54 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Item, Loader, Header } from 'semantic-ui-react';
-import { fetchDoctorSpecialtyStartAsync } from '../../actions/doctors/doctorSpecialtyActions';
+import { Item, Loader } from 'semantic-ui-react';
+import { doctorsSpecialty } from '../../thunks/docotrs/doctors';
 
 const DoctorsSpecialtyList = (props) => {
   const { spec } = props;
-  const doctorSpecialty = useSelector((state) => state.doctorSpecialty);
+  const doctorSpecialty = useSelector((state) => state.doctorSpecialtyReducer.doctors);
+  const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchDoctorSpecialtyStartAsync(spec));
+    dispatch(doctorsSpecialty(spec));
   }, [spec]);
 
   return (
     <div>
-      <Header style={{ margin: 30 }}>
-        {doctorSpecialty.ErrorMessage && doctorSpecialty.ErrorMessage.response.status === 401 ? <h2>Please Register or Signin to see this page</h2> : ''}
-      </Header>
-      {doctorSpecialty.isFetching === true ? (
-        <Loader active inline="centered" />
-      )
-        : doctorSpecialty.doctors !== undefined && doctorSpecialty.doctors.map((doctor) => (
-          <Item.Group
-            className="filter"
-            key={doctor.id}
-            as={Link}
-            to={{
-              pathname: `/doctors/show/${doctor.id}`,
-              id: doctor.id,
-            }}
-          >
-            <Item className="docDiv">
-              <Item.Image size="tiny" src={doctor.image} />
+      { doctorSpecialty && doctorSpecialty.map((doctor) => (
+        <Item.Group
+          className="filter"
+          key={doctor.id}
+          as={Link}
+          to={{
+            pathname: `/doctors/show/${doctor.id}`,
+            id: doctor.id,
+          }}
+        >
+          <Item className="docDiv">
+            <Item.Image size="tiny" src={doctor.image} />
 
-              <Item.Content>
-                <Item.Header>{doctor.name}</Item.Header>
-                <Item.Meta>{doctor.specialty}</Item.Meta>
-                <Item.Description>
-                  {doctor.location}
-                </Item.Description>
-                <Item.Extra>
-                  Rate:
-                  {' '}
-                  {doctor.rate}
-                  {' '}
-                  $
-                </Item.Extra>
-              </Item.Content>
-            </Item>
-
-          </Item.Group>
-        ))}
+            <Item.Content>
+              <Item.Header>{doctor.name}</Item.Header>
+              <Item.Meta>{doctor.specialty}</Item.Meta>
+              <Item.Description>
+                {doctor.location}
+              </Item.Description>
+              <Item.Extra>
+                Rate:
+                {' '}
+                {doctor.rate}
+                {' '}
+                $
+              </Item.Extra>
+            </Item.Content>
+          </Item>
+          <div>
+            {isFetching === true ? <Loader active inline="centered" /> : ''}
+          </div>
+        </Item.Group>
+      ))}
     </div>
   );
 };

@@ -1,8 +1,4 @@
-const RegistrationActionTypes = {
-  FITCH_DATA_START: 'FETCH_DATA_START',
-  FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
-  FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
-};
+
 
 const AuthActionTypes = {
   FITCH_DATA_START: 'FETCH_DATA_START',
@@ -10,11 +6,7 @@ const AuthActionTypes = {
   FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
 };
 
-const DoctorSpecialtyActionTypes = {
-  FITCH_DATA_START: 'FETCH_DATA_START',
-  FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
-  FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
-};
+
 
 const DoctorShowActionTypes = {
   FITCH_DATA_START: 'FETCH_DATA_START',
@@ -94,6 +86,13 @@ const setAuthUser = {
   SET_AUTH_USER: 'SET_AUTH_USER',
 };
 
+const RegistrationActionTypes = {
+  SET_REGISTERED_USER: 'SET_REGISTERED_USER',
+};
+
+const DoctorSpecialtyActionTypes = {
+  SET_DOCTORS_SPECIALTY: 'SET_DOCTORS_SPECIALTY',
+};
 export {
   RegistrationActionTypes,
   AuthActionTypes,

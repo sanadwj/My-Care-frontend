@@ -1,18 +1,9 @@
 import axios from 'axios';
 import { DoctorShowActionTypes } from '../actionTypes';
 
-export const fetchDoctorShowStart = () => ({
-  type: DoctorShowActionTypes.FITCH_DATA_START,
-});
-
-export const fetchDoctorShowSuccess = (doctor) => ({
+export const fetchDoctorShow = (doctor) => ({
   type: DoctorShowActionTypes.FITCH_DATA_SUCCESS,
   doctor,
-});
-
-export const fetchDoctorShowFailure = (error) => ({
-  type: DoctorShowActionTypes.FETCH_DATA_FAILURE,
-  error,
 });
 
 export const fetchDoctorShowStartAsync = (id) => (dispatch) => {

@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import fetchAuthUser from '../actions/auth/userActions';
 
 const authStatus = () => {
-  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   const [state, setState] = useState({
     isAuth: false,
   });
@@ -14,9 +15,16 @@ const authStatus = () => {
   };
 
   const handleLogout = () => {
+    localStorage.removeItem('token');
     setState({
       isAuth: false,
     });
+    dispatch(
+      fetchAuthUser({
+        authenticated: true,
+        data: {},
+      }),
+    );
   };
 
   const checkAuthStatus = () => {
@@ -24,13 +32,7 @@ const authStatus = () => {
       setState({
         isAuth: true,
       });
-    } else if (!auth && auth.auth === undefined && auth.auth.length === 0
-      && state.isAuth === true) {
-      setState({
-        isAuth: false,
-      });
-    } else if (auth.ErrorMessage
-      && !auth.ErrorMessage.response.status === 500 && state.isAuth === false) {
+    } else {
       setState({
         isAuth: false,
       });

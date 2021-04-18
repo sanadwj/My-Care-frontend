@@ -20,7 +20,7 @@ import ForgotPassword from '../pages/forgotPassword';
 import ResetPassword from '../pages/resetPassword';
 
 const App = () => {
-  const auth = useSelector((state) => state.auth);
+  const auth = useSelector((state) => state.authReducer);
 
   const {
     state, handleLogin, handleLogout, checkAuthStatus,
@@ -41,14 +41,14 @@ const App = () => {
         <Route exact path="/home" component={Home} />
         <Route
           exact
-          path="/login"
+          path="/"
           render={(props) => (
-            <Auth {...props} handleLogin={handleLogin} />
+            <Auth {...props} loggedInStatus={state.isAuth} />
           )}
         />
         <Route
           exact
-          path="/"
+          path="/register"
           render={(props) => (
             <Registration {...props} handleLogin={handleLogin} />
           )}
@@ -75,13 +75,6 @@ const App = () => {
             <PharmacyOrders {...props} loggedInStatus={state.isAuth} />
           )}
         />
-        {/* <Route
-          exact
-          path="/doctorappointments"
-          render={(props) => (
-            <GetDoctorAppointment {...props} loggedInStatus={state.isAuth} />
-          )}
-        /> */}
         <Route exact path="/nurseappointments" component={GetNurseAppointment} />
         <Route exact path="/doctorappointments" component={GetDoctorAppointment} />
         <Route exact path="/doctors" component={Doctors} />
