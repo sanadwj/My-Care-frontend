@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Item, Loader } from 'semantic-ui-react';
-import { doctorsSpecialty } from '../../thunks/docotrs/doctors';
-import { doctorShow } from '../../thunks/docotrs/doctors';
+import { doctorsSpecialty, doctorShow } from '../../thunks/docotrs/doctors';
+
 
 const DoctorsSpecialtyList = (props) => {
   const { spec } = props;

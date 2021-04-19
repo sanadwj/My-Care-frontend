@@ -12,7 +12,6 @@ import useForm from '../../util/hooks';
 const Registration = (props) => {
   const registration = useSelector((state) => state.registrationReducer.registered);
   const dispatch = useDispatch();
-  console.log(registration);
 
   const { onChange, onSubmit, values } = useForm(registerUser, {
     username: '',

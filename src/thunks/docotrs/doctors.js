@@ -1,7 +1,7 @@
 import { sendAuthorizedRequest } from '../../util/api';
 import fetchErrors from '../../actions/common/fetchErrorsActions';
 import isFetching from '../../actions/common/isFetchingActions';
-import { fetchDoctorSpecialty, fetchDoctorShow, fetchDoctorAppointment } from '../../actions/doctors/doctorsActions';
+import { fetchDoctorSpecialty, fetchDoctorShow, fetchDoctorAppointment, doctorsAppointment } from '../../actions/doctors/doctorsActions';
 
 export const doctorsSpecialty = (specialty) => async (dispatch) => {
   const path = `api/v1/doctors/specialty/${specialty}`;
@@ -37,6 +37,21 @@ export const doctorAppointment = (appointment) => async (dispatch) => {
   try {
     const res = await sendAuthorizedRequest('post', path, token, appointment);
     dispatch(fetchDoctorAppointment({ appointment: res }));
+    dispatch(isFetching({ fetching: false }));
+  } catch (error) {
+    dispatch(isFetching({ fetching: false }));
+    return dispatch(fetchErrors(error));
+  }
+};
+
+export const getDoctorsAppointment = () => async (dispatch) => {
+  const path = 'api/v1/doctor_appointments';
+  const token = localStorage.getItem('token');
+  dispatch(isFetching({ fetching: true }));
+  try {
+    const res = await sendAuthorizedRequest('get', path, token);
+    dispatch(doctorsAppointment({ appointments: res.data.appointments }));
+    console.log(res.data);
     dispatch(isFetching({ fetching: false }));
   } catch (error) {
     dispatch(isFetching({ fetching: false }));

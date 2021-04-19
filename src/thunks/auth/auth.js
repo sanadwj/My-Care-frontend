@@ -1,8 +1,7 @@
 import { sendUnauthenticatedRequest, setAuthorizationToken } from '../../util/api';
 import fetchErrors from '../../actions/common/fetchErrorsActions';
 import isFetching from '../../actions/common/isFetchingActions';
-import fetchAuthUser from '../../actions/auth/userActions';
-import fetchRegisteredUser from '../../actions/auth/registrationActions';
+import { fetchAuthUser, fetchRegisteredUser } from '../../actions/auth/userActions';
 
 export const logIn = (loginParams) => async (dispatch) => {
   const path = 'api/v1/authentication';

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import fetchAuthUser from '../actions/auth/userActions';
+import { fetchAuthUser } from '../actions/auth/userActions';
 
 const authStatus = () => {
   const dispatch = useDispatch();

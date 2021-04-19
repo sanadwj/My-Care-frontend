@@ -1,14 +1,23 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-typos */
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Image, Card } from 'semantic-ui-react';
 import DoctorAppointment from '../../components/doctors/doctorAppointment';
+import { doctorShow } from '../../thunks/docotrs/doctors';
 
 const Doctor = (props) => {
   const doctor = useSelector((state) => state.doctorShowReducer.doctor);
+  const dispatch = useDispatch();
   const { loggedInStatus } = props;
+  console.log(props);
+
+  const id = props.location.pathname.split('/doctors/show/')[1];
+
+  useEffect(() => {
+    dispatch(doctorShow(id));
+  }, []);
 
   return (
     <div className="doctor" style={{ marginTop: 30 }}>

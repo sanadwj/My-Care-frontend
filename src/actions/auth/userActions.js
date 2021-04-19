@@ -1,8 +1,11 @@
-import { setAuthUser } from '../actionTypes';
+import { setAuthUser, RegistrationActionTypes } from '../actionTypes';
 
-const fetchAuthUser = (authenticated) => ({
+export const fetchAuthUser = (authenticated) => ({
   type: setAuthUser.SET_AUTH_USER,
   authenticated,
 });
 
-export default fetchAuthUser;
+export const fetchRegisteredUser = (registered) => ({
+  type: RegistrationActionTypes.SET_REGISTERED_USER,
+  registered,
+});

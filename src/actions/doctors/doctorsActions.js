@@ -1,4 +1,4 @@
-import { DoctorSpecialtyActionTypes, DoctorShowActionTypes, DoctorAppointmentActionTypes } from '../actionTypes';
+import { DoctorSpecialtyActionTypes, DoctorShowActionTypes, DoctorAppointmentActionTypes, GetDoctorAppointmentActionTypes } from '../actionTypes';
 
 export const fetchDoctorSpecialty = (doctors) => ({
   type: DoctorSpecialtyActionTypes.SET_DOCTORS_SPECIALTY,
@@ -13,4 +13,9 @@ export const fetchDoctorShow = (doctor) => ({
 export const fetchDoctorAppointment = (appointment) => ({
   type: DoctorAppointmentActionTypes.SET_DOCTOR_APPOINTMENT,
   appointment,
+});
+
+export const doctorsAppointment = (appointments) => ({
+  type: GetDoctorAppointmentActionTypes.GET_DOCTORS_APPOINTMENT,
+  appointments,
 });
