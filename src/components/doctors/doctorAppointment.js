@@ -7,27 +7,28 @@ import {
   Button, Form, Loader,
 } from 'semantic-ui-react';
 import useForm from '../../util/hooks';
-import { fetchDoctorAppointmentStartAsync } from '../../actions/doctors/doctorAppointmentActions';
+import { doctorAppointment } from '../../thunks/docotrs/doctors';
 
 const DoctorAppointment = (props) => {
-  const appointment = useSelector((state) => state.doctorAppointment);
-  const { doctorId } = props;
+  const appointment = useSelector((state) => state.DoctorAppointmentReducer.appointment);
+  const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
+  const errors = useSelector((state) => state.errorsReducer);
+  const { doctorId, userId } = props;
   const dispatch = useDispatch();
-  const user = JSON.parse(localStorage.getItem('user'));
 
   const { onChange, onSubmit, values } = useForm(docAppointment, {
     doctor_id: doctorId,
-    user_id: user.id,
+    user_id: userId,
     username: '',
     note: '',
     at: '',
   });
 
   function docAppointment() {
-    dispatch(fetchDoctorAppointmentStartAsync(values));
+    dispatch(doctorAppointment(values));
   }
 
-  if (appointment.docAppointment && appointment.docAppointment.status === 200) {
+  if (appointment && appointment.status === 201) {
     return <Redirect to="/doctorappointments" />;
   }
 
@@ -74,18 +75,21 @@ const DoctorAppointment = (props) => {
 
       </Form>
       <div>
-        {appointment.isFetching === true ? <Loader active inline="centered" /> : ''}
+        {isFetching === true ? <Loader active inline="centered" /> : ''}
+        {errors}
       </div>
     </div>
   );
 };
 
-DoctorAppointment.propTypes = {
-  doctorId: PropTypes.string,
-};
+// DoctorAppointment.propTypes = {
+//   doctorId: PropTypes.number,
+//   userId: PropTypes.number,
+// };
 
-DoctorAppointment.defaultProps = {
-  doctorId: '',
-};
+// DoctorAppointment.defaultProps = {
+//   doctorId: Number,
+//   userId: Number,
+// };
 
 export default DoctorAppointment;

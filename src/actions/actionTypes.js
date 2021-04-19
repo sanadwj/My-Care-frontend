@@ -8,17 +8,9 @@ const AuthActionTypes = {
 
 
 
-const DoctorShowActionTypes = {
-  FITCH_DATA_START: 'FETCH_DATA_START',
-  FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
-  FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
-};
 
-const DoctorAppointmentActionTypes = {
-  FITCH_DATA_START: 'FETCH_DATA_START',
-  FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
-  FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
-};
+
+
 
 const GetDoctorAppointmentActionTypes = {
   FITCH_DATA_START: 'FETCH_DATA_START',
@@ -92,6 +84,14 @@ const RegistrationActionTypes = {
 
 const DoctorSpecialtyActionTypes = {
   SET_DOCTORS_SPECIALTY: 'SET_DOCTORS_SPECIALTY',
+};
+
+const DoctorShowActionTypes = {
+  SET_DOCTOR: 'SET_DOCTOR'
+};
+
+const DoctorAppointmentActionTypes = {
+  SET_DOCTOR_APPOINTMENT: 'SET_DOCTOR_APPOINTMENT'
 };
 export {
   RegistrationActionTypes,

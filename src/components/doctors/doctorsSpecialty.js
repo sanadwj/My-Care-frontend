@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Item, Loader } from 'semantic-ui-react';
 import { doctorsSpecialty } from '../../thunks/docotrs/doctors';
+import { doctorShow } from '../../thunks/docotrs/doctors';
 
 const DoctorsSpecialtyList = (props) => {
   const { spec } = props;
@@ -15,12 +16,17 @@ const DoctorsSpecialtyList = (props) => {
     dispatch(doctorsSpecialty(spec));
   }, [spec]);
 
+  const handelClick = (id) => {
+    dispatch(doctorShow(id));
+  };
+
   return (
     <div>
       { doctorSpecialty && doctorSpecialty.map((doctor) => (
         <Item.Group
           className="filter"
           key={doctor.id}
+          onClick={() => handelClick(doctor.id)}
           as={Link}
           to={{
             pathname: `/doctors/show/${doctor.id}`,
