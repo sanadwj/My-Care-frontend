@@ -6,38 +6,6 @@ const AuthActionTypes = {
   FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
 };
 
-
-
-
-
-
-
-
-
-const NurseSpecialtyActionTypes = {
-  FITCH_DATA_START: 'FETCH_DATA_START',
-  FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
-  FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
-};
-
-const NurseShowActionTypes = {
-  FITCH_DATA_START: 'FETCH_DATA_START',
-  FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
-  FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
-};
-
-const NurseAppointmentActionTypes = {
-  FITCH_DATA_START: 'FETCH_DATA_START',
-  FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
-  FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
-};
-
-const GetNurseAppointmentActionTypes = {
-  FITCH_DATA_START: 'FETCH_DATA_START',
-  FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
-  FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
-};
-
 const PharmaciesShowtActionTypes = {
   FITCH_DATA_START: 'FETCH_DATA_START',
   FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
@@ -83,16 +51,33 @@ const DoctorSpecialtyActionTypes = {
 };
 
 const DoctorShowActionTypes = {
-  SET_DOCTOR: 'SET_DOCTOR'
+  SET_DOCTOR: 'SET_DOCTOR',
 };
 
 const DoctorAppointmentActionTypes = {
-  SET_DOCTOR_APPOINTMENT: 'SET_DOCTOR_APPOINTMENT'
+  SET_DOCTOR_APPOINTMENT: 'SET_DOCTOR_APPOINTMENT',
 };
 
 const GetDoctorAppointmentActionTypes = {
-  GET_DOCTORS_APPOINTMENT: 'GET_DOCTORS_APPOINTMENT'
+  GET_DOCTORS_APPOINTMENT: 'GET_DOCTORS_APPOINTMENT',
 };
+
+const NurseSpecialtyActionTypes = {
+  SET_NURSES_SPECIALTY: 'SET_NURSES_SPECIALTY',
+};
+
+const NurseShowActionTypes = {
+  SET_NURSE: 'SET_NURSE',
+};
+
+const NurseAppointmentActionTypes = {
+  SET_NURSE_APPOINTMENT: 'SET_NURSE_APPOINTMENT',
+};
+
+const GetNurseAppointmentActionTypes = {
+  GET_NURSES_APPOINTMENT: 'GET_NURSES_APPOINTMENT',
+};
+
 export {
   RegistrationActionTypes,
   AuthActionTypes,

@@ -45,7 +45,7 @@ const Doctor = (props) => {
               </Card.Meta>
             </Card.Content>
           </Card>
-          <DoctorAppointment doctorId={doctor[0].id} userId={doctor[1]} />
+          <DoctorAppointment doctorId={d.id} />
         </div>
       ))}
     </div>

@@ -5,15 +5,10 @@ import { Link } from 'react-router-dom';
 import { logOut } from '../thunks/auth/auth';
 
 const NavBar = (props) => {
-  const { loggedInStatus, handleLogout } = props;
-  const auth = useSelector((state) => state.authReducer.authenticated);
+  const { loggedInStatus } = props;
   const dispatch = useDispatch();
   const [activeItem, setActiveItem] = useState('home');
   const handleItemClick = (e, { name }) => setActiveItem(name);
-  const handleLogoutClick = () => {
-    dispatch(logOut());
-    handleLogout();
-  };
 
   const navBar = loggedInStatus === false ? (
     <Grid>
@@ -85,7 +80,7 @@ const NavBar = (props) => {
           />
           <Menu.Item
             name="Logout"
-            onClick={() => handleLogoutClick()}
+            onClick={() => dispatch(logOut())}
             as={Link}
             to="/"
           />

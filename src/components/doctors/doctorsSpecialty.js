@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Item, Loader } from 'semantic-ui-react';
-import { doctorsSpecialty, doctorShow } from '../../thunks/docotrs/doctors';
-
+import { doctorsSpecialty } from '../../thunks/docotrs/doctors';
 
 const DoctorsSpecialtyList = (props) => {
   const { spec } = props;
@@ -13,12 +12,10 @@ const DoctorsSpecialtyList = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(doctorsSpecialty(spec));
+    if (spec) {
+      dispatch(doctorsSpecialty(spec));
+    }
   }, [spec]);
-
-  const handelClick = (id) => {
-    dispatch(doctorShow(id));
-  };
 
   return (
     <div>
@@ -26,7 +23,6 @@ const DoctorsSpecialtyList = (props) => {
         <Item.Group
           className="filter"
           key={doctor.id}
-          onClick={() => handelClick(doctor.id)}
           as={Link}
           to={{
             pathname: `/doctors/show/${doctor.id}`,

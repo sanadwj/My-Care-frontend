@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-use-before-define */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,12 +14,13 @@ const DoctorAppointment = (props) => {
   const appointment = useSelector((state) => state.DoctorAppointmentReducer.appointment);
   const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
   const errors = useSelector((state) => state.errorsReducer);
-  const { doctorId, userId } = props;
+  const { doctorId } = props;
   const dispatch = useDispatch();
+  const id = localStorage.getItem('id');
 
   const { onChange, onSubmit, values } = useForm(docAppointment, {
     doctor_id: doctorId,
-    user_id: userId,
+    user_id: id,
     username: '',
     note: '',
     at: '',
@@ -82,14 +84,12 @@ const DoctorAppointment = (props) => {
   );
 };
 
-// DoctorAppointment.propTypes = {
-//   doctorId: PropTypes.number,
-//   userId: PropTypes.number,
-// };
+DoctorAppointment.propTypes = {
+  doctorId: PropTypes.number,
+};
 
-// DoctorAppointment.defaultProps = {
-//   doctorId: Number,
-//   userId: Number,
-// };
+DoctorAppointment.defaultProps = {
+  doctorId: '',
+};
 
 export default DoctorAppointment;

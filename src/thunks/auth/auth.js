@@ -10,6 +10,7 @@ export const logIn = (loginParams) => async (dispatch) => {
     const res = await sendUnauthenticatedRequest('post', path, loginParams);
     const { token, user } = res.data;
     await localStorage.setItem('token', token);
+    await localStorage.setItem('id', user.id);
     dispatch(
       fetchAuthUser({
         authenticated: true,
@@ -39,7 +40,7 @@ export const register = (registerParams) => async (dispatch) => {
 
 export const logOut = () => async (dispatch) => {
   setAuthorizationToken(false);
-  await localStorage.removeItem('token');
+  await localStorage.clear();
   dispatch(
     fetchAuthUser({
       authenticated: false,

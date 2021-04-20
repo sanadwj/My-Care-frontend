@@ -1,33 +1,14 @@
 import { NurseAppointmentActionTypes } from '../../actions/actionTypes';
 
 const INITIAL_STATE = {
-  nurAppointment: [],
-  isFetching: false,
-  ErrorMessage: undefined,
+  appointment: [],
 };
 
 const NurseAppointmentReducer = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case NurseAppointmentActionTypes.FITCH_DATA_START:
-      return {
-        ...state,
-        isFetching: true,
-      };
-    case NurseAppointmentActionTypes.FITCH_DATA_SUCCESS:
-      return {
-        ...state,
-        nurAppointment: action.nurAppointment,
-        isFetching: false,
-      };
-    case NurseAppointmentActionTypes.FETCH_DATA_FAILURE:
-      return {
-        ...state,
-        ErrorMessage: action.error,
-        isFetching: false,
-      };
-    default:
-      return state;
+  if (action.type === NurseAppointmentActionTypes.SET_NURSE_APPOINTMENT) {
+    return action.appointment;
   }
+  return state;
 };
 
 export default NurseAppointmentReducer;

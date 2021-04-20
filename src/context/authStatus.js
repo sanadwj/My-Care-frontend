@@ -21,7 +21,7 @@ const authStatus = () => {
     });
     dispatch(
       fetchAuthUser({
-        authenticated: true,
+        authenticated: false,
         data: {},
       }),
     );

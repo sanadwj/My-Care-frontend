@@ -1,7 +1,7 @@
 import { DoctorAppointmentActionTypes } from '../../actions/actionTypes';
 
 const INITIAL_STATE = {
-  appointment: []
+  appointment: [],
 };
 
 const DoctorAppointmentReducer = (state = INITIAL_STATE, action) => {

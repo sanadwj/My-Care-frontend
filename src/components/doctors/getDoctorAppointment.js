@@ -64,9 +64,7 @@ const GetDoctorAppointment = () => {
               <div style={{ marginTop: 30 }}>
                 {errors}
               </div>
-              <div>
-                {errors}
-              </div>
+
             </Segment>
           )
       }
