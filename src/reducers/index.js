@@ -9,7 +9,7 @@ import DoctorAppointmentReducer from './doctors/doctorAppointmentReducer';
 import NurseSpecialtyReducer from './nurses/nurseSpecialtyReducer';
 import nurseShowReducer from './nurses/nurseShowReducer';
 import NurseAppointmentReducer from './nurses/nurseAppointmentReducer';
-import PharmacyShowReducer from './pharmacies/pharmaciesShowReducer';
+import PharmaciesShowReducer from './pharmacies/pharmaciesShowReducer';
 import PharmacyOrdersReducer from './pharmacies/pharmacyOrdersReducer';
 import GetDoctorAppointmentReducer from './doctors/getDoctorAppointmentReducer';
 import GetNurseAppointmentReducer from './nurses/getNurseAppointmentReducer';
@@ -29,7 +29,7 @@ const appReducer = combineReducers({
   NurseSpecialtyReducer,
   NurseAppointmentReducer,
   GetNurseAppointmentReducer,
-  PharmacyShowReducer,
+  PharmaciesShowReducer,
   PharmacyOrdersReducer,
   ResetPasswordReducer,
   ForgotPasswordReducer,

@@ -1,22 +1,6 @@
 
 
-const AuthActionTypes = {
-  FITCH_DATA_START: 'FETCH_DATA_START',
-  FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
-  FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
-};
 
-const PharmaciesShowtActionTypes = {
-  FITCH_DATA_START: 'FETCH_DATA_START',
-  FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
-  FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
-};
-
-const PharmacyOrderstActionTypes = {
-  FITCH_DATA_START: 'FETCH_DATA_START',
-  FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
-  FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
-};
 
 const ResetPasswordActionTypes = {
   FITCH_DATA_START: 'FETCH_DATA_START',
@@ -78,9 +62,16 @@ const GetNurseAppointmentActionTypes = {
   GET_NURSES_APPOINTMENT: 'GET_NURSES_APPOINTMENT',
 };
 
+const PharmaciesShowtActionTypes = {
+  GET_PHARMACIES: 'GET_PHARMACIES',
+};
+
+const PharmacyOrderstActionTypes = {
+  SET_PHARMACY_ORDER: 'SET_PHARMACY_ORDER',
+};
+
 export {
   RegistrationActionTypes,
-  AuthActionTypes,
   DoctorSpecialtyActionTypes,
   DoctorShowActionTypes,
   DoctorAppointmentActionTypes,

@@ -4,26 +4,28 @@ import { Link } from 'react-router-dom';
 import {
   Card, Grid, Button,
 } from 'semantic-ui-react';
-import { fetchPharmaciesShowStartAsync } from '../../actions/pharmacies/pharmaciesShowActions';
-// import PharmacyOrders from '../../components/pharmacies/pharmacyOrder';
+import { pharmaciesShow } from '../../thunks/pharmacies/pharmacies';
 
 const Pharmacies = () => {
-  const pharmacies = useSelector((state) => state.pharmaciesShow);
-  const orders = useSelector((state) => state.pharmacyOrders);
+  const pharmacies = useSelector((state) => state.PharmaciesShowReducer.pharmacies);
+  console.log(pharmacies);
+  const orders = useSelector((state) => state.PharmacyOrders);
+  const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
+  const errors = useSelector((state) => state.errorsReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPharmaciesShowStartAsync());
+    dispatch(pharmaciesShow());
   }, []);
 
   return (
     <Grid columns={2}>
-      <div>
+      {/* {<div>
         {orders.orders && orders.orders.status === 200 ? 'Yor Order is Placed Successfully' : ''}
-      </div>
+      </div> */}
       <Grid.Row className="cardrow">
         <Card.Group>
-          {pharmacies && pharmacies.pharmacies && pharmacies.pharmacies.map((pharmacy) => (
+          {pharmacies && pharmacies.map((pharmacy) => (
             <Card className="phCard" key={pharmacy.id}>
               <Card.Content>
                 <Card.Header>{pharmacy.name}</Card.Header>

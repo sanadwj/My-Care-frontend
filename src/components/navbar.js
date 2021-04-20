@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Menu, Grid, Dropdown } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { logOut } from '../thunks/auth/auth';
@@ -7,7 +7,9 @@ import { logOut } from '../thunks/auth/auth';
 const NavBar = (props) => {
   const { loggedInStatus } = props;
   const dispatch = useDispatch();
-  const [activeItem, setActiveItem] = useState('home');
+  const { pathname } = window.location;
+  const path = pathname === '/' ? 'login' : pathname.substr(1);
+  const [activeItem, setActiveItem] = useState(path);
   const handleItemClick = (e, { name }) => setActiveItem(name);
 
   const navBar = loggedInStatus === false ? (
