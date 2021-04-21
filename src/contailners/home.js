@@ -8,7 +8,6 @@ import pharmacy from '../style/assets/pharmacy.png';
 
 const Home = (props) => {
   const { loggedInStatus } = props;
-  console.log(loggedInStatus);
   return (
     <div>
       {loggedInStatus === true ? (

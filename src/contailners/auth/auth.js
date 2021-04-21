@@ -3,7 +3,7 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import {
   Button, Form, Container, Loader,
 } from 'semantic-ui-react';
@@ -14,8 +14,8 @@ const Auth = (props) => {
   const auth = useSelector((state) => state.authReducer.authenticated);
   const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
   const errors = useSelector((state) => state.errorsReducer);
-  // const reset = useSelector((state) => state.reset);
-  console.log(auth);
+  const reset = useSelector((state) => state.ResetPasswordReducer.reset);
+  const { loggedInStatus } = props;
   const dispatch = useDispatch();
 
   const { onChange, onSubmit, values } = useForm(authUser, {
@@ -67,8 +67,7 @@ const Auth = (props) => {
         </div>
       </Form>
       <div>
-
-        {/* {reset.reset && reset.reset.status === 200 ? 'Passaword Successfully Changed' : ''} */}
+        {reset && reset.status === 200 ? 'Passaword Successfully Changed' : ''}
       </div>
       <Link
         to="/forgot"

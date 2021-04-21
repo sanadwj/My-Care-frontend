@@ -15,16 +15,16 @@ const authStatus = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    setState({
-      isAuth: false,
-    });
+    localStorage.clear();
     dispatch(
       fetchAuthUser({
         authenticated: false,
         data: {},
       }),
     );
+    setState({
+      isAuth: false,
+    });
   };
 
   const checkAuthStatus = () => {

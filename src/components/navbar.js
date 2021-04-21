@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { Menu, Grid, Dropdown } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { logOut } from '../thunks/auth/auth';
 
 const NavBar = (props) => {
-  const { loggedInStatus } = props;
-  const dispatch = useDispatch();
+  const { loggedInStatus, handleLogout } = props;
   const { pathname } = window.location;
   const path = pathname === '/' ? 'login' : pathname.substr(1);
   const [activeItem, setActiveItem] = useState(path);
   const handleItemClick = (e, { name }) => setActiveItem(name);
 
   const navBar = loggedInStatus === false ? (
-    <Grid>
+    <Grid className="navbar">
       <Grid.Column width={2}>
         <Menu secondary vertical>
           <Menu.Item
@@ -35,7 +32,7 @@ const NavBar = (props) => {
     </Grid>
 
   ) : (
-    <Grid>
+    <Grid className="navbar">
       <Grid.Column width={2}>
         <Menu secondary vertical>
           <Menu.Item
@@ -82,9 +79,10 @@ const NavBar = (props) => {
           />
           <Menu.Item
             name="Logout"
-            onClick={() => dispatch(logOut())}
+            onClick={() => handleLogout()}
             as={Link}
             to="/"
+
           />
         </Menu>
       </Grid.Column>

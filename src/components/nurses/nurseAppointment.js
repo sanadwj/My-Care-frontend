@@ -10,7 +10,7 @@ import useForm from '../../util/hooks';
 import { nurseAppointment } from '../../thunks/nurses/nurses';
 
 const NurseAppointment = (props) => {
-  const appointment = useSelector((state) => state.NurseAppointmentReducer.appointments);
+  const appointment = useSelector((state) => state.NurseAppointmentReducer.appointment);
   const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
   const errors = useSelector((state) => state.errorsReducer);
   const { nurseId } = props;

@@ -6,26 +6,27 @@ import { Redirect } from 'react-router-dom';
 import {
   Button, Form, Loader, Container,
 } from 'semantic-ui-react';
-import { fetchResetPasswordsStartAsync } from '../actions/passwords/resetPassword';
+import { resetPassword } from '../thunks/passwords/passwords';
 import useForm from '../util/hooks';
 
 const ResetPassword = () => {
-  const reset = useSelector((state) => state.reset);
-  const forgot = useSelector((state) => state.forgot);
-
+  const reset = useSelector((state) => state.ResetPasswordReducer.reset);
+  const forgot = useSelector((state) => state.ForgotPasswordReducer.forgot);
+  const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
+  const errors = useSelector((state) => state.errorsReducer);
   const dispatch = useDispatch();
 
-  const { onChange, onSubmit, values } = useForm(resetPassword, {
+  const { onChange, onSubmit, values } = useForm(resetPass, {
     reset_password_token: '',
     password: '',
   });
 
-  function resetPassword() {
-    dispatch(fetchResetPasswordsStartAsync(values));
+  function resetPass() {
+    dispatch(resetPassword(values));
   }
 
-  if (reset.reset && reset.reset.status === 200) {
-    return <Redirect to="/login" />;
+  if (reset && reset.status === 200) {
+    return <Redirect to="/" />;
   }
 
   return (
@@ -58,11 +59,11 @@ const ResetPassword = () => {
         <Button type="submit">Submit</Button>
       </Form>
       <div>
-        {reset.isFetching === true ? <Loader active inline="centered" /> : ''}
+        {isFetching === true ? <Loader active inline="centered" /> : ''}
+        {errors}
       </div>
       <div>
-        {forgot.status && forgot.status.status === 200 ? 'A Token is Send to your Email ' : ''}
-
+        {forgot && forgot.status === 200 ? 'A Token is Send to your Email ' : ''}
       </div>
     </Container>
 

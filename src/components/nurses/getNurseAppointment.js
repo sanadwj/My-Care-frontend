@@ -7,7 +7,7 @@ import moment from 'moment';
 import { getNursesAppointment } from '../../thunks/nurses/nurses';
 
 const GetNurseAppointment = () => {
-  const appointments = useSelector((state) => state.getNurseAppointmentReducer.appointments);
+  const appointments = useSelector((state) => state.GetNurseAppointmentReducer.appointments);
   const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
   const errors = useSelector((state) => state.errorsReducer);
   const dispatch = useDispatch();

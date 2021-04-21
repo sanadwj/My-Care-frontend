@@ -23,7 +23,7 @@ const App = () => {
   const auth = useSelector((state) => state.authReducer);
 
   const {
-    state, checkAuthStatus,
+    state, checkAuthStatus, handleLogout,
   } = authStatus();
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const App = () => {
 
   return (
     <Router fluied>
-      <NavBar loggedInStatus={state.isAuth} />
+      <NavBar loggedInStatus={state.isAuth} handleLogout={handleLogout} />
       <Switch>
 
         <Route

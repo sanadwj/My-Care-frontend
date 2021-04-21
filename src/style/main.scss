@@ -47,18 +47,27 @@ body {
 
 .ui.segment {
   background-color: rgb(255, 180, 0) !important;
+  border-radius: 0.68571rem;
 }
 
 .getApp {
   margin: 80px 30px !important;
 }
 
-.ui.grid {
-  margin: 0 !important;
-  padding: 15px !important;
+// .ui.grid {
+//   margin: 0 !important;
+//   padding: 15px !important;
+//   font-family: 'Comfortaa', cursive;
+//   position: sticky !important;
+//   z-index: 10 !important;
+// }
+
+.navbar {
+  margin: 1px !important;
   font-family: 'Comfortaa', cursive;
   position: sticky !important;
   z-index: 10 !important;
+  background-color: rgba(230, 230, 230, 0.95) !important;
 }
 
 .ui.vertical.menu {
@@ -69,6 +78,7 @@ body {
 .app-wrapper {
   display: flex;
   justify-items: center;
+  height: 100vh;
 }
 
 .ui.secondary.menu .active.item {
@@ -203,8 +213,8 @@ select {
 .homeDiv {
   margin: 30px !important;
   padding: 30px !important;
-  background-color: rgb(151, 191, 15) !important;
-  border-radius: 0.28571rem;
+  background-color: rgba(230, 230, 230, 0.95) !important;
+  border-radius: 0.68571rem;
 }
 
 .homeseg {

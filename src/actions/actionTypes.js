@@ -2,17 +2,7 @@
 
 
 
-const ResetPasswordActionTypes = {
-  FITCH_DATA_START: 'FETCH_DATA_START',
-  FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
-  FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
-};
 
-const forgotPasswordActionTypes = {
-  FITCH_DATA_START: 'FETCH_DATA_START',
-  FITCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
-  FETCH_DATA_FAILURE: 'FETCH_DATA_FAILURE',
-};
 
 const errorsActionTypes = {
   FETCH_ERRORS: 'FETCH_ERRORS',
@@ -68,6 +58,14 @@ const PharmaciesShowtActionTypes = {
 
 const PharmacyOrderstActionTypes = {
   SET_PHARMACY_ORDER: 'SET_PHARMACY_ORDER',
+};
+
+const ResetPasswordActionTypes = {
+  SET_PASSWORD_RESET: 'SET_PASSOWRD_RESET',
+};
+
+const forgotPasswordActionTypes = {
+  SET_EMAIL_FORGOT: 'SET_EMAIL_FORGOT',
 };
 
 export {
