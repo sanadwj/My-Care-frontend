@@ -30,7 +30,7 @@ const ResetPassword = () => {
   }
 
   return (
-    <Container>
+    <Container className="passwords">
 
       <Form onSubmit={onSubmit}>
         <Form.Field>
@@ -60,6 +60,8 @@ const ResetPassword = () => {
       </Form>
       <div>
         {isFetching === true ? <Loader active inline="centered" /> : ''}
+      </div>
+      <div className="errors">
         {errors}
       </div>
       <div>

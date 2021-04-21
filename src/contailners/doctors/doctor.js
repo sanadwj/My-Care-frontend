@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-typos */
 import React, { useEffect } from 'react';
@@ -11,7 +12,6 @@ const Doctor = (props) => {
   const doctor = useSelector((state) => state.doctorShowReducer.doctor);
   const dispatch = useDispatch();
   const { loggedInStatus } = props;
-  console.log(props);
 
   const id = props.location.pathname.split('/doctors/show/')[1];
 
@@ -52,11 +52,11 @@ const Doctor = (props) => {
   );
 };
 
-// Doctor.propTypes = {
-//   loggedInStatus: PropTypes.func,
-// };
+Doctor.propTypes = {
+  loggedInStatus: PropTypes.bool,
+};
 
-// Doctor.defaultProps = {
-//   loggedInStatus: null,
-// };
+Doctor.defaultProps = {
+  loggedInStatus: false,
+};
 export default Doctor;

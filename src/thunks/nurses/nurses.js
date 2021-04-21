@@ -10,7 +10,6 @@ export const nursesSpecialty = (specialty) => async (dispatch) => {
   try {
     const res = await sendAuthorizedRequest('get', path, token);
     dispatch(fetchNurseSpecialty({ specialty: res.data.nurses }));
-    console.log(res.data.nurses);
     dispatch(isFetching({ fetching: false }));
   } catch (error) {
     dispatch(isFetching({ fetching: false }));
@@ -24,7 +23,6 @@ export const nurseShow = (id) => async (dispatch) => {
   try {
     const res = await sendAuthorizedRequest('get', path, token);
     dispatch(fetchNurseShow({ nurse: res.data }));
-    console.log(res.data);
     dispatch(isFetching({ fetching: false }));
   } catch (error) {
     dispatch(isFetching({ fetching: false }));
@@ -53,7 +51,6 @@ export const getNursesAppointment = () => async (dispatch) => {
   try {
     const res = await sendAuthorizedRequest('get', path, token);
     dispatch(nursesAppointment({ appointments: res.data.appointments }));
-    console.log(res.data);
     dispatch(isFetching({ fetching: false }));
   } catch (error) {
     dispatch(isFetching({ fetching: false }));

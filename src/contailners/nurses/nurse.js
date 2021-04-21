@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/no-typos */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';

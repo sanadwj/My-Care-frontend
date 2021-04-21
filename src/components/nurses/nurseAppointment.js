@@ -77,6 +77,8 @@ const NurseAppointment = (props) => {
       </Form>
       <div>
         {isFetching === true ? <Loader active inline="centered" /> : ''}
+      </div>
+      <div className="errors">
         {errors}
       </div>
     </div>

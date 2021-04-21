@@ -10,7 +10,6 @@ export const pharmaciesShow = () => async (dispatch) => {
   try {
     const res = await sendAuthorizedRequest('get', path, token);
     dispatch(fetchPharmaciesShow({ pharmacies: res.data.pharmacies }));
-    console.log(res.data.pharmacies);
     dispatch(isFetching({ fetching: false }));
   } catch (error) {
     dispatch(isFetching({ fetching: false }));
@@ -25,11 +24,9 @@ export const pharmacyOrders = (orders) => async (dispatch) => {
   try {
     const res = await sendAuthorizedRequest('post', path, token, orders);
     dispatch(fetchPharmacyOrders({ order: res.data }));
-    console.log(res.data);
     dispatch(isFetching({ fetching: false }));
   } catch (error) {
     dispatch(isFetching({ fetching: false }));
-    console.log(error.response);
     return dispatch(fetchErrors(error.response.statusText));
   }
 };

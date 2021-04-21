@@ -1,6 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { Item, Segment } from 'semantic-ui-react';
 import doctor from '../style/assets/doctor.png';
 import nurse from '../style/assets/nurse.png';
@@ -86,5 +86,13 @@ const Home = (props) => {
       ) : ''}
     </div>
   );
+};
+
+Home.propTypes = {
+  loggedInStatus: PropTypes.bool,
+};
+
+Home.defaultProps = {
+  loggedInStatus: false,
 };
 export default Home;

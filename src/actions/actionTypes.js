@@ -1,9 +1,3 @@
-
-
-
-
-
-
 const errorsActionTypes = {
   FETCH_ERRORS: 'FETCH_ERRORS',
 };

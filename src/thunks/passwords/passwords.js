@@ -10,7 +10,6 @@ export const forgotPassword = (email) => async (dispatch) => {
   try {
     const res = await sendAuthorizedRequest('post', path, token, email);
     dispatch(fetchForgotPasswords({ forgot: res.data }));
-    console.log(res.data);
     dispatch(isFetching({ fetching: false }));
   } catch (error) {
     dispatch(isFetching({ fetching: false }));
@@ -26,7 +25,6 @@ export const resetPassword = (resetData) => async (dispatch) => {
   try {
     const res = await sendAuthorizedRequest('post', path, token, resetData);
     dispatch(fetchResetPasswords({ reset: res.data }));
-    console.log(res.data);
     dispatch(isFetching({ fetching: false }));
   } catch (error) {
     dispatch(isFetching({ fetching: false }));

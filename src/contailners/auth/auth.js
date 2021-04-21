@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-use-before-define */
-/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   Button, Form, Container, Loader,
 } from 'semantic-ui-react';
@@ -15,7 +15,6 @@ const Auth = (props) => {
   const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
   const errors = useSelector((state) => state.errorsReducer);
   const reset = useSelector((state) => state.ResetPasswordReducer.reset);
-  const { loggedInStatus } = props;
   const dispatch = useDispatch();
 
   const { onChange, onSubmit, values } = useForm(authUser, {
@@ -34,7 +33,7 @@ const Auth = (props) => {
   }, [auth]);
 
   return (
-    <Container className="authContainer">
+    <Container style={{ margin: 20 }}>
       <Form onSubmit={onSubmit} className="formContainer">
         <Form.Field>
           <label>Email</label>
@@ -62,7 +61,7 @@ const Auth = (props) => {
           Login
         </Button>
         {isFetching === true ? <Loader active inline="centered" /> : ''}
-        <div>
+        <div className="errors">
           {errors}
         </div>
       </Form>
@@ -76,6 +75,14 @@ const Auth = (props) => {
       </Link>
     </Container>
   );
+};
+
+Auth.propTypes = {
+  history: PropTypes.string,
+};
+
+Auth.defaultProps = {
+  history: '',
 };
 
 export default Auth;

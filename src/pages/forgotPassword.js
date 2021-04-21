@@ -14,7 +14,6 @@ const ForgotPassword = () => {
   const dispatch = useDispatch();
   const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
   const errors = useSelector((state) => state.errorsReducer);
-  console.log(forgot);
   const { onChange, onSubmit, values } = useForm(forgotPass, {
     email: '',
   });
@@ -28,7 +27,7 @@ const ForgotPassword = () => {
   }
 
   return (
-    <Container>
+    <Container className="passwords">
       <Form onSubmit={onSubmit}>
         <Form.Field>
           <label>Email</label>
@@ -46,6 +45,8 @@ const ForgotPassword = () => {
       </Form>
       <div>
         {isFetching === true ? <Loader active inline="centered" /> : ''}
+      </div>
+      <div className="errors">
         {errors}
       </div>
 

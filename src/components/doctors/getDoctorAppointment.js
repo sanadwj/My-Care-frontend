@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  Card, Header, Segment, Loader,
+  Card, Header, Loader,
 } from 'semantic-ui-react';
 import moment from 'moment';
 import { getDoctorsAppointment } from '../../thunks/docotrs/doctors';
@@ -17,19 +17,19 @@ const GetDoctorAppointment = () => {
   }, []);
 
   return (
-    <div className="getApp">
+    <div >
       {
         isFetching === true ? (
           <Loader active inline="centered" />
         )
           : (
-            <Segment>
+            <div className="getApp">
               <Header>
                 Doctor Appointments
               </Header>
               <Card.Group>
                 {appointments && appointments.map((appointment) => (
-                  <Card key={appointment.id}>
+                  <Card key={appointment.id} className="appointmentCard">
                     <Card.Content>
                       <Card.Header>{appointment.name}</Card.Header>
                       <br />
@@ -61,11 +61,11 @@ const GetDoctorAppointment = () => {
 
                 ))}
               </Card.Group>
-              <div style={{ marginTop: 30 }}>
+              <div className="errors">
                 {errors}
               </div>
 
-            </Segment>
+            </div>
           )
       }
     </div>

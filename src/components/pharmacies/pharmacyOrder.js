@@ -12,7 +12,6 @@ import { pharmacyOrders } from '../../thunks/pharmacies/pharmacies';
 
 const PharmacyOrders = (props) => {
   const orders = useSelector((state) => state.PharmacyOrdersReducer.order);
-  console.log(orders);
   const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
   const errors = useSelector((state) => state.errorsReducer);
   const { pharmacyId } = props.location.state;
@@ -35,7 +34,7 @@ const PharmacyOrders = (props) => {
   }
 
   return (
-    <Container style={{ marginTop: 30 }}>
+    <Container className="appointmentForm" style={{ marginTop: 30 }}>
 
       <Form className="dappointmentForm" onSubmit={onSubmit}>
         <Form.Group widths="equal">
@@ -91,7 +90,9 @@ const PharmacyOrders = (props) => {
         </Modal.Actions>
       </Form>
       <div>
-        {isFetching === true ? <Loader active inline="centered" /> : ''}
+        {isFetching === true ? <Loader active inline="centered" /> : ''} {errors}
+      </div>
+      <div className="errors">
         {errors}
       </div>
     </Container>

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-use-before-define */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -78,6 +77,8 @@ const DoctorAppointment = (props) => {
       </Form>
       <div>
         {isFetching === true ? <Loader active inline="centered" /> : ''}
+      </div>
+      <div className="errors">
         {errors}
       </div>
     </div>

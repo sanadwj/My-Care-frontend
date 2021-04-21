@@ -51,7 +51,6 @@ export const getDoctorsAppointment = () => async (dispatch) => {
   try {
     const res = await sendAuthorizedRequest('get', path, token);
     dispatch(doctorsAppointment({ appointments: res.data.appointments }));
-    console.log(res.data);
     dispatch(isFetching({ fetching: false }));
   } catch (error) {
     dispatch(isFetching({ fetching: false }));

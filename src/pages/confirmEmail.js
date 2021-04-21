@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Item } from 'semantic-ui-react';
 
 const Confirm = () => (
-  <Container>
+  <Container className="confirmPage">
     <Item.Group relaxed="very">
       <Item>
         <Item.Image size="tiny" src="https://react.semantic-ui.com/images/wireframe/image.png" />
