@@ -34,7 +34,7 @@ export const register = (registerParams) => async (dispatch) => {
   } catch (error) {
     dispatch(fetchRegisteredUser({ registered: false }));
     dispatch(isFetching({ fetching: false }));
-    return dispatch(fetchErrors(error.response.data.error));
+    dispatch(fetchErrors(error.response.data.error));
   }
 };
 

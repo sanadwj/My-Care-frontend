@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'https://enigmatic-waters-74440.herokuapp.com/';
+const baseUrl = 'https://glacial-everglades-68014.herokuapp.com/';
 
 export const sendUnauthenticatedRequest = async (method, path, data) => {
   const result = await axios[method](`${baseUrl}/${path}`, data);

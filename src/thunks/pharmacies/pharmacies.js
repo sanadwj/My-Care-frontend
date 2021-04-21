@@ -13,7 +13,7 @@ export const pharmaciesShow = () => async (dispatch) => {
     dispatch(isFetching({ fetching: false }));
   } catch (error) {
     dispatch(isFetching({ fetching: false }));
-    return dispatch(fetchErrors(error.response.status));
+    dispatch(fetchErrors(error.response.status));
   }
 };
 
@@ -27,6 +27,6 @@ export const pharmacyOrders = (orders) => async (dispatch) => {
     dispatch(isFetching({ fetching: false }));
   } catch (error) {
     dispatch(isFetching({ fetching: false }));
-    return dispatch(fetchErrors(error.response.statusText));
+    dispatch(fetchErrors(error.response.statusText));
   }
 };

@@ -90,7 +90,9 @@ const PharmacyOrders = (props) => {
         </Modal.Actions>
       </Form>
       <div>
-        {isFetching === true ? <Loader active inline="centered" /> : ''} {errors}
+        {isFetching === true ? <Loader active inline="centered" /> : ''}
+        {' '}
+        {errors}
       </div>
       <div className="errors">
         {errors}

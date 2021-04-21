@@ -13,10 +13,9 @@ export const forgotPassword = (email) => async (dispatch) => {
     dispatch(isFetching({ fetching: false }));
   } catch (error) {
     dispatch(isFetching({ fetching: false }));
-    return dispatch(fetchErrors(error));
+    dispatch(fetchErrors(error));
   }
 };
-
 
 export const resetPassword = (resetData) => async (dispatch) => {
   const path = 'api/v1/reset';
@@ -28,6 +27,6 @@ export const resetPassword = (resetData) => async (dispatch) => {
     dispatch(isFetching({ fetching: false }));
   } catch (error) {
     dispatch(isFetching({ fetching: false }));
-    return dispatch(fetchErrors(error.status));
+    dispatch(fetchErrors(error.status));
   }
 };

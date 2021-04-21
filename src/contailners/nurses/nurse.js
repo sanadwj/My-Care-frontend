@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
-  Loader, Image, Card,
+  Image, Card,
 } from 'semantic-ui-react';
 import NurseAppointment from '../../components/nurses/nurseAppointment';
 import { nurseShow } from '../../thunks/nurses/nurses';

@@ -1,7 +1,9 @@
 import { sendAuthorizedRequest } from '../../util/api';
 import fetchErrors from '../../actions/common/fetchErrorsActions';
 import isFetching from '../../actions/common/isFetchingActions';
-import { fetchNurseSpecialty, fetchNurseShow, fetchNurseAppointment, nursesAppointment } from '../../actions/nurses/nursesActions';
+import {
+  fetchNurseSpecialty, fetchNurseShow, fetchNurseAppointment, nursesAppointment,
+} from '../../actions/nurses/nursesActions';
 
 export const nursesSpecialty = (specialty) => async (dispatch) => {
   const path = `api/v1/nurses-specialties/specialty/${specialty}`;
@@ -26,7 +28,7 @@ export const nurseShow = (id) => async (dispatch) => {
     dispatch(isFetching({ fetching: false }));
   } catch (error) {
     dispatch(isFetching({ fetching: false }));
-    return dispatch(fetchErrors(error.response));
+    dispatch(fetchErrors(error.response));
   }
 };
 
@@ -40,7 +42,7 @@ export const nurseAppointment = (appointment) => async (dispatch) => {
     dispatch(isFetching({ fetching: false }));
   } catch (error) {
     dispatch(isFetching({ fetching: false }));
-    return dispatch(fetchErrors(error));
+    dispatch(fetchErrors(error));
   }
 };
 
@@ -54,6 +56,6 @@ export const getNursesAppointment = () => async (dispatch) => {
     dispatch(isFetching({ fetching: false }));
   } catch (error) {
     dispatch(isFetching({ fetching: false }));
-    return dispatch(fetchErrors(error));
+    dispatch(fetchErrors(error));
   }
 };

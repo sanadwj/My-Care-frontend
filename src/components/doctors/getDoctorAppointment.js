@@ -17,7 +17,7 @@ const GetDoctorAppointment = () => {
   }, []);
 
   return (
-    <div >
+    <div>
       {
         isFetching === true ? (
           <Loader active inline="centered" />

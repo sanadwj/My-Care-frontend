@@ -1,4 +1,9 @@
-import { NurseSpecialtyActionTypes, NurseShowActionTypes, NurseAppointmentActionTypes, GetNurseAppointmentActionTypes } from '../actionTypes';
+import {
+  NurseSpecialtyActionTypes,
+  NurseShowActionTypes,
+  NurseAppointmentActionTypes,
+  GetNurseAppointmentActionTypes,
+} from '../actionTypes';
 
 export const fetchNurseSpecialty = (specialty) => ({
   type: NurseSpecialtyActionTypes.SET_NURSES_SPECIALTY,

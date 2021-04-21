@@ -1,4 +1,9 @@
-import { DoctorSpecialtyActionTypes, DoctorShowActionTypes, DoctorAppointmentActionTypes, GetDoctorAppointmentActionTypes } from '../actionTypes';
+import {
+  DoctorSpecialtyActionTypes,
+  DoctorShowActionTypes,
+  DoctorAppointmentActionTypes,
+  GetDoctorAppointmentActionTypes,
+} from '../actionTypes';
 
 export const fetchDoctorSpecialty = (doctors) => ({
   type: DoctorSpecialtyActionTypes.SET_DOCTORS_SPECIALTY,
