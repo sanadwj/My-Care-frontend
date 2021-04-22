@@ -4,7 +4,7 @@ import isFetching from '../../actions/common/isFetchingActions';
 import { fetchForgotPasswords, fetchResetPasswords } from '../../actions/passwords/passwordReset';
 
 export const forgotPassword = (email) => async (dispatch) => {
-  const path = 'api/v1/forgot';
+  const path = 'api/v1/passwords';
   const token = localStorage.getItem('token');
   dispatch(isFetching({ fetching: true }));
   try {
@@ -18,11 +18,11 @@ export const forgotPassword = (email) => async (dispatch) => {
 };
 
 export const resetPassword = (resetData) => async (dispatch) => {
-  const path = 'api/v1/reset';
+  const path = `api/v1/passwords/${resetData}`;
   const token = localStorage.getItem('token');
   dispatch(isFetching({ fetching: true }));
   try {
-    const res = await sendAuthorizedRequest('post', path, token, resetData);
+    const res = await sendAuthorizedRequest('patch', path, token, resetData);
     dispatch(fetchResetPasswords({ reset: res.data }));
     dispatch(isFetching({ fetching: false }));
   } catch (error) {

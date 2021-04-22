@@ -6,7 +6,7 @@ import {
 } from '../../actions/doctors/doctorsActions';
 
 export const doctorsSpecialty = (specialty) => async (dispatch) => {
-  const path = `api/v1/doctors-specialties/specialty/${specialty}`;
+  const path = `api/v1/doctors_specialty/${specialty}`;
   const token = localStorage.getItem('token');
   dispatch(isFetching({ fetching: true }));
   try {

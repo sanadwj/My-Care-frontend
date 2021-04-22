@@ -1,7 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Route, Switch, Redirect,
+} from 'react-router-dom';
 import authStatus from '../context/authStatus';
 import Registration from '../contailners/auth/register';
 import NavBar from './navbar';
@@ -42,12 +44,13 @@ const App = () => {
             <Home {...props} loggedInStatus={state.isAuth} />
           )}
         />
+
         <Route
           exact
           path="/"
-          render={(props) => (
+          render={(props) => (state.isAuth === false ? (
             <Auth {...props} loggedInStatus={state.isAuth} />
-          )}
+          ) : <Redirect to="/home" />)}
         />
         <Route
           exact
