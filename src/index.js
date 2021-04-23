@@ -1,24 +1,27 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import { BrowserRouter } from "react-router-dom";
-import App from "./components/app";
-import reducers from "./reducers";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import { BrowserRouter } from 'react-router-dom';
+import App from './components/app';
+import reducers from './reducers';
+import 'semantic-ui-css/semantic.min.css';
+import './style/main.scss';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-import "./style/main.scss";
+const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
 
 function main() {
   ReactDOM.render(
-    <Provider store={createStoreWithMiddleware(reducers)}>
+    <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>,
-    document.querySelector(".app-wrapper")
+    document.querySelector('.app-wrapper'),
   );
 }
 
-document.addEventListener("DOMContentLoaded", main);
+document.addEventListener('DOMContentLoaded', main);

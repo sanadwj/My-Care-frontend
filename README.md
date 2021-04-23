@@ -1,6 +1,4 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-
-## My Care
+# My Care
 
 <!-- PROJECT LOGO -->
 <br />
@@ -38,17 +36,21 @@
 
 ## Screenshot
 
-<!-- ![](/public/assets/recipes1.png)
+![](/src/style/assets/homepage.png)
 
 <br>
 
-![](/public/assets/recipes2.png) -->
+![](/src/style/assets/docotrs.png)
+
+<br>
+
+![](/src/style/assets/appointments.png)
 
 <br>
 
 ## Live Demo
 
-<!-- [Live Demo](https://afternoon-savannah-07660.herokuapp.com) -->
+[Live Demo](https://enigmatic-waters-74440.herokuapp.com)
 
 <br>
 
@@ -56,7 +58,9 @@
 
 ## About The Project
 
-Catalogue-of-Recipes. An app that contains a different kinds of delicious recipes for your taste. You can filter through categories and find the one that suits you.
+My Care is an App that enables you to browse throw doctors and nurses by specialty, Select a doctor or Nurse, And book an appointment, Also you can browse a list of Pharmacies and make orders.
+
+When you Register, make an appointment or place an order you will receive an email confirmation.
 
 ### Built With
 
@@ -64,7 +68,6 @@ Catalogue-of-Recipes. An app that contains a different kinds of delicious recipe
 - React
 - Redux
 - React-DOM
-- React-Create-App
 - npm
 - CSS
 - ES6
@@ -84,6 +87,13 @@ This is an example of how to list things you need to use the software and how to
 ```sh
 npm install npm@latest -g
 ```
+
+### User info
+
+- email: dev@example.com
+- password: password
+
+> Please try to register to cover all the .
 
 ### Installation
 

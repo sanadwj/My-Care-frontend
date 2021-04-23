@@ -1,28 +1,324 @@
-html {
-    font-size: 62.5%; // 1rem is 10px
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-*,
-*::after,
-*::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-    font-family: 'montserrat';
+html {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 100%; // 1rem is 10px
+  margin: 0;
 }
 
 body {
-    overflow-x: hidden;
-    font-weight: normal;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    -webkit-tap-highlight-color: transparent;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+  background-image: url(./assets/canva.png) !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
 }
 
-.app {
-    margin-top: 2rem;
-    display: grid;
-    justify-items: center;
+.errors {
+  color: darkred;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 0.68571rem;
+}
+
+.ui.icon.header .icon {
+  color: rgb(151, 191, 15) !important;
+  font-size: 30px !important;
+}
+
+.dropdown {
+  background-color: rgb(151, 191, 15) !important;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+.ui.vertical.menu .dropdown.item > .icon {
+  float: right;
+  content: '\F0DA';
+  margin-left: 0;
+  height: 5px;
+}
+
+.ui.secondary.vertical.menu > .item {
+  border: none;
+  margin: 0 0 0.2em !important;
+  border-radius: 0.28571rem !important;
+  padding: 15px !important;
+}
+
+.ui.segment {
+  background-color: rgb(255, 180, 0) !important;
+  border-radius: 0.68571rem;
+}
+
+.getApp {
+  margin: 30px 10px !important;
+  padding-top: 30px !important;
+  background-color: rgb(255, 180, 0) !important;
+  border-radius: 0.68571rem;
+}
+
+.navbar {
+  margin: 1px !important;
+  font-family: 'Comfortaa', cursive;
+  position: sticky !important;
+  z-index: 10 !important;
+  background-color: rgba(230, 230, 230, 0.95) !important;
+  border-bottom-right-radius: 0.68571rem;
+}
+
+.ui.vertical.menu {
+  max-width: 13rem !important;
+  padding: 10px !important;
+}
+
+.app-wrapper {
+  display: flex;
+  justify-items: center;
+  margin: 0;
+  height: 100vh;
+}
+
+.ui.secondary.menu .active.item {
+  background: rgb(151, 191, 15) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.formContainer {
+  max-width: 300px !important;
+  margin: 15px !important;
+}
+
+.ui.secondary.vertical.pointing.menu {
+  height: 100vh;
+}
+
+.docDiv {
+  background-color: rgb(151, 191, 15) !important;
+  width: auto !important;
+  margin: auto 30px !important;
+  padding: 10px !important;
+  border-radius: 0.28571rem !important;
+}
+
+.confirm {
+  color: rgb(255, 180, 0) !important;
+  margin: auto 10px !important;
+}
+
+.confirmPage {
+  background-color: rgb(151, 191, 15) !important;
+  padding: 10px !important;
+  border-radius: 0.28571rem !important;
+}
+
+.passwords {
+  width: 50% !important;
+  margin: 50px !important;
+  padding: 10px !important;
+}
+
+.filter {
+  min-height: 50% !important;
+  margin: 30px !important;
+  overflow-y: visible;
+}
+
+.select {
+  text-align: center;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.doctors {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+select {
+  max-width: 80%;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: menulist;
+  box-sizing: border-box;
+  align-items: center;
+  white-space: pre;
+  height: 40px;
+  cursor: default;
+  margin: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-image: initial;
+  border-radius: 0.28571rem;
+}
+
+.ui.button {
+  background: rgb(151, 191, 15) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+// .doctor {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   width: 90% !important;
+// }
+
+.doctorDiv {
+  width: 90% !important;
+  margin: 10px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dappointment {
+  display: flex;
+  margin: 30px !important;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 100% !important;
+}
+
+.appointmentForm {
+  width: 70% !important;
+  margin: 30px !important;
+}
+
+.dappointmentForm {
+  max-width: 100% !important;
+}
+
+.appointmentCard {
+  width: 200px !important;
+}
+
+.ui.form .field > label {
+  display: block;
+  margin: 0 0 0.28571429rem 0;
+  color: rgb(255, 180, 0) !important;
+  font-size: 0.92857143em;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.pharmacies {
+  margin: 30px 5px !important;
+}
+
+.ui.cards {
+  display: -webkit-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 !important;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.phCard {
+  width: 160px !important;
+}
+
+.ui.header:first-child {
+  text-align: center;
+}
+
+.homeDiv {
+  margin: 30px !important;
+  padding: 30px !important;
+  background-color: rgba(230, 230, 230, 0.95) !important;
+  border-radius: 0.68571rem;
+}
+
+.homeseg {
+  margin: 0 auto 40px auto !important;
+}
+
+.homegr {
+  height: 40px !important;
+  width: auto !important;
+}
+
+.welcome {
+  text-align: center;
+  color: rgb(255, 180, 0) !important;
+}
+
+.img {
+  height: 100px !important;
+  margin: 5px !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .ui.container {
+    width: 80% !important;
+    margin: 10px !important;
+  }
+
+  .appointmentForm {
+    width: 70% !important;
+    margin: 30px !important;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .passwords {
+    margin: 50px !important;
+    padding: 10px !important;
+  }
+}
+
+@media only screen and (max-width: 484px) {
+  .getApp {
+    padding-top: 30px !important;
+    margin: 30px 10px !important;
+    width: 90% !important;
+    height: auto !important;
+  }
+
+  .doctorDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    margin-top: 10px !important;
+    padding: 10px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .navbar {
+    width: 120px;
+  }
+
+  .ui.dropdown > .text {
+    font-size: 11px;
+  }
+
+  .ui.vertical.menu {
+    max-width: 7rem !important;
+    padding: 10px !important;
+  }
 }
