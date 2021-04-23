@@ -2,55 +2,55 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
-  Card, Grid, Button,
+  Card, Grid, Button, Loader,
 } from 'semantic-ui-react';
-import { fetchPharmaciesShowStartAsync } from '../../actions/pharmacies/pharmaciesShowActions';
-// import PharmacyOrders from '../../components/pharmacies/pharmacyOrder';
+import { pharmaciesShow } from '../../thunks/pharmacies/pharmacies';
 
 const Pharmacies = () => {
-  const pharmacies = useSelector((state) => state.pharmaciesShow);
-  const orders = useSelector((state) => state.pharmacyOrders);
+  const pharmacies = useSelector((state) => state.PharmaciesShowReducer.pharmacies);
+  const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
+  const errors = useSelector((state) => state.errorsReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPharmaciesShowStartAsync());
+    dispatch(pharmaciesShow());
   }, []);
 
   return (
-    <Grid columns={2}>
+    <Grid.Row columns={2} className="pharmacies">
+      <Card.Group>
+        {pharmacies && pharmacies.map((pharmacy) => (
+          <Card className="phCard" key={pharmacy.id}>
+            <Card.Content>
+              <Card.Header>{pharmacy.name}</Card.Header>
+              <Card.Description>
+                <strong>{pharmacy.location}</strong>
+              </Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+              <Button>
+                <Link to={{
+                  pathname: '/order',
+                  state: {
+                    pharmacyId: pharmacy.id,
+                  },
+                }}
+                >
+                  Order
+                </Link>
+              </Button>
+            </Card.Content>
+          </Card>
+
+        ))}
+      </Card.Group>
       <div>
-        {orders.orders && orders.orders.status === 200 ? 'Yor Order is Placed Successfully' : ''}
+        {isFetching === true ? <Loader active inline="centered" /> : ''}
       </div>
-      <Grid.Row className="cardrow">
-        <Card.Group>
-          {pharmacies && pharmacies.pharmacies && pharmacies.pharmacies.map((pharmacy) => (
-            <Card className="phCard" key={pharmacy.id}>
-              <Card.Content>
-                <Card.Header>{pharmacy.name}</Card.Header>
-                <Card.Description>
-                  <strong>{pharmacy.location}</strong>
-                </Card.Description>
-              </Card.Content>
-              <Card.Content extra>
-                <Button>
-                  <Link to={{
-                    pathname: '/order',
-                    state: {
-                      pharmacyId: pharmacy.id,
-                    },
-                  }}
-                  >
-                    Order
-                  </Link>
-                </Button>
-              </Card.Content>
-            </Card>
-
-          ))}
-        </Card.Group>
-      </Grid.Row>
-
-    </Grid>
+      <div className="errors">
+        {errors}
+      </div>
+    </Grid.Row>
   );
 };
 export default Pharmacies;

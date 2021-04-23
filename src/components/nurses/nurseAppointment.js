@@ -7,28 +7,30 @@ import {
   Button, Form, Loader,
 } from 'semantic-ui-react';
 import useForm from '../../util/hooks';
-import { fetchDoctorAppointmentStartAsync } from '../../actions/doctorAppointment/doctorAppointmentActions';
+import { nurseAppointment } from '../../thunks/nurses/nurses';
 
-const DoctorAppointment = (props) => {
-  const appointment = useSelector((state) => state.doctorAppointment);
-  const { doctorId } = props;
+const NurseAppointment = (props) => {
+  const appointment = useSelector((state) => state.NurseAppointmentReducer.appointment);
+  const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
+  const errors = useSelector((state) => state.errorsReducer);
+  const { nurseId } = props;
   const dispatch = useDispatch();
-  const user = JSON.parse(localStorage.getItem('user'));
+  const id = localStorage.getItem('id');
 
-  const { onChange, onSubmit, values } = useForm(docAppointment, {
-    doctor_id: doctorId,
-    user_id: user.id,
+  const { onChange, onSubmit, values } = useForm(nurAppointment, {
+    nurse_id: nurseId,
+    user_id: id,
     username: '',
     note: '',
     at: '',
   });
 
-  function docAppointment() {
-    dispatch(fetchDoctorAppointmentStartAsync(values));
+  function nurAppointment() {
+    dispatch(nurseAppointment(values));
   }
 
-  if (appointment.docAppointment && appointment.docAppointment.status === 200) {
-    return <Redirect to="/doctorappointments" />;
+  if (appointment && appointment.status === 201) {
+    return <Redirect to="/nurseappointments" />;
   }
 
   return (
@@ -74,18 +76,21 @@ const DoctorAppointment = (props) => {
 
       </Form>
       <div>
-        {appointment.isFetching === true ? <Loader active inline="centered" /> : ''}
+        {isFetching === true ? <Loader active inline="centered" /> : ''}
+      </div>
+      <div className="errors">
+        {errors}
       </div>
     </div>
   );
 };
 
-DoctorAppointment.propTypes = {
-  doctorId: PropTypes.string,
+NurseAppointment.propTypes = {
+  nurseId: PropTypes.number,
 };
 
-DoctorAppointment.defaultProps = {
-  doctorId: '',
+NurseAppointment.defaultProps = {
+  nurseId: '',
 };
 
-export default DoctorAppointment;
+export default NurseAppointment;

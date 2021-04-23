@@ -8,31 +8,33 @@ import {
   Button, Modal, Loader, Form, Container,
 } from 'semantic-ui-react';
 import useForm from '../../util/hooks';
-import { fetchPharmacyOrdersStartAsync } from '../../actions/pharmacies/pharmacyOrdersActions';
+import { pharmacyOrders } from '../../thunks/pharmacies/pharmacies';
 
 const PharmacyOrders = (props) => {
-  const orders = useSelector((state) => state.pharmacyOrders);
+  const orders = useSelector((state) => state.PharmacyOrdersReducer.order);
+  const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
+  const errors = useSelector((state) => state.errorsReducer);
   const { pharmacyId } = props.location.state;
   const dispatch = useDispatch();
-  const user = JSON.parse(localStorage.getItem('user'));
+  const id = localStorage.getItem('id');
   const { onChange, onSubmit, values } = useForm(phOrders, {
     pharmacy_id: pharmacyId,
-    user_id: user.id,
+    user_id: id,
     name: '',
     dose: '',
     quantity: '',
   });
 
   function phOrders() {
-    dispatch(fetchPharmacyOrdersStartAsync(values));
+    dispatch(pharmacyOrders(values));
   }
 
-  if (orders.orders && orders.orders.status === 200) {
+  if (orders && orders.message === 'Successfully Created') {
     return <Redirect to="/pharmacies" />;
   }
 
   return (
-    <Container style={{ marginTop: 30 }}>
+    <Container className="appointmentForm" style={{ marginTop: 30 }}>
 
       <Form className="dappointmentForm" onSubmit={onSubmit}>
         <Form.Group widths="equal">
@@ -88,7 +90,12 @@ const PharmacyOrders = (props) => {
         </Modal.Actions>
       </Form>
       <div>
-        {orders.isFetching === true ? <Loader active inline="centered" /> : ''}
+        {isFetching === true ? <Loader active inline="centered" /> : ''}
+        {' '}
+        {errors}
+      </div>
+      <div className="errors">
+        {errors}
       </div>
     </Container>
   );

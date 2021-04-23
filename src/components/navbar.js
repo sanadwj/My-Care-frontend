@@ -4,21 +4,13 @@ import { Link } from 'react-router-dom';
 
 const NavBar = (props) => {
   const { loggedInStatus, handleLogout } = props;
-
   const { pathname } = window.location;
-
-  const path = pathname === '/' ? 'home' : pathname.substr(1);
-
+  const path = pathname === '/' ? 'login' : pathname.substr(1);
   const [activeItem, setActiveItem] = useState(path);
-
   const handleItemClick = (e, { name }) => setActiveItem(name);
-  const handleLogoutClick = () => {
-    localStorage.clear();
-    handleLogout();
-  };
 
   const navBar = loggedInStatus === false ? (
-    <Grid>
+    <Grid className="navbar">
       <Grid.Column width={2}>
         <Menu secondary vertical>
           <Menu.Item
@@ -26,21 +18,21 @@ const NavBar = (props) => {
             active={activeItem === 'login'}
             onClick={handleItemClick}
             as={Link}
-            to="/login"
+            to="/"
           />
           <Menu.Item
             name="register"
             active={activeItem === 'register'}
             onClick={handleItemClick}
             as={Link}
-            to="/"
+            to="/register"
           />
         </Menu>
       </Grid.Column>
     </Grid>
 
   ) : (
-    <Grid>
+    <Grid className="navbar">
       <Grid.Column width={2}>
         <Menu secondary vertical>
           <Menu.Item
@@ -87,9 +79,10 @@ const NavBar = (props) => {
           />
           <Menu.Item
             name="Logout"
-            onClick={() => handleLogoutClick()}
+            onClick={() => handleLogout()}
             as={Link}
             to="/"
+
           />
         </Menu>
       </Grid.Column>

@@ -1,33 +1,15 @@
-import { AuthActionTypes } from '../../actions/actionTypes';
+import { setAuthUser } from '../../actions/actionTypes';
 
 const INITIAL_STATE = {
-  auth: [],
-  isFetching: false,
-  ErrorMessage: undefined,
+  authenticated: false,
+  data: null,
 };
 
 const authReducer = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case AuthActionTypes.FITCH_DATA_START:
-      return {
-        ...state,
-        isFetching: true,
-      };
-    case AuthActionTypes.FITCH_DATA_SUCCESS:
-      return {
-        ...state,
-        auth: action.auth,
-        isFetching: false,
-      };
-    case AuthActionTypes.FETCH_DATA_FAILURE:
-      return {
-        ...state,
-        ErrorMessage: action.error,
-        isFetching: false,
-      };
-    default:
-      return state;
+  if (action.type === setAuthUser.SET_AUTH_USER) {
+    return action.authenticated;
   }
+  return state;
 };
 
 export default authReducer;

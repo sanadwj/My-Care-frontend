@@ -1,33 +1,14 @@
 import { NurseSpecialtyActionTypes } from '../../actions/actionTypes';
 
 const INITIAL_STATE = {
-  nurses: [],
-  isFetching: false,
-  ErrorMessage: undefined,
+  specialty: [],
 };
 
 const NurseSpecialtyReducer = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case NurseSpecialtyActionTypes.FITCH_DATA_START:
-      return {
-        ...state,
-        isFetching: true,
-      };
-    case NurseSpecialtyActionTypes.FITCH_DATA_SUCCESS:
-      return {
-        ...state,
-        nurses: action.nurses,
-        isFetching: false,
-      };
-    case NurseSpecialtyActionTypes.FETCH_DATA_FAILURE:
-      return {
-        ...state,
-        ErrorMessage: action.error,
-        isFetching: false,
-      };
-    default:
-      return state;
+  if (action.type === NurseSpecialtyActionTypes.SET_NURSES_SPECIALTY) {
+    return action.specialty;
   }
+  return state;
 };
 
 export default NurseSpecialtyReducer;

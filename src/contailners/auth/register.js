@@ -1,16 +1,18 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-use-before-define */
-/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import {
   Button, Form, Loader, Container,
 } from 'semantic-ui-react';
-import { fetchRegistrationStartAsync } from '../../actions/auth/registrationActions';
+import { register } from '../../thunks/auth/auth';
 import useForm from '../../util/hooks';
 
 const Registration = (props) => {
-  const registration = useSelector((state) => state.registration);
+  const registration = useSelector((state) => state.registrationReducer.registered);
+  const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
+  const errors = useSelector((state) => state.errorsReducer);
   const dispatch = useDispatch();
 
   const { onChange, onSubmit, values } = useForm(registerUser, {
@@ -22,11 +24,11 @@ const Registration = (props) => {
   });
 
   function registerUser() {
-    dispatch(fetchRegistrationStartAsync(values));
+    dispatch(register(values));
   }
 
   useEffect(() => {
-    if (registration.registration !== undefined && registration.registration.length !== 0) {
+    if (registration === true) {
       props.history.push('/confirm');
     }
   }, [registration]);
@@ -95,11 +97,23 @@ const Registration = (props) => {
         <Button type="submit">
           Register
         </Button>
-        {registration.isFetching === true ? <Loader active inline="centered" /> : ''}
-        {registration.ErrorMessage && registration.ErrorMessage.response.status === 500 ? 'Email Already Exsit' : ''}
+        <div>
+          {isFetching === true ? <Loader active inline="centered" /> : ''}
+        </div>
+        <div className="errors">
+          {errors}
+        </div>
       </Form>
     </Container>
   );
+};
+
+Registration.propTypes = {
+  history: PropTypes.string,
+};
+
+Registration.defaultProps = {
+  history: '',
 };
 
 export default Registration;

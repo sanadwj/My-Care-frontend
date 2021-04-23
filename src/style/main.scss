@@ -19,6 +19,13 @@ body {
   background-attachment: fixed !important;
 }
 
+.errors {
+  color: darkred;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 0.68571rem;
+}
+
 .ui.icon.header .icon {
   color: rgb(151, 191, 15) !important;
   font-size: 30px !important;
@@ -47,18 +54,23 @@ body {
 
 .ui.segment {
   background-color: rgb(255, 180, 0) !important;
+  border-radius: 0.68571rem;
 }
 
 .getApp {
-  margin: 80px 30px !important;
+  margin: 30px 10px !important;
+  padding-top: 30px !important;
+  background-color: rgb(255, 180, 0) !important;
+  border-radius: 0.68571rem;
 }
 
-.ui.grid {
-  margin: 0 !important;
-  padding: 15px !important;
+.navbar {
+  margin: 1px !important;
   font-family: 'Comfortaa', cursive;
   position: sticky !important;
   z-index: 10 !important;
+  background-color: rgba(230, 230, 230, 0.95) !important;
+  border-bottom-right-radius: 0.68571rem;
 }
 
 .ui.vertical.menu {
@@ -69,6 +81,8 @@ body {
 .app-wrapper {
   display: flex;
   justify-items: center;
+  margin: 0;
+  height: 100vh;
 }
 
 .ui.secondary.menu .active.item {
@@ -78,11 +92,7 @@ body {
 
 .formContainer {
   max-width: 300px !important;
-  margin: 30px !important;
-}
-
-.authContainer {
-  margin: 20px 0 !important;
+  margin: 15px !important;
 }
 
 .ui.secondary.vertical.pointing.menu {
@@ -91,7 +101,7 @@ body {
 
 .docDiv {
   background-color: rgb(151, 191, 15) !important;
-  width: 90% !important;
+  width: auto !important;
   margin: auto 30px !important;
   padding: 10px !important;
   border-radius: 0.28571rem !important;
@@ -99,6 +109,19 @@ body {
 
 .confirm {
   color: rgb(255, 180, 0) !important;
+  margin: auto 10px !important;
+}
+
+.confirmPage {
+  background-color: rgb(151, 191, 15) !important;
+  padding: 10px !important;
+  border-radius: 0.28571rem !important;
+}
+
+.passwords {
+  width: 50% !important;
+  margin: 50px !important;
+  padding: 10px !important;
 }
 
 .filter {
@@ -117,10 +140,14 @@ body {
 }
 
 .doctors {
-  width: 100vw;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 select {
+  max-width: 80%;
   text-rendering: auto;
   letter-spacing: normal;
   word-spacing: normal;
@@ -147,18 +174,19 @@ select {
   color: rgba(255, 255, 255, 0.95) !important;
 }
 
-.doctor {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90% !important;
-}
+// .doctor {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   width: 90% !important;
+// }
 
 .doctorDiv {
+  width: 90% !important;
+  margin: 10px !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90% !important;
 }
 
 .dappointment {
@@ -169,8 +197,17 @@ select {
   max-width: 100% !important;
 }
 
+.appointmentForm {
+  width: 70% !important;
+  margin: 30px !important;
+}
+
 .dappointmentForm {
   max-width: 100% !important;
+}
+
+.appointmentCard {
+  width: 200px !important;
 }
 
 .ui.form .field > label {
@@ -183,7 +220,7 @@ select {
 }
 
 .pharmacies {
-  margin-bottom: 30px !important;
+  margin: 30px 5px !important;
 }
 
 .ui.cards {
@@ -191,9 +228,13 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: -0.875em -0.5em !important;
+  margin: 0 !important;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+}
+
+.phCard {
+  width: 160px !important;
 }
 
 .ui.header:first-child {
@@ -203,8 +244,8 @@ select {
 .homeDiv {
   margin: 30px !important;
   padding: 30px !important;
-  background-color: rgb(151, 191, 15) !important;
-  border-radius: 0.28571rem;
+  background-color: rgba(230, 230, 230, 0.95) !important;
+  border-radius: 0.68571rem;
 }
 
 .homeseg {
@@ -228,27 +269,56 @@ select {
 
 @media only screen and (max-width: 767px) {
   .ui.container {
-    width: 90% !important;
+    width: 80% !important;
+    margin: 10px !important;
+  }
+
+  .appointmentForm {
+    width: 70% !important;
     margin: 30px !important;
   }
 
   body {
     overflow-x: hidden;
   }
+
+  .passwords {
+    margin: 50px !important;
+    padding: 10px !important;
+  }
 }
 
 @media only screen and (max-width: 484px) {
+  .getApp {
+    padding-top: 30px !important;
+    margin: 30px 10px !important;
+    width: 90% !important;
+    height: auto !important;
+  }
+
   .doctorDiv {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     width: auto;
-    margin: 30px;
+    margin-top: 10px !important;
     padding: 10px;
   }
 
   body {
     overflow-x: hidden;
+  }
+
+  .navbar {
+    width: 120px;
+  }
+
+  .ui.dropdown > .text {
+    font-size: 11px;
+  }
+
+  .ui.vertical.menu {
+    max-width: 7rem !important;
+    padding: 10px !important;
   }
 }

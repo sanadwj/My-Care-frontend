@@ -1,7 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Route, Switch, Redirect,
+} from 'react-router-dom';
 import authStatus from '../context/authStatus';
 import Registration from '../contailners/auth/register';
 import NavBar from './navbar';
@@ -14,16 +16,16 @@ import Nurses from '../contailners/nurses/nurses';
 import Nurse from '../contailners/nurses/nurse';
 import Pharmacies from '../contailners/pharmacies/pharmacies';
 import PharmacyOrders from './pharmacies/pharmacyOrder';
-import GetNurseAppointment from './nurseAppointment/getNurseAppointment';
-import GetDoctorAppointment from './doctorAppointment/getDoctorAppointment';
+import GetNurseAppointment from './nurses/getNurseAppointment';
+import GetDoctorAppointment from './doctors/getDoctorAppointment';
 import ForgotPassword from '../pages/forgotPassword';
 import ResetPassword from '../pages/resetPassword';
 
 const App = () => {
-  const auth = useSelector((state) => state.auth);
+  const auth = useSelector((state) => state.authReducer);
 
   const {
-    state, handleLogin, handleLogout, checkAuthStatus,
+    state, checkAuthStatus, handleLogout,
   } = authStatus();
 
   useEffect(() => {
@@ -32,25 +34,29 @@ const App = () => {
 
   return (
     <Router fluied>
-      <NavBar
-        loggedInStatus={state.isAuth}
-        handleLogout={handleLogout}
-      />
+      <NavBar loggedInStatus={state.isAuth} handleLogout={handleLogout} />
       <Switch>
 
-        <Route exact path="/home" component={Home} />
         <Route
           exact
-          path="/login"
+          path="/home"
           render={(props) => (
-            <Auth {...props} handleLogin={handleLogin} />
+            <Home {...props} loggedInStatus={state.isAuth} />
           )}
         />
+
         <Route
           exact
           path="/"
+          render={(props) => (state.isAuth === false ? (
+            <Auth {...props} loggedInStatus={state.isAuth} />
+          ) : <Redirect to="/home" />)}
+        />
+        <Route
+          exact
+          path="/register"
           render={(props) => (
-            <Registration {...props} handleLogin={handleLogin} />
+            <Registration {...props} />
           )}
 
         />
@@ -75,13 +81,6 @@ const App = () => {
             <PharmacyOrders {...props} loggedInStatus={state.isAuth} />
           )}
         />
-        {/* <Route
-          exact
-          path="/doctorappointments"
-          render={(props) => (
-            <GetDoctorAppointment {...props} loggedInStatus={state.isAuth} />
-          )}
-        /> */}
         <Route exact path="/nurseappointments" component={GetNurseAppointment} />
         <Route exact path="/doctorappointments" component={GetDoctorAppointment} />
         <Route exact path="/doctors" component={Doctors} />

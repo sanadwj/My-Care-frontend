@@ -6,27 +6,28 @@ import { Redirect } from 'react-router-dom';
 import {
   Button, Form, Loader, Container,
 } from 'semantic-ui-react';
-import { fetchForgotPasswordsStartAsync } from '../actions/passwords/forgotPassword';
 import useForm from '../util/hooks';
+import { forgotPassword } from '../thunks/passwords/passwords';
 
 const ForgotPassword = () => {
-  const forgot = useSelector((state) => state.forgot);
+  const forgot = useSelector((state) => state.ForgotPasswordReducer.forgot);
   const dispatch = useDispatch();
-
-  const { onChange, onSubmit, values } = useForm(forgotPassword, {
+  const isFetching = useSelector((state) => state.isFetchingReducer.fetching);
+  const errors = useSelector((state) => state.errorsReducer);
+  const { onChange, onSubmit, values } = useForm(forgotPass, {
     email: '',
   });
 
-  function forgotPassword() {
-    dispatch(fetchForgotPasswordsStartAsync(values));
+  function forgotPass() {
+    dispatch(forgotPassword(values));
   }
 
-  if (forgot.status && forgot.status.status === 200) {
+  if (forgot && forgot.status === 200) {
     return <Redirect to="/reset" />;
   }
 
   return (
-    <Container>
+    <Container className="passwords">
       <Form onSubmit={onSubmit}>
         <Form.Field>
           <label>Email</label>
@@ -43,7 +44,10 @@ const ForgotPassword = () => {
         <Button type="submit">Submit</Button>
       </Form>
       <div>
-        {forgot.isFetching === true ? <Loader active inline="centered" /> : ''}
+        {isFetching === true ? <Loader active inline="centered" /> : ''}
+      </div>
+      <div className="errors">
+        {errors}
       </div>
 
     </Container>
